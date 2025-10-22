@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Login" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="Login_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Login" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="Login_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -33,6 +33,12 @@
       <x:String>UiPath.Shared.Activities</x:String>
       <x:String>UiPath.Platform.ObjectLibrary</x:String>
       <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -72,31 +78,317 @@
       <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Login" sap:VirtualizedContainerService.HintSize="1404,951.64" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Login" sap:VirtualizedContainerService.HintSize="2287.2,2628.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="449.6,290.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="eb276e0d-8e4a-4e83-96f0-811906d64909" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge: (23) WiLMA | Startseite" sap:VirtualizedContainerService.HintSize="1555.2,2605.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="eb276e0d-8e4a-4e83-96f0-811906d64909" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="416,91.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="1521.6,2365.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="str_SEBA_Hydro_name" />
+              <Variable x:TypeArguments="ss:SecureString" Name="str_SEBA_Hydro_pw" />
+            </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
+            <uix:NCheckState DisplayName="SEBA-Hydrocenter Seite Check Appstate" sap:VirtualizedContainerService.HintSize="1488,2135.2" sap2010:WorkflowViewState.IdRef="NCheckState_4" ScopeIdentifier="eb276e0d-8e4a-4e83-96f0-811906d64909" Version="V3">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="985.6,1844.8" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="952,176" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Noch nicht eingeloggt&quot;]" />
+                  <uix:NCheckState DisplayName="Check Appstate Cookie Banner" sap:VirtualizedContainerService.HintSize="952,56.8" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="eb276e0d-8e4a-4e83-96f0-811906d64909" Version="V3">
+                    <uix:NCheckState.IfExists>
+                      <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="449.6,280" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Verstanden!'" sap:VirtualizedContainerService.HintSize="416,218.4" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="eb276e0d-8e4a-4e83-96f0-811906d64909" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://seba-hydrocenter.com/login" DesignTimeRectangle="1777, 739, 138, 51" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl aria-label='dismiss cookie message' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='dismiss cookie message' tag='A' type='' class='cc-btn cc-dismiss' aaname='Verstanden!' check:innerText='Verstanden!' /&gt;" Guid="80c923ac-045d-48df-aa15-97d93fc9d817" InformativeScreenshot="1fe0b4278ad3e77c822684e84cce5103.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Hydrocenter Next Gen' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                          </uix:NClick.Target>
+                          <uix:NClick.VerifyOptions>
+                            <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                              <uix:VerifyExecutionOptions.Retry>
+                                <InArgument x:TypeArguments="x:Boolean" />
+                              </uix:VerifyExecutionOptions.Retry>
+                              <uix:VerifyExecutionOptions.Timeout>
+                                <InArgument x:TypeArguments="x:Double" />
+                              </uix:VerifyExecutionOptions.Timeout>
+                            </uix:VerifyExecutionOptions>
+                          </uix:NClick.VerifyOptions>
+                        </uix:NClick>
+                      </Sequence>
+                    </uix:NCheckState.IfExists>
+                    <uix:NCheckState.IfNotExists>
+                      <Sequence DisplayName="Ziel wird nicht angezeigt" sap:VirtualizedContainerService.HintSize="449.6,91.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </uix:NCheckState.IfNotExists>
+                    <uix:NCheckState.Target>
+                      <uix:TargetAnchorable BrowserURL="https://seba-hydrocenter.com/login" DesignTimeRectangle="28, 726, 1733, 78" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl id='cookieconsent:desc' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='cookieconsent:desc' tag='SPAN' type='' class='cc-message' aaname='Wir verwenden Cookies, um den Zugriff auf unsere Website und die Leistung unserer Website zu analysieren; wir sammeln keine persönlichen Daten.Wenn Sie dieses Banner schließen, die Seite durchblättern, auf einen Link klicken oder anderweitig weitersurfen, erklären Sie sich mit der Verwendung von Cookies einverstanden.Wenn Sie mehr wissen möchten, lesen Sie bitte die  ' check:innerText='Wir verwenden Cookies, um den Zugriff auf unsere Website und die Leistung unserer Website zu' /&gt;" Guid="0eadd6df-7743-4059-be7b-b6ca01ecabaa" InformativeScreenshot="f08553e0a6efdf8b0b09b4a46043bccc.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Hydrocenter Next Gen' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                    </uix:NCheckState.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NCheckState>
+                  <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="rpa009_SEBA_Hydrocenter_Login" CacheStrategy="None" DisplayName="Get Credential" FolderPath="Test/RKU&amp;BAU/rpa009_UPL" sap:VirtualizedContainerService.HintSize="952,175.2" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[str_SEBA_Hydro_pw]" Username="[str_SEBA_Hydro_name]" />
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="952,292.8" sap2010:WorkflowViewState.IdRef="NTypeInto_1" Text="[str_SEBA_Hydro_name]" Version="V3">
+                    <uix:NTypeInto.VerifyOptions>
+                      <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionTypeIntoOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionTypeIntoOptions.Retry>
+                        <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                      </uix:VerifyExecutionTypeIntoOptions>
+                    </uix:NTypeInto.VerifyOptions>
+                  </uix:NTypeInto>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Passwort'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="952,286.4" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="eb276e0d-8e4a-4e83-96f0-811906d64909" Text="[str_SEBA_Hydro_pw.ToString]" Version="V3">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="https://seba-hydrocenter.com/login" DesignTimeRectangle="773, 550, 71, 23" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='mat-form-field-label-3' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='mat-form-field-label-3' tag='SPAN' type='' class='ng-tns-c202-1 ng-star-inserted' aaname='Passwort' check:innerText='Passwort' /&gt;" Guid="6ea00233-7df2-4a88-aa54-6a2f9e5f20c9" InformativeScreenshot="ff2130003875c0f698c09063983c89cc.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Hydrocenter Next Gen' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                    </uix:NTypeInto.Target>
+                    <uix:NTypeInto.VerifyOptions>
+                      <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionTypeIntoOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionTypeIntoOptions.Retry>
+                        <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                      </uix:VerifyExecutionTypeIntoOptions>
+                    </uix:NTypeInto.VerifyOptions>
+                  </uix:NTypeInto>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Anmelden'" sap:VirtualizedContainerService.HintSize="952,225.6" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="eb276e0d-8e4a-4e83-96f0-811906d64909" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://seba-hydrocenter.com/login" DesignTimeRectangle="773, 618, 382, 48" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;webctrl tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='button' class='mat-focus-indicator btn-block btn-lg m-t-20 mat-raised-button mat-button-base mat-primary' aaname=' Anmelden ' check:innerText='Anmelden' /&gt;" Guid="7f633737-7985-4882-9a31-3173a0d6056e" InformativeScreenshot="95dcb1831f23950682d1d7444e1608b6.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Hydrocenter Next Gen' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <uix:Target DesignTimeRectangle="927, 632, 73, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl class='mat-button-wrapper' parentid='loginform' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='mat-button-wrapper' parentid='loginform' tag='SPAN' type='' aaname=' Anmelden ' check:innerText='Anmelden' /&gt;" Guid="32026da3-1ce0-4c91-836e-77e7a6308cb4" SearchSteps="FuzzySelector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                  <uix:NCheckState DisplayName="False Login Check Appstate" sap:VirtualizedContainerService.HintSize="952,56.8" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="eb276e0d-8e4a-4e83-96f0-811906d64909" Version="V3">
+                    <uix:NCheckState.IfExists>
+                      <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="449.6,230.4" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,168.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Fatal" Message="[&quot;Login in SEBA-Hydrocenter wegen Falschem Login fehlgeschlagen&quot;]" />
+                      </Sequence>
+                    </uix:NCheckState.IfExists>
+                    <uix:NCheckState.IfNotExists>
+                      <Sequence DisplayName="Ziel wird nicht angezeigt" sap:VirtualizedContainerService.HintSize="449.6,91.2" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </uix:NCheckState.IfNotExists>
+                    <uix:NCheckState.Target>
+                      <uix:TargetAnchorable BrowserURL="https://seba-hydrocenter.com/login" DesignTimeRectangle="773, 581, 382, 43" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;hcng-root&amp;gt;hcng-blank&amp;gt;mat-sidenav-container&amp;gt;mat-sidenav-content&amp;gt;hcng-login&amp;gt;div&amp;gt;div&amp;gt;mat-card&amp;gt;mat-card-content&amp;gt;form&amp;gt;div&amp;gt;div' isleaf='1' parentid='loginform' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' isleaf='1' parentid='loginform' tag='DIV' class='bg-danger p-10 text-white w-100 m-t-10 ng-star-inserted' aaname='Ungültiger Benutzername oder Passwort' check:innerText='Ungültiger Benutzername oder Passwort' /&gt;" Guid="7bc9be3b-d2d4-4251-8da5-ad83007357b1" InformativeScreenshot="67f3661a9f349c24a018def172b63562.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Hydrocenter Next Gen' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                    </uix:NCheckState.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NCheckState>
+                  <uix:NCheckState DisplayName="SEBA-Hydrocenter Seite Check Appstate" sap:VirtualizedContainerService.HintSize="952,513.6" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="eb276e0d-8e4a-4e83-96f0-811906d64909" Version="V3">
+                    <uix:NCheckState.IfExists>
+                      <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="449.6,230.4" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,168.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Login in SEBA-Hydrocenter erfolgreich&quot;]" />
+                      </Sequence>
+                    </uix:NCheckState.IfExists>
+                    <uix:NCheckState.IfNotExists>
+                      <Sequence DisplayName="Ziel wird nicht angezeigt" sap:VirtualizedContainerService.HintSize="449.6,230.4" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,168.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Fatal" Message="[&quot;SEBA-Hydrocenter Seite konnte nicht geladen werden&quot;]" />
+                      </Sequence>
+                    </uix:NCheckState.IfNotExists>
+                    <uix:NCheckState.Target>
+                      <uix:TargetAnchorable BrowserURL="https://seba-hydrocenter.com/visualization" DesignTimeRectangle="12, 220, 239, 828" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl class='ps' parentid='snav' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ps' parentid='snav' tag='DIV' type='' aaname='' check:innerText='map&amp;#xD;&amp;#xA;Webmap&amp;#xD;&amp;#xA;show_chart&amp;#xD;&amp;#xA;Visualisierung&amp;#xD;&amp;#xA;picture_as_pdf&amp;#xD;&amp;#xA;Dokumente&amp;#xD;&amp;#xA;query_stats&amp;#xD;&amp;#xA;Auswertung&amp;#xD;&amp;#xA;settings' /&gt;" Guid="87b488a2-33c4-4316-9012-0c1bff03ddfd" ImageBase64="" InformativeScreenshot="d4ccb615aa849240757b2646565769b3.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Hydrocenter Next Gen' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                    </uix:NCheckState.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NCheckState>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Ziel wird nicht angezeigt" sap:VirtualizedContainerService.HintSize="449.6,344" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,176" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Fatal" Message="[&quot;Bereits eingeloggt prüfen&quot;]" />
+                  <uix:NCheckState DisplayName="SEBA-Hydrocenter Navigation Check Appstate" sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="NCheckState_5" ScopeIdentifier="eb276e0d-8e4a-4e83-96f0-811906d64909" Version="V3">
+                    <uix:NCheckState.IfExists>
+                      <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="449.6,230.4" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,168.8" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Bereits angemeldet&quot;]" />
+                      </Sequence>
+                    </uix:NCheckState.IfExists>
+                    <uix:NCheckState.IfNotExists>
+                      <Sequence DisplayName="Ziel wird nicht angezeigt" sap:VirtualizedContainerService.HintSize="449.6,230.4" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,168.8" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Fatal" Message="[&quot;Fehler beim öffnen der Seite&quot;]" />
+                      </Sequence>
+                    </uix:NCheckState.IfNotExists>
+                    <uix:NCheckState.Target>
+                      <uix:TargetAnchorable BrowserURL="https://seba-hydrocenter.com/visualization" DesignTimeRectangle="12, 220, 239, 828" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl class='ps' parentid='snav' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ps' parentid='snav' tag='DIV' type='' aaname='' check:innerText='map&amp;#xD;&amp;#xA;Webmap&amp;#xD;&amp;#xA;show_chart&amp;#xD;&amp;#xA;Visualisierung&amp;#xD;&amp;#xA;picture_as_pdf&amp;#xD;&amp;#xA;Dokumente&amp;#xD;&amp;#xA;query_stats&amp;#xD;&amp;#xA;Auswertung&amp;#xD;&amp;#xA;settings' /&gt;" Guid="87b488a2-33c4-4316-9012-0c1bff03ddfd" ImageBase64="" InformativeScreenshot="d4ccb615aa849240757b2646565769b3.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Hydrocenter Next Gen' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                    </uix:NCheckState.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NCheckState>
+                  <uix:NCheckState DisplayName="Check Appstate Cookie Banner" sap:VirtualizedContainerService.HintSize="416,49.6" sap2010:WorkflowViewState.IdRef="NCheckState_6" ScopeIdentifier="eb276e0d-8e4a-4e83-96f0-811906d64909" Version="V3">
+                    <uix:NCheckState.IfExists>
+                      <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="449.6,280" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Verstanden!'" sap:VirtualizedContainerService.HintSize="416,218.4" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="eb276e0d-8e4a-4e83-96f0-811906d64909" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://seba-hydrocenter.com/login" DesignTimeRectangle="1777, 739, 138, 51" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl aria-label='dismiss cookie message' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='dismiss cookie message' tag='A' type='' class='cc-btn cc-dismiss' aaname='Verstanden!' check:innerText='Verstanden!' /&gt;" Guid="80c923ac-045d-48df-aa15-97d93fc9d817" InformativeScreenshot="1fe0b4278ad3e77c822684e84cce5103.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Hydrocenter Next Gen' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                          </uix:NClick.Target>
+                          <uix:NClick.VerifyOptions>
+                            <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                              <uix:VerifyExecutionOptions.Retry>
+                                <InArgument x:TypeArguments="x:Boolean" />
+                              </uix:VerifyExecutionOptions.Retry>
+                              <uix:VerifyExecutionOptions.Timeout>
+                                <InArgument x:TypeArguments="x:Double" />
+                              </uix:VerifyExecutionOptions.Timeout>
+                            </uix:VerifyExecutionOptions>
+                          </uix:NClick.VerifyOptions>
+                        </uix:NClick>
+                      </Sequence>
+                    </uix:NCheckState.IfExists>
+                    <uix:NCheckState.IfNotExists>
+                      <Sequence DisplayName="Ziel wird nicht angezeigt" sap:VirtualizedContainerService.HintSize="449.6,91.2" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </uix:NCheckState.IfNotExists>
+                    <uix:NCheckState.Target>
+                      <uix:TargetAnchorable BrowserURL="https://seba-hydrocenter.com/login" DesignTimeRectangle="28, 726, 1733, 78" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl id='cookieconsent:desc' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='cookieconsent:desc' tag='SPAN' type='' class='cc-message' aaname='Wir verwenden Cookies, um den Zugriff auf unsere Website und die Leistung unserer Website zu analysieren; wir sammeln keine persönlichen Daten.Wenn Sie dieses Banner schließen, die Seite durchblättern, auf einen Link klicken oder anderweitig weitersurfen, erklären Sie sich mit der Verwendung von Cookies einverstanden.Wenn Sie mehr wissen möchten, lesen Sie bitte die  ' check:innerText='Wir verwenden Cookies, um den Zugriff auf unsere Website und die Leistung unserer Website zu' /&gt;" Guid="0eadd6df-7743-4059-be7b-b6ca01ecabaa" InformativeScreenshot="f08553e0a6efdf8b0b09b4a46043bccc.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Hydrocenter Next Gen' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                    </uix:NCheckState.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NCheckState>
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://seba-hydrocenter.com/login" DesignTimeRectangle="745, 369, 430, 467" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl tag='MAT-CARD-CONTENT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='MAT-CARD-CONTENT' type='' class='mat-card-content' aaname='' check:innerText='Benutzername *&amp;#xD;&amp;#xA;visibility_off&amp;#xD;&amp;#xA;Passwort *&amp;#xD;&amp;#xA;Anmelden&amp;#xD;&amp;#xA;Impressum  &amp;#xD;&amp;#xA;Datenschutzerklärung' /&gt;" Guid="173e76ce-170b-4b87-98da-39265278ecb7" InformativeScreenshot="60463a572682047c26c118ed0ae157fe.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Hydrocenter Next Gen' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+              </uix:NCheckState.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NCheckState>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1488,168.8" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Login in SEBA-Hydrocenter erfolgreich&quot;]" />
           </Sequence>
         </ActivityAction>
       </uix:NApplicationCard.Body>
       <uix:NApplicationCard.TargetApp>
-        <uix:TargetApp Area="0, 0, 0, 0" />
+        <uix:TargetApp Area="-3032, 187, 1967, 816" BrowserType="Edge" IconBase64="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" InformativeScreenshot="446196c5c6a1b333d9b18af33a21a3cd.jpg" Selector="&lt;html app='msedge.exe' url='https://seba-hydrocenter.com/analysis' /&gt;" Title="(23) WiLMA | Startseite" Url="https://seba-hydrocenter.com/analysis" />
       </uix:NApplicationCard.TargetApp>
     </uix:NApplicationCard>
   </Sequence>
