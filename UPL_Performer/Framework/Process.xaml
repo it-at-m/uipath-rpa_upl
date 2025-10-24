@@ -96,10 +96,12 @@
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1244.8000000000002,884" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1046.4,1296.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="arr_Wassertemperatur" />
       <Variable x:TypeArguments="s:String[]" Name="arr_Grundwasser" />
+      <Variable x:TypeArguments="s:String[]" Name="arr_ErrorsWassertemperatur" />
+      <Variable x:TypeArguments="s:String[]" Name="arr_ErrorsGrundwasserstand" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -120,12 +122,25 @@
         <OutArgument x:TypeArguments="s:String[]" x:Key="out_arr_Grundwasser">[arr_Grundwasser]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SMTP_SendFailedData - Invoke Workflow File (Modules\SMTP\SMTP_SendFailedData.xaml)" sap:VirtualizedContainerService.HintSize="416,197.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Modules\SMTP\unfinished!_SMTP_SendFailedData.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SEPA_Hydro_export - Invoke Workflow File (Modules\SEPA_Hydrocenter\SEPA_Hydro_export.xaml)" sap:VirtualizedContainerService.HintSize="416,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Modules\SEPA_Hydrocenter\SEPA_Hydro_export.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="s:String[]" x:Key="in_arr_Wassertemperatur">[arr_Wassertemperatur]</InArgument>
+        <InArgument x:TypeArguments="s:String[]" x:Key="in_arr_Grundwasserstand">[arr_Grundwasser]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_str_WorkingFolder">[in_Config("rpa009_Working_Folder").ToString]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Excel_refresh_data - Invoke Workflow File (Modules\Excel\Excel_refresh_data.xaml)" sap:VirtualizedContainerService.HintSize="416,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Modules\Excel\Excel_refresh_data.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="s:String[]" x:Key="out_arr_ErrorsWassertemperatur">[arr_ErrorsWassertemperatur]</OutArgument>
+        <OutArgument x:TypeArguments="s:String[]" x:Key="out_arr_ErrorsGrundwasserstand">[arr_ErrorsGrundwasserstand]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_str_WorkingFolder">[in_Config("rpa009_Working_Folder").ToString]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SMTP_SendFailedData - Invoke Workflow File (Modules\SMTP\SMTP_SendFailedData.xaml)" sap:VirtualizedContainerService.HintSize="416,197.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Modules\SMTP\SMTP_SendFailedData.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_str_EmailHTML_Body">[in_Config("rpa001_FolderPath").ToString + "Data\" + in_Config("rpa001_EmailBodyFileName").ToString]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_str_StatusEmailReceiver">[in_Config("rpa001_StatusEmailReceiver").ToString]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_str_EmailSubjectLine">[in_Config("EmailSubjectLine").ToString]</InArgument>
+        <InArgument x:TypeArguments="s:String[]" x:Key="in_arr_ErrorsWassertemperatur">[arr_ErrorsWassertemperatur]</InArgument>
+        <InArgument x:TypeArguments="s:String[]" x:Key="in_arr_ErrorsGrundwasserstand">[arr_ErrorsGrundwasserstand]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
   </Sequence>
