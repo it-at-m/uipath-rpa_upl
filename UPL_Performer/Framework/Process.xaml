@@ -96,7 +96,7 @@
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1046.4,1296.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1288.0000000000002,1296.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="arr_Wassertemperatur" />
       <Variable x:TypeArguments="s:String[]" Name="arr_Grundwasser" />
@@ -141,6 +141,7 @@
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
         <InArgument x:TypeArguments="s:String[]" x:Key="in_arr_ErrorsWassertemperatur">[arr_ErrorsWassertemperatur]</InArgument>
         <InArgument x:TypeArguments="s:String[]" x:Key="in_arr_ErrorsGrundwasserstand">[arr_ErrorsGrundwasserstand]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_str_StatusEmailReceiver">[in_Config("rpa009_StatusEmailReceiver").ToString]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
   </Sequence>

@@ -108,7 +108,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Read_relevante_Messpunkte" sap:VirtualizedContainerService.HintSize="1244.8000000000002,857.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Read_relevante_Messpunkte" sap:VirtualizedContainerService.HintSize="1755.2,902.84" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtMesspunkte" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtMesspunkte_filtered" />
