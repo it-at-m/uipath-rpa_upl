@@ -1,0 +1,323 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="DiMA_Login" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="DiMA_Login_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.Platform.Triggers</x:String>
+      <x:String>UiPath.Platform.Triggers.Scope</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="DiMA_Login" sap:VirtualizedContainerService.HintSize="1058,3669" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="str_Robot_Account_Name" />
+      <Variable x:TypeArguments="ss:SecureString" Name="str_Robot_Account_Password" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="rpa009_Robot Account" CacheStrategy="None" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="488,176" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[str_Robot_Account_Password]" Username="[str_Robot_Account_Name]" />
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[UiPath.UIAutomationNext.Enums.NAppCloseMode.Always]" DisplayName="Use Browser Edge: DiMA Test" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="488,2369" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="[UiPath.UIAutomationNext.Enums.NAppOpenMode.IfNotOpen]" ScopeGuid="5e8037ab-8d7c-4cf6-9617-4dbc1acf6a61" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="486,2166" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Benutzername'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,246" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="5e8037ab-8d7c-4cf6-9617-4dbc1acf6a61" Text="[str_Robot_Account_Name]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://dima-test.muenchen.de/logon/LogonPoint/tmindex.html" DesignTimeRectangle="848, 541, 385, 44" DesignTimeScaleFactor="1" ElementType="InputBox" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='login' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='login' tag='INPUT' type='text' class='' aaname='Benutzername' /&gt;" Guid="4c04985a-1a5c-4c39-ae0b-7a810e84028b" InformativeScreenshot="0a1c011f16f533fe7ac70f95cef880b3.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='DiMA Test' /&gt;" SearchSteps="Selector" Version="V4">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="663, 552, 97, 21" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='explicit-auth-screen' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='explicit-auth-screen' tag='LABEL' type='' class='label plain' aaname='Benutzername' check:innerText='Benutzername' /&gt;" Guid="8922dcb0-4be2-4b66-9156-c27e64a80b71" SearchSteps="Selector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Kennwort'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,246" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="5e8037ab-8d7c-4cf6-9617-4dbc1acf6a61" SecureText="[str_Robot_Account_Password]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://dima-test.muenchen.de/logon/LogonPoint/tmindex.html" DesignTimeRectangle="848, 591, 385, 44" DesignTimeScaleFactor="1" ElementType="InputBoxPassword" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='passwd' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='passwd' tag='INPUT' type='password' class='' aaname='Kennwort' /&gt;" Guid="a5ee0dd0-1aad-4435-964d-780f4b3d02bb" InformativeScreenshot="1c69b93743016beb40eeedf6875a0cff.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='DiMA Test' /&gt;" SearchSteps="Selector" Version="V4">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="663, 602, 64, 21" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Kennwort' parentid='explicit-auth-screen' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Kennwort' parentid='explicit-auth-screen' tag='LABEL' type='' class='label plain' check:innerText='Kennwort' /&gt;" Guid="58206748-40e9-491e-9e8d-3fa255f1a40a" SearchSteps="Selector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Anmelden'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,313" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5e8037ab-8d7c-4cf6-9617-4dbc1acf6a61" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://dima-test.muenchen.de/logon/LogonPoint/tmindex.html" DesignTimeRectangle="848, 662, 385, 44" DesignTimeScaleFactor="1" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='Logon' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl id='Logon' tag='A' type='' class='button forms-authentication-button last-child default' aaname='Anmelden' check:innerText='Anmelden' /&gt;" Guid="dc0a6326-9210-4e79-85f6-03743e2df4ec" InformativeScreenshot="a13843da41ceadba09c52275cfb75944.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='DiMA Test' /&gt;" SearchSteps="Selector" Version="V4" />
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <uix:NCheckState DisplayName="Check Appstate Failed Login" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="452,1301" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="5e8037ab-8d7c-4cf6-9617-4dbc1acf6a61" Version="V3">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="450,349" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;DiMA Login war nicht möglich&quot;]" />
+                  <Throw Exception="[New SystemException (&quot;Fehler beim DiMA Login&quot;)]" sap:VirtualizedContainerService.HintSize="416,114" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Ziel wird nicht angezeigt" sap:VirtualizedContainerService.HintSize="450,667" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;DiMA Login erfolgreich&quot;]" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;GW-Base Download starten&quot;]" />
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'IMG'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,257" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5e8037ab-8d7c-4cf6-9617-4dbc1acf6a61" Timeout="120" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="dima-test.muenchen.de/Citrix/DiMA-TestWEB" DesignTimeRectangle="98, 330, 56, 56" ElementType="Icon" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl parentid='home-screen' tag='IMG' /&gt;" Guid="55ac256a-7894-4f3e-ae95-a3334ca5f143" InformativeScreenshot="bdac470a6a18f29045ce36cafd2f9f15.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='DiMA Test' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" IsLoose="True" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Target>
+                          <uix:TargetAnchorable DesignTimeRectangle="0, 32, 835, 402" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;ctrl name='Projekt öffnen' role='client' /&gt;" Guid="3088ccf8-472c-416b-85b9-acc6782f0bc8" InformativeScreenshot="516deb38d97a6f21bf82b8400a51dfaf.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TFrm_GWBaseLogin' isremoteapp='1' title='Projekt öffnen' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                        </uix:VerifyExecutionOptions.Target>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://dima-test.muenchen.de/logon/LogonPoint/tmindex.html" DesignTimeRectangle="858, 787, 358, 42" DesignTimeScaleFactor="1" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;p&amp;gt;span' parentid='explicit-auth-screen' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='explicit-auth-screen' tag='SPAN' class='detail-text error' aaname='Versuchen Sie es nach einiger Zeit erneut oder wenden Sie sich an den Helpdesk' check:innerText='Versuchen Sie es nach einiger Zeit erneut oder wenden Sie sich an den Helpdesk' /&gt;" Guid="2eed66c9-740e-4b20-bb2b-f58d2ac65af1" InformativeScreenshot="4218364bbf0542fdb6ca3fededa0a939.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='DiMA Test' /&gt;" SearchSteps="Selector" Version="V4" />
+              </uix:NCheckState.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NCheckState>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.OCREngine>
+        <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+          <ActivityFunc.Argument>
+            <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+          </ActivityFunc.Argument>
+        </ActivityFunc>
+      </uix:NApplicationCard.OCREngine>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-3416, -603, 1550, 1254" BrowserType="Edge" IconBase64="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" InformativeScreenshot="4a48aa8d4f862ae6c638dc07462a5e98.jpg" Selector="&lt;html app='msedge.exe' title='DiMA Test' /&gt;" Url="https://dima-test.muenchen.de/Citrix/DiMA-TestWEB/" Version="V2">
+          <uix:TargetApp.Arguments>
+            <InArgument x:TypeArguments="x:String" />
+          </uix:TargetApp.Arguments>
+          <uix:TargetApp.WorkingDirectory>
+            <InArgument x:TypeArguments="x:String" />
+          </uix:TargetApp.WorkingDirectory>
+        </uix:TargetApp>
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+    <uix:NCheckState DisplayName="Check App State 'Citrix Workspace - Sich…'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="488,935" sap2010:WorkflowViewState.IdRef="NCheckState_2" Version="V5">
+      <uix:NCheckState.IfExists>
+        <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="486,551" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Remote Desktop: Citrix Workspace - Sicherheitswarnung" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="452,491" sap2010:WorkflowViewState.IdRef="NApplicationCard_5" IsDisplayNameAuto="True" ScopeGuid="bf8162b5-003a-4ef7-87b7-b85b3d352adc" Version="V2">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="450,245" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'shellappruntime.exe Pro…'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,185" sap2010:WorkflowViewState.IdRef="NClick_6" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bf8162b5-003a-4ef7-87b7-b85b3d352adc" Version="V5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="55, 187, 257, 50" ElementVisibilityArgument="Interactive" Guid="73189ca4-17f1-4103-9ca0-ee25cd0243ae" ImageBase64="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" InformativeScreenshot="4f08a59979765ffb56c6a532c3421362.png" ScopeSelectorArgument="&lt;rdp app='wfica32.exe' cls='#32770' idx='*' title='Citrix Workspace - Sicherheitswarnung' /&gt;" SearchSteps="Image" TargetType="ImageBased" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="472, -483, 393, 325" FilePath="&lt;rdp app='wfica32.exe' cls='#32770' idx='*' title='Citrix Workspace - Sicherheitswarnung' /&gt;" IconBase64="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" InformativeScreenshot="3ca4b1e210e9cf92c193f4bd45d94188.png" Selector="&lt;rdp app='wfica32.exe' cls='#32770' idx='*' /&gt;" Version="V2">
+                <uix:TargetApp.Arguments>
+                  <InArgument x:TypeArguments="x:String" />
+                </uix:TargetApp.Arguments>
+                <uix:TargetApp.WorkingDirectory>
+                  <InArgument x:TypeArguments="x:String" />
+                </uix:TargetApp.WorkingDirectory>
+              </uix:TargetApp>
+            </uix:NApplicationCard.TargetApp>
+          </uix:NApplicationCard>
+        </Sequence>
+      </uix:NCheckState.IfExists>
+      <uix:NCheckState.IfNotExists>
+        <Sequence DisplayName="Ziel wird nicht angezeigt" sap:VirtualizedContainerService.HintSize="486,90" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </uix:NCheckState.IfNotExists>
+      <uix:NCheckState.Target>
+        <uix:TargetAnchorable DesignTimeRectangle="0, 0, 393, 325" ElementVisibilityArgument="Interactive" Guid="be3ab2c3-efb6-41f0-8794-62a7abfbcd17" InformativeScreenshot="7dc4613e6b71e78d901000896e46eb14.png" ScopeSelectorArgument="&lt;rdp app='wfica32.exe' cls='#32770' idx='*' title='Citrix Workspace - Sicherheitswarnung' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+      </uix:NCheckState.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NCheckState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="488,166" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;GW-Base Download fertig&quot;]" />
+  </Sequence>
+</Activity>

@@ -1,0 +1,6 @@
+{
+  "Name": "UPL_Dispatcher",
+  "ProjectType": "Process",
+  "Description": "Modified Robotic Enterprise Framework ",
+  "MainFile": "Main.xaml"
+}

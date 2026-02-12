@@ -1,0 +1,6 @@
+{
+  "Name": "UPL_Performer",
+  "ProjectType": "Process",
+  "Description": "Modified Robotic Enterprise Framework ",
+  "MainFile": "Main.xaml"
+}

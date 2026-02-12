@@ -1,0 +1,235 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="GW_Base_Uplan_Import" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="GW_Base_Uplan_Import_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>UiPath.UIAutomationNext.Triggers</x:String>
+      <x:String>UiPath.Platform.Triggers</x:String>
+      <x:String>UiPath.Platform.Triggers.Scope</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Triggers</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="GW_Base_Uplan_Import" sap:VirtualizedContainerService.HintSize="830,2372" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[UiPath.UIAutomationNext.Enums.NAppCloseMode.Never]" DisplayName="Use App: 1. GW-Base Projekt auswählen" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="520,2349" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" OpenMode="[UiPath.UIAutomationNext.Enums.NAppOpenMode.IfNotOpen]" ScopeGuid="c1475844-d082-4f99-ab61-07290d80b19b" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="518,2103" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="str_menu" />
+              <Variable x:TypeArguments="s:String[]" Name="str_lines" />
+              <Variable x:TypeArguments="x:String" Name="Anwendung" />
+              <Variable x:TypeArguments="x:Int32" Name="int_uplanIndex">
+                <Variable.Default>
+                  <Literal x:TypeArguments="x:Int32" />
+                </Variable.Default>
+              </Variable>
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'TDBLookupComboboxEh'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="484,194" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c1475844-d082-4f99-ab61-07290d80b19b" Version="V5">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="491, 56, 166, 21" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd cls='TDBLookupComboboxEh' /&gt;" Guid="52752c85-0985-4bdb-8f01-9ba9aa62f89c" InformativeScreenshot="aeb54e0fc7fc3b91f346d62a8956ae3f.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TFrm_GWBaseLogin' isremoteapp='1' title='Projekt öffnen' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NGetText DisplayName="Get Text 'TPopupInnerDataGridEh'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="484,143" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="c1475844-d082-4f99-ab61-07290d80b19b" TextString="[str_menu]" Version="V5">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="0, 0, 300, 44" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd cls='TPopupInnerDataGridEh' /&gt;" Guid="98b07b2e-0cf3-4b7b-b68c-67ad9245c344" InformativeScreenshot="82e235345e7407161037b0ec9ad94656.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TPopupDataGridBoxEh' isremoteapp='1' title='DropDownBox' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+              </uix:NGetText.Target>
+            </uix:NGetText>
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="484,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="s:String[]">[str_lines]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="s:String[]">[str_menu.Split({vbLf, vbCrLf}, StringSplitOptions.RemoveEmptyEntries)]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Int32">[int_uplanIndex]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Int32">[Array.FindIndex(str_lines, Function(x) x.Contains("UPLAN"))]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+            </ui:MultipleAssign>
+            <ui:RepeatNumberOfTimesX DisplayName="Repeat Number Of Times" sap:VirtualizedContainerService.HintSize="484,672" sap2010:WorkflowViewState.IdRef="RepeatNumberOfTimesX_1" NumberOfTimes="[int_uplanIndex]" StartAt="1">
+              <ui:RepeatNumberOfTimesX.Body>
+                <ActivityAction x:TypeArguments="x:Int32">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentItem" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="450,473" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Down" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,413" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_2" InteractionMode="HardwareEvents" ScopeIdentifier="c1475844-d082-4f99-ab61-07290d80b19b" Shortcuts="[d(hk)][k(Down)][u(hk)]" Version="V5" />
+                  </Sequence>
+                </ActivityAction>
+              </ui:RepeatNumberOfTimesX.Body>
+            </ui:RepeatNumberOfTimesX>
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Enter" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="484,422" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_3" InteractionMode="HardwareEvents" ScopeIdentifier="c1475844-d082-4f99-ab61-07290d80b19b" Shortcuts="[d(hk)][k(Enter)][u(hk)]" Version="V5" />
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Anmeldung mit Windows-K…'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="484,266" sap2010:WorkflowViewState.IdRef="NClick_7" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c1475844-d082-4f99-ab61-07290d80b19b" Version="V5">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="494, 94, 165, 41" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd cls='TPanel' title='pnlADLogin' /&gt;&lt;wnd cls='TAdvGlowButton' title='Anmeldung mit Windows-Kennung' /&gt;" Guid="8ce96541-7fbc-411f-b6dc-afe2236bd33e" InformativeScreenshot="bc8be273df523518227cd047d429b612.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TFrm_GWBaseLogin' isremoteapp='1' title='Projekt öffnen' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="Verifizierungsziel" IsLoose="True" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Target>
+                    <uix:TargetAnchorable DesignTimeRectangle="12, 139, 670, 595" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd cls='TTabSheet' title='Teilprojekte' /&gt;&lt;wnd cls='TAdvTreeView' /&gt;" Guid="e2dcf0e0-ba89-4150-8760-e4c7b41b94c3" InformativeScreenshot="bd348232de5ce8ccec8307af7e1fe67c.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TFrm_SelectionCriteria' isremoteapp='1' title='Auswahlkriterien für Messstellen festlegen' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                  </uix:VerifyExecutionOptions.Target>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,166" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;UPLAN gestartet&quot;]" />
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.OCREngine>
+        <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+          <ActivityFunc.Argument>
+            <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+          </ActivityFunc.Argument>
+        </ActivityFunc>
+      </uix:NApplicationCard.OCREngine>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-2923, 189, 670, 348" FilePath="C:\Program Files (x86)\GW-Base 9\gw_base90.exe" IconBase64="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" InformativeScreenshot="5f3374409aa8587df6a977b7ca47e52d.png" Selector="&lt;wnd app='gw_base90.exe' cls='TFrm_GWBaseLogin' isremoteapp='1' title='Projekt öffnen' /&gt;" Version="V2">
+          <uix:TargetApp.Arguments>
+            <InArgument x:TypeArguments="x:String" />
+          </uix:TargetApp.Arguments>
+          <uix:TargetApp.WorkingDirectory>
+            <InArgument x:TypeArguments="x:String" />
+          </uix:TargetApp.WorkingDirectory>
+        </uix:TargetApp>
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

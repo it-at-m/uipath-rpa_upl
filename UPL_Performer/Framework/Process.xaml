@@ -1,12 +1,12 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
-    <x:Property Name="in_Browser" Type="InArgument(ui:UiElement)" />
+    <x:Property Name="in_Seba_Browser" Type="InArgument(ui:UiElement)" />
   </x:Members>
-  <this:Process.in_Browser>
+  <this:Process.in_Seba_Browser>
     <InArgument x:TypeArguments="ui:UiElement" />
-  </this:Process.in_Browser>
+  </this:Process.in_Seba_Browser>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
@@ -44,6 +44,16 @@
       <x:String>System.Linq.Expressions</x:String>
       <x:String>System.Reflection</x:String>
       <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.ComponentModel</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -101,14 +111,25 @@
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1849.6000000000001,1090.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1007,5973" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="arr_Wassertemperatur" />
       <Variable x:TypeArguments="s:String[]" Name="arr_Grundwasser" />
       <Variable x:TypeArguments="s:String[]" Name="arr_ErrorsWassertemperatur" />
       <Variable x:TypeArguments="s:String[]" Name="arr_ErrorsGrundwasserstand" />
+      <Variable x:TypeArguments="ui:UiElement" Name="browser_Dima" />
+      <Variable x:TypeArguments="scg:IList(x:String)" Name="list_failedExportPoints" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -116,38 +137,313 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="416,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Read_relevante_Messpunkte - Invoke Workflow File (Modules\Excel\Read_relevante_Messpunkte.xaml)" sap:VirtualizedContainerService.HintSize="416,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Modules\Excel\Read_relevante_Messpunkte.xaml">
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="584,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
+    <Sequence DisplayName="Daten Export" sap:VirtualizedContainerService.HintSize="584,704" sap2010:WorkflowViewState.IdRef="Sequence_11">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Read_relevante_Messpunkte - Invoke Workflow File (Modules\Excel\Read_relevante_Messpunkte.xaml)" sap:VirtualizedContainerService.HintSize="416,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Modules\Excel\Read_relevante_Messpunkte.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_str_Working_Folder">[in_Config("rpa009_Working_Folder").ToString]</InArgument>
+          <OutArgument x:TypeArguments="s:String[]" x:Key="out_arr_Wassertemperatur">[arr_Wassertemperatur]</OutArgument>
+          <OutArgument x:TypeArguments="s:String[]" x:Key="out_arr_Grundwasser">[arr_Grundwasser]</OutArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SEPA_Hydro_export - Invoke Workflow File (Modules\SEPA_Hydrocenter\SEPA_Hydro_export.xaml)" sap:VirtualizedContainerService.HintSize="416,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Modules\SEBA_Hydrocenter\SEBA_Hydro_export.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="s:String[]" x:Key="in_arr_Wassertemperatur">[arr_Wassertemperatur]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_str_WorkingFolder">[in_Config("rpa009_Working_Folder").ToString]</InArgument>
+          <InArgument x:TypeArguments="s:String[]" x:Key="in_arr_Grundwasserstand">[arr_Grundwasser]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_str_fileNameWassertemperatur">[in_Config("str_fileNameGrundwasserstand").ToString]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_str_fileNameGrundwasserstand">[in_Config("str_fileNameWassertemperatur").ToString]</InArgument>
+          <InArgument x:TypeArguments="ui:UiElement" x:Key="in_Seba_Browser">[in_Seba_Browser]</InArgument>
+          <OutArgument x:TypeArguments="scg:IList(x:String)" x:Key="out_failedExportPointsList">[list_failedExportPoints]</OutArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Excel_refresh_data - Invoke Workflow File (Modules\Excel\Excel_refresh_data.xaml)" sap:VirtualizedContainerService.HintSize="416,198" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Modules\Excel\Excel_refresh_data.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <OutArgument x:TypeArguments="s:String[]" x:Key="out_arr_ErrorsWassertemperatur">[arr_ErrorsWassertemperatur]</OutArgument>
+          <OutArgument x:TypeArguments="s:String[]" x:Key="out_arr_ErrorsGrundwasserstand">[arr_ErrorsGrundwasserstand]</OutArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_str_WorkingFolder">[in_Config("rpa009_Working_Folder").ToString]</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+    </Sequence>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="DiMA_Login - Invoke Workflow File (Modules\DIMA\DiMA_Login.xaml)" sap:VirtualizedContainerService.HintSize="584,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Modules\DIMA\DiMA_Login.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_str_Working_Folder">[in_Config("rpa009_Working_Folder").ToString]</InArgument>
-        <OutArgument x:TypeArguments="s:String[]" x:Key="out_arr_Wassertemperatur">[arr_Wassertemperatur]</OutArgument>
-        <OutArgument x:TypeArguments="s:String[]" x:Key="out_arr_Grundwasser">[arr_Grundwasser]</OutArgument>
+        <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SEPA_Hydro_export - Invoke Workflow File (Modules\SEPA_Hydrocenter\SEPA_Hydro_export.xaml)" sap:VirtualizedContainerService.HintSize="416,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Modules\SEPA_Hydrocenter\SEPA_Hydro_export.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GW Base Uplan Starten - Invoke Workflow File (Modules\DIMA\GW Base Uplan Starten.xaml)" sap:VirtualizedContainerService.HintSize="584,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Modules\DIMA\GW_Base_Projekt_Navigieren.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="s:String[]" x:Key="in_arr_Wassertemperatur">[arr_Wassertemperatur]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_str_WorkingFolder">[in_Config("rpa009_Working_Folder").ToString]</InArgument>
-        <InArgument x:TypeArguments="s:String[]" x:Key="in_arr_Grundwasserstand">[arr_Grundwasser]</InArgument>
-        <InArgument x:TypeArguments="ui:UiElement" x:Key="in_Browser">[in_Browser]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_str_fileNameWassertemperatur">[in_Config("str_fileNameGrundwasserstand").ToString]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_str_fileNameGrundwasserstand">[in_Config("str_fileNameWassertemperatur").ToString]</InArgument>
+        <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Excel_refresh_data - Invoke Workflow File (Modules\Excel\Excel_refresh_data.xaml)" sap:VirtualizedContainerService.HintSize="416,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Modules\Excel\Excel_refresh_data.xaml">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use App: 2. GW-Base: Auswahl anwenden klicken" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="584,850" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" ScopeGuid="e3495749-f57c-4bc0-bf47-7ab3e8faa92c" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="450,595" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Auswahl anwenden klicken&quot;]" />
+            <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="1" DelayBefore="1" DisplayName="Click 'Auswahl anwenden'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,194" sap2010:WorkflowViewState.IdRef="NClick_5" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e3495749-f57c-4bc0-bf47-7ab3e8faa92c" Version="V5">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="521, 642, 150, 25" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd cls='TButton' title='Auswahl anwenden' /&gt;" Guid="32c893d4-506e-4ff9-b1f8-7f325840610c" InformativeScreenshot="ba1452a88dcc0d43980142671d3c4250.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TFrm_SelectionCriteria' isremoteapp='1' title='Auswahlkriterien für Messstellen festlegen' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Lade Messtellenliste&quot;]" />
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.OCREngine>
+        <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+          <ActivityFunc.Argument>
+            <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+          </ActivityFunc.Argument>
+        </ActivityFunc>
+      </uix:NApplicationCard.OCREngine>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-3162, -125, 1028, 674" FilePath="C:\Program Files (x86)\GW-Base 9\gw_base90.exe" IconBase64="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" InformativeScreenshot="434275ad675e9d151c7732700cd024e1.png" Selector="&lt;wnd app='gw_base90.exe' cls='TFrm_SelectionCriteria' isremoteapp='1' title='Auswahlkriterien für Messstellen festlegen' /&gt;" Version="V2">
+          <uix:TargetApp.Arguments>
+            <InArgument x:TypeArguments="x:String" />
+          </uix:TargetApp.Arguments>
+          <uix:TargetApp.WorkingDirectory>
+            <InArgument x:TypeArguments="x:String" />
+          </uix:TargetApp.WorkingDirectory>
+        </uix:TargetApp>
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+    <Sequence DisplayName="Auf Messstellen warten" sap:VirtualizedContainerService.HintSize="584,1484" sap2010:WorkflowViewState.IdRef="Sequence_16">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:Boolean" Name="bool_geladen" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="550,149" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+        <ui:MultipleAssign.AssignOperations>
+          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Boolean">[bool_geladen]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+          </scg:List>
+        </ui:MultipleAssign.AssignOperations>
+      </ui:MultipleAssign>
+      <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[bool_geladen = False]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="550,1243" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+        <ui:InterruptibleDoWhile.Body>
+          <Sequence DisplayName="Text" sap:VirtualizedContainerService.HintSize="548,1121" sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="514,175" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Auf Messtellenliste warten&quot;]" />
+            <uix:NCheckState DelayBefore="60" DisplayName="Check App State 'Horizont'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="514,886" sap2010:WorkflowViewState.IdRef="NCheckState_1" Timeout="30" Version="V5">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="512,375" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478,149" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                    <ui:MultipleAssign.AssignOperations>
+                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[bool_geladen]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                      </scg:List>
+                    </ui:MultipleAssign.AssignOperations>
+                  </ui:MultipleAssign>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="478,166" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Messtellenliste erfolgreich geladen&quot;]" />
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Ziel wird nicht angezeigt" sap:VirtualizedContainerService.HintSize="512,226" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Noch nicht geladen, warte erneut&quot;]" />
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="0, 54, 1920, 919" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd cls='TAdvPanel' idx='2' /&gt;" Guid="f97ae02c-eb25-4256-824a-eda3e54bcb0d" InformativeScreenshot="bc066320bd9f001eb243abb4cc727447.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TFrm_Main' isremoteapp='1' title='GW-Base 9.0' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+          </Sequence>
+        </ui:InterruptibleDoWhile.Body>
+      </ui:InterruptibleDoWhile>
+    </Sequence>
+    <Sequence DisplayName="Projektsteuerung schließen" sap:VirtualizedContainerService.HintSize="584,1634" sap2010:WorkflowViewState.IdRef="Sequence_15">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:Boolean" Name="bool_SteuerungGeschlossen" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="550,149" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+        <ui:MultipleAssign.AssignOperations>
+          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Boolean">[bool_SteuerungGeschlossen]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+          </scg:List>
+        </ui:MultipleAssign.AssignOperations>
+      </ui:MultipleAssign>
+      <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[bool_SteuerungGeschlossen = False]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="550,1393" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_2">
+        <ui:InterruptibleDoWhile.Body>
+          <Sequence DisplayName="Text" sap:VirtualizedContainerService.HintSize="548,1271" sap2010:WorkflowViewState.IdRef="Sequence_17">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NCheckState DisplayName="Check Appstate - Projektsteuerung noch offen?" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="514,1211" sap2010:WorkflowViewState.IdRef="NCheckState_2" Timeout="2" Version="V5">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="512,726" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Remote Desktop: Projekt öffnen" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="452,500" sap2010:WorkflowViewState.IdRef="NApplicationCard_5" IsDisplayNameAuto="True" ScopeGuid="f99828da-19d9-4ae8-8609-da865ebc9977" Version="V2">
+                    <uix:NApplicationCard.Body>
+                      <ActivityAction x:TypeArguments="x:Object">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="450,245" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Abbrechen'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,185" sap2010:WorkflowViewState.IdRef="NClick_7" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f99828da-19d9-4ae8-8609-da865ebc9977" Version="V5">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable DesignTimeRectangle="613, 264, 208, 26" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd cls='TAdvGlowButton' title='Abbrechen' /&gt;" Guid="96e1f8d1-5506-4a77-b581-d06d6b501032" InformativeScreenshot="5e237229d9ccb7cfe8f0ba4b05a95e5f.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TFrm_GWBaseLogin' isremoteapp='1' title='Projekt öffnen' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                        </Sequence>
+                      </ActivityAction>
+                    </uix:NApplicationCard.Body>
+                    <uix:NApplicationCard.OCREngine>
+                      <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                        <ActivityFunc.Argument>
+                          <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                        </ActivityFunc.Argument>
+                      </ActivityFunc>
+                    </uix:NApplicationCard.OCREngine>
+                    <uix:NApplicationCard.TargetApp>
+                      <uix:TargetApp Area="0, 0, 1920, 1020" FilePath="C:\Program Files (x86)\GW-Base 9\gw_base90.exe" IconBase64="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" InformativeScreenshot="b4c3fcd2401dbb5193fe8682aadb6c37.png" Selector="&lt;wnd app='gw_base90.exe' cls='TFrm_GWBaseLogin' isremoteapp='1' title='Projekt öffnen' /&gt;" Version="V2">
+                        <uix:TargetApp.Arguments>
+                          <InArgument x:TypeArguments="x:String" />
+                        </uix:TargetApp.Arguments>
+                        <uix:TargetApp.WorkingDirectory>
+                          <InArgument x:TypeArguments="x:String" />
+                        </uix:TargetApp.WorkingDirectory>
+                      </uix:TargetApp>
+                    </uix:NApplicationCard.TargetApp>
+                  </uix:NApplicationCard>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,166" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Projektsteuerung nachträglich geschlossen&quot;]" />
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Ziel wird nicht angezeigt" sap:VirtualizedContainerService.HintSize="512,200" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478,140" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+                    <ui:MultipleAssign.AssignOperations>
+                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[bool_SteuerungGeschlossen]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                      </scg:List>
+                    </ui:MultipleAssign.AssignOperations>
+                  </ui:MultipleAssign>
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="542, 323, 835, 402" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;ctrl name='Projekt öffnen' role='client' /&gt;" Guid="71f3028d-7078-4188-beca-c892ff352e56" InformativeScreenshot="199ff1e99c618f0dfbc4113ba7599997.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TFrm_GWBaseLogin' isremoteapp='1' title='Projekt öffnen' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+              </uix:NCheckState.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NCheckState>
+          </Sequence>
+        </ui:InterruptibleDoWhile.Body>
+      </ui:InterruptibleDoWhile>
+    </Sequence>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Grundwasserstand Upload" sap:VirtualizedContainerService.HintSize="584,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Modules\UPLAN\Uplan_Import_Grundwasserstand.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="s:String[]" x:Key="out_arr_ErrorsWassertemperatur">[arr_ErrorsWassertemperatur]</OutArgument>
-        <OutArgument x:TypeArguments="s:String[]" x:Key="out_arr_ErrorsGrundwasserstand">[arr_ErrorsGrundwasserstand]</OutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_str_WorkingFolder">[in_Config("rpa009_Working_Folder").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_str_FolderPath">[in_Config("rpa009_Working_Folder").ToString]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SMTP_SendFailedData - Invoke Workflow File (Modules\SMTP\SMTP_SendFailedData.xaml)" sap:VirtualizedContainerService.HintSize="416,197.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Modules\SMTP\SMTP_SendFailedData.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Wassertemperatur Upload" sap:VirtualizedContainerService.HintSize="584,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Modules\UPLAN\Uplan_Import_Wassertemperatur.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_str_FolderPath">[in_Config("rpa009_Working_Folder").ToString]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SMTP_SendFailedData - Invoke Workflow File (Modules\SMTP\SMTP_SendFailedData.xaml)" sap:VirtualizedContainerService.HintSize="584,198" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Modules\SMTP\SMTP_SendFailedData.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
         <InArgument x:TypeArguments="s:String[]" x:Key="in_arr_ErrorsWassertemperatur">[arr_ErrorsWassertemperatur]</InArgument>
         <InArgument x:TypeArguments="s:String[]" x:Key="in_arr_ErrorsGrundwasserstand">[arr_ErrorsGrundwasserstand]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_str_StatusEmailReceiver">[in_Config("rpa009_StatusEmailReceiver").ToString]</InArgument>
+        <InArgument x:TypeArguments="scg:IList(x:String)" x:Key="in_listFailedExportPoints">[list_failedExportPoints]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeWorkflowFile>
   </Sequence>
 </Activity>
