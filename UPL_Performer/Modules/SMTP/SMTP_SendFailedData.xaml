@@ -1,20 +1,21 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="SMTP_SendFinalManagerEmails" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:umame="clr-namespace:UiPath.MicrosoftOffice365.Activities.Mail.Enums;assembly=UiPath.Mail.Activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="SMTP_SendFinalManagerEmails" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:umame="clr-namespace:UiPath.MicrosoftOffice365.Activities.Mail.Enums;assembly=UiPath.Mail.Activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
-    <x:Property Name="in_arr_ErrorsWassertemperatur" Type="InArgument(s:String[])" />
-    <x:Property Name="in_arr_ErrorsGrundwasserstand" Type="InArgument(s:String[])" />
     <x:Property Name="in_str_StatusEmailReceiver" Type="InArgument(x:String)" />
-    <x:Property Name="in_listFailedExportPoints" Type="InArgument(scg:IList(x:String))" />
+    <x:Property Name="in_bool_rkuHasErrors" Type="InArgument(x:Boolean)" />
+    <x:Property Name="in_bool_bauHasErrors" Type="InArgument(x:Boolean)" />
+    <x:Property Name="in_listFailedExportPointsRKU" Type="InArgument(scg:IList(x:String))" />
+    <x:Property Name="in_listFailedExportPointsBAU" Type="InArgument(scg:IList(x:String))" />
   </x:Members>
-  <this:SMTP_SendFinalManagerEmails.in_arr_ErrorsWassertemperatur>
-    <InArgument x:TypeArguments="s:String[]" />
-  </this:SMTP_SendFinalManagerEmails.in_arr_ErrorsWassertemperatur>
-  <this:SMTP_SendFinalManagerEmails.in_arr_ErrorsGrundwasserstand>
-    <InArgument x:TypeArguments="s:String[]" />
-  </this:SMTP_SendFinalManagerEmails.in_arr_ErrorsGrundwasserstand>
   <this:SMTP_SendFinalManagerEmails.in_str_StatusEmailReceiver>
     <InArgument x:TypeArguments="x:String" />
   </this:SMTP_SendFinalManagerEmails.in_str_StatusEmailReceiver>
+  <this:SMTP_SendFinalManagerEmails.in_bool_rkuHasErrors>
+    <InArgument x:TypeArguments="x:Boolean" />
+  </this:SMTP_SendFinalManagerEmails.in_bool_rkuHasErrors>
+  <this:SMTP_SendFinalManagerEmails.in_bool_bauHasErrors>
+    <InArgument x:TypeArguments="x:Boolean" />
+  </this:SMTP_SendFinalManagerEmails.in_bool_bauHasErrors>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
@@ -144,94 +145,131 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SMTP_SendFinalManagerEmails" sap:VirtualizedContainerService.HintSize="1007,1467" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SMTP_SendFinalManagerEmails" sap:VirtualizedContainerService.HintSize="961,2110" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ss:SecureString" Name="secstr_botADPassword" />
       <Variable x:TypeArguments="x:String" Name="str_botADUsername" />
       <Variable x:TypeArguments="scg:List(x:String)" Name="list_filePaths" />
-      <Variable x:TypeArguments="x:Boolean" Name="bool_hasErrors" />
+      <Variable x:TypeArguments="x:Boolean" Name="bool_rkuHasFailedExportPoints" />
+      <Variable x:TypeArguments="x:String" Name="str_Errors" />
+      <Variable x:TypeArguments="x:Boolean" Name="bool_bauHasFailedExportPoints" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="486,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;SMTP_SendFailedData&quot;]" />
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="486,149" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="478,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;SMTP_SendFailedData&quot;]" />
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;rpa009_Robot Account&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="478,176" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[secstr_botADPassword]" Username="[str_botADUsername]" />
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
-        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
             <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:Boolean">[bool_hasErrors]</OutArgument>
+              <OutArgument x:TypeArguments="x:Boolean">[bool_rkuHasFailedExportPoints]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:Boolean" xml:space="preserve">[in_arr_ErrorsGrundwasserstand.Length &gt; 0 OrElse
-in_arr_ErrorsWassertemperatur.Length &gt; 0 OrElse
-in_listFailedExportPoints.Count &gt; 0]</InArgument>
+              <InArgument x:TypeArguments="x:Boolean">[in_listFailedExportPointsRKU.Count &gt; 0]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Boolean">[bool_bauHasFailedExportPoints]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Boolean">[in_listFailedExportPointsBAU.Count &gt; 0]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <Sequence DisplayName="Send Failed Messpunkte Email" sap:VirtualizedContainerService.HintSize="486,954" sap2010:WorkflowViewState.IdRef="Sequence_4">
-      <Sequence.Variables>
-        <Variable x:TypeArguments="x:Int32" Name="counter" />
-      </Sequence.Variables>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;rpa009_Robot Account&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="452,176" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[secstr_botADPassword]" Username="[str_botADUsername]" />
-      <If Condition="[bool_hasErrors]" DisplayName="If kein Fehler: Keine Mail" sap:VirtualizedContainerService.HintSize="452,686" sap2010:WorkflowViewState.IdRef="If_1">
-        <If.Then>
-          <Sequence DisplayName="Then Fehler Email senden" sap:VirtualizedContainerService.HintSize="450,330" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <If Condition="[in_bool_rkuHasErrors Or bool_rkuHasFailedExportPoints]" DisplayName="If Fehler: Send Email to RKU" sap:VirtualizedContainerService.HintSize="478,695" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Sequence DisplayName="Then Fehler Email senden" sap:VirtualizedContainerService.HintSize="450,330" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" ResourceAttachmentList="{x:Null}" ResourceAttachments="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" AttachmentInputMode="Existing" Body="[&quot;Hallo zusammen,&quot; &amp; Environment.NewLine &amp; Environment.NewLine &amp; &quot;der Untergrundplan-Roboter ist fertig.&quot; &amp; Environment.NewLine &amp; Environment.NewLine &amp; If(in_bool_rkuHasErrors, &quot;Es sind Auffälligkeiten bei exportierten Messpunkten (RKU) aufgetreten. Die entsprechende Fehlerliste wurde als Excel-Datei abgelegt.&quot; &amp; Environment.NewLine &amp; Environment.NewLine, &quot;Für RKU wurden keine auffälligen Messpunkte festgestellt.&quot; &amp; Environment.NewLine &amp; Environment.NewLine) &amp; If(in_listFailedExportPointsRKU IsNot Nothing AndAlso in_listFailedExportPointsRKU.Count &gt; 0, &quot;RKU – Messpunkte, die nicht exportiert werden konnten:&quot; &amp; Environment.NewLine &amp; String.Join(Environment.NewLine, in_listFailedExportPointsRKU) &amp; Environment.NewLine &amp; Environment.NewLine, &quot;RKU – Alle Messpunkte konnten erfolgreich exportiert werden.&quot; &amp; Environment.NewLine &amp; Environment.NewLine) &amp; &quot;Mit freundlichen Grüßen,&quot; &amp; Environment.NewLine &amp; &quot;Ihr RPA-Roboter&quot;]" DisplayName="Send SMTP Mail Message" Email="[str_botADUsername]" EnableSSL="True" From="[in_Config(&quot;rpa009_Groupmailbox&quot;).ToString]" sap:VirtualizedContainerService.HintSize="416,270" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="False" Port="[Cint(in_Config(&quot;EmailSmtpPort&quot;).ToString)]" SecureConnection="Auto" SecurePassword="[secstr_botADPassword]" Server="[in_Config(&quot;EmailSmtpServer&quot;).ToString]" Subject="Roboter Untergrundplan abgeschlossen" To="[in_str_StatusEmailReceiver]">
+            <ui:SendMail.AttachmentsBackup>
+              <usau:BackupSlot x:TypeArguments="umame:AttachmentInputMode" StoredValue="Existing">
+                <usau:BackupSlot.BackupValues>
+                  <scg:Dictionary x:TypeArguments="umame:AttachmentInputMode, scg:List(x:Object)" />
+                </usau:BackupSlot.BackupValues>
+              </usau:BackupSlot>
+            </ui:SendMail.AttachmentsBackup>
+            <ui:SendMail.AttachmentsCollection>
+              <InArgument x:TypeArguments="scg:IEnumerable(x:String)">
+                <VisualBasicValue x:TypeArguments="scg:IEnumerable(x:String)" ExpressionText="list_filePaths" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1">
+                  <VisualBasicValue.Result>
+                    <OutArgument x:TypeArguments="scg:IEnumerable(x:String)" />
+                  </VisualBasicValue.Result>
+                </VisualBasicValue>
+              </InArgument>
+            </ui:SendMail.AttachmentsCollection>
+            <ui:SendMail.Files>
+              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+            </ui:SendMail.Files>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" ResourceAttachmentList="{x:Null}" ResourceAttachments="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" AttachmentInputMode="Existing" Body="[&quot;Hallo zusammen,&quot; &amp; Environment.NewLine &amp; Environment.NewLine &amp; &#xD;&#xA;&quot;der Untergrundplan-Roboter ist fertig.&quot; &amp; &#xD;&#xA;Environment.NewLine &amp; &#xD;&#xA;Environment.NewLine &amp; &#xD;&#xA;If(in_arr_ErrorsGrundwasserstand.Length &gt; 0 OrElse in_arr_ErrorsWassertemperatur.Length &gt; 0, &#xD;&#xA;&#x9;&quot;Es sind Auffälligkeiten bei exportierten Messpunkten aufgetreten. Die entsprechenden Fehlerlisten wurden als Excel-Datei(en) abgelegt.&quot; &amp; &#xD;&#xA;&#x9;Environment.NewLine &amp; Environment.NewLine, &quot;&quot;) &amp; &#xD;&#xA;If(in_listFailedExportPoints.Count &gt; 0, &#xD;&#xA;&#x9;&quot;Messpunkte, die nicht exportiert werden konnten:&quot; &amp; &#xD;&#xA;&#x9;Environment.NewLine &amp; &#xD;&#xA;&#x9;String.Join(Environment.NewLine, in_listFailedExportPoints) &amp; Environment.NewLine &amp; Environment.NewLine, &quot;&quot;) &amp; &#xD;&#xA;&quot;Mit freundlichen Grüßen,&quot; &amp; Environment.NewLine &amp; &#xD;&#xA;&quot;Ihr RPA-Roboter&quot;]" DisplayName="Send SMTP Mail Message" Email="[str_botADUsername]" EnableSSL="True" From="[in_Config(&quot;rpa009_Groupmailbox&quot;).ToString]" sap:VirtualizedContainerService.HintSize="416,270" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="False" Port="[Cint(in_Config(&quot;EmailSmtpPort&quot;).ToString)]" SecureConnection="Auto" SecurePassword="[secstr_botADPassword]" Server="[in_Config(&quot;EmailSmtpServer&quot;).ToString]" Subject="Roboter Untergrundplan abgeschlossen" To="[in_str_StatusEmailReceiver]">
-              <ui:SendMail.AttachmentsBackup>
-                <usau:BackupSlot x:TypeArguments="umame:AttachmentInputMode" StoredValue="Existing">
-                  <usau:BackupSlot.BackupValues>
-                    <scg:Dictionary x:TypeArguments="umame:AttachmentInputMode, scg:List(x:Object)" />
-                  </usau:BackupSlot.BackupValues>
-                </usau:BackupSlot>
-              </ui:SendMail.AttachmentsBackup>
-              <ui:SendMail.AttachmentsCollection>
-                <InArgument x:TypeArguments="scg:IEnumerable(x:String)">
-                  <VisualBasicValue x:TypeArguments="scg:IEnumerable(x:String)" ExpressionText="list_filePaths" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1">
-                    <VisualBasicValue.Result>
-                      <OutArgument x:TypeArguments="scg:IEnumerable(x:String)" />
-                    </VisualBasicValue.Result>
-                  </VisualBasicValue>
-                </InArgument>
-              </ui:SendMail.AttachmentsCollection>
-              <ui:SendMail.Files>
-                <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
-              </ui:SendMail.Files>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:SendMail>
-          </Sequence>
-        </If.Then>
-        <If.Else>
-          <Sequence DisplayName="Else Keine Fehler Email senden" sap:VirtualizedContainerService.HintSize="450,226" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          </ui:SendMail>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Else Keine Fehler Email senden" sap:VirtualizedContainerService.HintSize="450,226" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Keine E-Mail, da keine Fehler&quot;]" />
+        </Sequence>
+      </If.Else>
+    </If>
+    <If Condition="[in_bool_bauHasErrors Or bool_bauHasFailedExportPoints]" DisplayName="If Fehler: Send Email to BAU" sap:VirtualizedContainerService.HintSize="478,695" sap2010:WorkflowViewState.IdRef="If_2">
+      <If.Then>
+        <Sequence DisplayName="Then Fehler Email senden" sap:VirtualizedContainerService.HintSize="450,330" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" ResourceAttachmentList="{x:Null}" ResourceAttachments="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" AttachmentInputMode="Existing" AttachmentsCollection="[list_filePaths]" Body="[&quot;Hallo zusammen,&quot; &amp; Environment.NewLine &amp; Environment.NewLine &amp; &quot;der Untergrundplan-Roboter ist fertig.&quot; &amp; Environment.NewLine &amp; Environment.NewLine &amp; If(in_bool_bauHasErrors, &quot;Es sind Auffälligkeiten bei exportierten Messpunkten (BAU) aufgetreten. Die entsprechende Fehlerliste wurde als Excel-Datei abgelegt.&quot; &amp; Environment.NewLine &amp; Environment.NewLine, &quot;Für BAU wurden keine auffälligen Messpunkte festgestellt.&quot; &amp; Environment.NewLine &amp; Environment.NewLine) &amp; If(in_listFailedExportPointsBAU IsNot Nothing AndAlso in_listFailedExportPointsBAU.Count &gt; 0, &quot;BAU – Messpunkte, die nicht exportiert werden konnten:&quot; &amp; Environment.NewLine &amp; String.Join(Environment.NewLine, in_listFailedExportPointsBAU) &amp; Environment.NewLine &amp; Environment.NewLine, &quot;BAU – Alle Messpunkte konnten erfolgreich exportiert werden.&quot; &amp; Environment.NewLine &amp; Environment.NewLine) &amp; &quot;Mit freundlichen Grüßen,&quot; &amp; Environment.NewLine &amp; &quot;Ihr RPA-Roboter&quot;]" DisplayName="Send SMTP Mail Message" Email="[str_botADUsername]" EnableSSL="True" From="[in_Config(&quot;rpa009_Groupmailbox&quot;).ToString]" sap:VirtualizedContainerService.HintSize="416,270" sap2010:WorkflowViewState.IdRef="SendMail_2" IgnoreCRL="False" IsBodyHtml="False" Port="[Cint(in_Config(&quot;EmailSmtpPort&quot;).ToString)]" SecureConnection="Auto" SecurePassword="[secstr_botADPassword]" Server="[in_Config(&quot;EmailSmtpServer&quot;).ToString]" Subject="Roboter Untergrundplan abgeschlossen" To="[in_str_StatusEmailReceiver]">
+            <ui:SendMail.AttachmentsBackup>
+              <usau:BackupSlot x:TypeArguments="umame:AttachmentInputMode" StoredValue="Existing">
+                <usau:BackupSlot.BackupValues>
+                  <scg:Dictionary x:TypeArguments="umame:AttachmentInputMode, scg:List(x:Object)" />
+                </usau:BackupSlot.BackupValues>
+              </usau:BackupSlot>
+            </ui:SendMail.AttachmentsBackup>
+            <ui:SendMail.Files>
+              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+            </ui:SendMail.Files>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Keine E-Mail, da keine Fehler&quot;]" />
-          </Sequence>
-        </If.Else>
-      </If>
-    </Sequence>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="486,166" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;SMTP_SendFailedMesspunkte Ended&quot;]" />
+          </ui:SendMail>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Else Keine Fehler Email senden" sap:VirtualizedContainerService.HintSize="450,226" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Keine E-Mail, da keine Fehler&quot;]" />
+        </Sequence>
+      </If.Else>
+    </If>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="478,166" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;SMTP_SendFailedMesspunkte Ended&quot;]" />
   </Sequence>
 </Activity>

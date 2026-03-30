@@ -3,6 +3,7 @@
     <x:Property Name="in_str_Working_Folder" Type="InArgument(x:String)" />
     <x:Property Name="out_arr_Wassertemperatur" Type="OutArgument(s:String[])" />
     <x:Property Name="out_arr_Grundwasser" Type="OutArgument(s:String[])" />
+    <x:Property Name="out_dtMesspunkte_filtered" Type="OutArgument(sd:DataTable)" />
   </x:Members>
   <this:Read_relevante_Messpunkte.in_str_Working_Folder>
     <InArgument x:TypeArguments="x:String" />
@@ -108,10 +109,9 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Read_relevante_Messpunkte" sap:VirtualizedContainerService.HintSize="2407,871.053747574841" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Read_relevante_Messpunkte" sap:VirtualizedContainerService.HintSize="884,896.6566666666666" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtMesspunkte" />
-      <Variable x:TypeArguments="sd:DataTable" Name="dtMesspunkte_filtered" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -119,8 +119,8 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="478,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Auslesen der Relevanten Messpunkte&quot;]" />
-    <ui:ReadRange AddHeaders="True" DataTable="[dtMesspunkte]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="478,120" sap2010:WorkflowViewState.IdRef="ReadRange_1" Range="B:C" SheetName="Messpunkte" WorkbookPath="[in_str_Working_Folder + &quot;\00 Konfiguration\RPA_Relevante Messpunkte.xlsx&quot;]" />
-    <ui:FilterDataTable DataTable="[dtMesspunkte]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="478,195" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dtMesspunkte_filtered]" SelectColumnsMode="Remove">
+    <ui:ReadRange AddHeaders="True" DataTable="[dtMesspunkte]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="478,120" sap2010:WorkflowViewState.IdRef="ReadRange_1" Range="B:E" SheetName="Messpunkte" WorkbookPath="[in_str_Working_Folder + &quot;00 Konfiguration\RPA_Relevante Messpunkte.xlsx&quot;]" />
+    <ui:FilterDataTable DataTable="[dtMesspunkte]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="478,195" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[out_dtMesspunkte_filtered]" SelectColumnsMode="Remove">
       <ui:FilterDataTable.Filters>
         <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
           <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="NOTEMPTY">

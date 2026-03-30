@@ -4,6 +4,7 @@
   "description": "Modified Robotic Enterprise Framework ",
   "main": "Main.xaml",
   "dependencies": {
+    "UiPath.ComputerVision.LocalServer": "[25.10.0]",
     "UiPath.Excel.Activities": "[2.23.4]",
     "UiPath.Mail.Activities": "[1.24.1]",
     "UiPath.System.Activities": "[24.10.3]",
@@ -15,7 +16,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "21.10.4.0",
-  "projectVersion": "1.0.4",
+  "projectVersion": "1.0.15",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -85,6 +86,13 @@
         "testCaseId": "08cda871-cd1e-4096-9300-4cf261925d4c",
         "testCaseType": "TestCase",
         "fileName": "Tests\\WorkflowTestCaseTemplate.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "ff48143f-0eb2-40ae-8423-6b113c8cb07b",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Modules\\SEBA_Hydrocenter\\Testfall.xaml"
       }
     ],
     "saveToCloud": false

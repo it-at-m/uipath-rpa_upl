@@ -116,19 +116,19 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Login" sap:VirtualizedContainerService.HintSize="1133,3670" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Login" sap:VirtualizedContainerService.HintSize="908,4739" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[UiPath.UIAutomationNext.Enums.NAppCloseMode.Never]" DisplayName="Use Browser Edge: (23) WiLMA | Startseite" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="560,3647" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Always" OutUiElement="[out_Seba_browser]" ScopeGuid="eb276e0d-8e4a-4e83-96f0-811906d64909" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[UiPath.UIAutomationNext.Enums.NAppCloseMode.Never]" DisplayName="Use Browser Edge: (23) WiLMA | Startseite" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="560,4716" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Always" OutUiElement="[out_Seba_browser]" ScopeGuid="eb276e0d-8e4a-4e83-96f0-811906d64909" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="558,3453" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="558,4522" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="str_SEBA_Hydro_name" />
               <Variable x:TypeArguments="ss:SecureString" Name="str_SEBA_Hydro_pw" />
@@ -138,7 +138,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NCheckState DisplayName="Check Appstate Cookie Banner" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="524,57" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="eb276e0d-8e4a-4e83-96f0-811906d64909" Version="V3">
+            <uix:NCheckState DisplayName="Check Appstate Cookie Banner" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="524,748" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="eb276e0d-8e4a-4e83-96f0-811906d64909" Version="V3">
               <uix:NCheckState.IfExists>
                 <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="450,364" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <sap:WorkflowViewStateService.ViewState>
@@ -177,14 +177,14 @@
               </uix:NCheckState.Target>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NCheckState>
-            <uix:NCheckState DisplayName="SEBA-Hydrocenter Seite Check Appstate" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="524,3288" sap2010:WorkflowViewState.IdRef="NCheckState_4" ScopeIdentifier="eb276e0d-8e4a-4e83-96f0-811906d64909" Timeout="5" Version="V3">
+            <uix:NCheckState DisplayName="SEBA-Hydrocenter Seite Check Appstate" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="524,3666" sap2010:WorkflowViewState.IdRef="NCheckState_4" ScopeIdentifier="eb276e0d-8e4a-4e83-96f0-811906d64909" Timeout="5" Version="V3">
               <uix:NCheckState.IfExists>
-                <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="522,1899" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="522,2277" sap2010:WorkflowViewState.IdRef="Sequence_10">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -207,22 +207,25 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:GetRobotCredential>
-                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="488,57" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="eb276e0d-8e4a-4e83-96f0-811906d64909" Text="[str_SEBA_Hydro_name]" Version="V3">
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'INPUT mat-input-0'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="488,246" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="SameAsCard" ScopeIdentifier="eb276e0d-8e4a-4e83-96f0-811906d64909" Text="[str_SEBA_Hydro_name]" Version="V3">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="seba-hydrocenter.com/login" DesignTimeRectangle="573, 496, 382, 18" ElementType="InputBox" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='mat-input-0' tag='INPUT' type='' class='mat-input-element mat-form-field-autofill-control ng-tns-c202-0 ng-untouched ng-pristine ng-invalid cdk-text-field-autofill-monitored' aria-required='true' autocomplete='username' /&gt;" Guid="24a1954a-8554-4da5-b6bd-18df3dd3a0f1" InformativeScreenshot="f8a6c57dd328494e256623fd65ff7f50.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Hydrocenter Next Gen' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="None" />
+                    </uix:NTypeInto.Target>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </uix:NTypeInto>
-                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Passwort'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="488,57" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="eb276e0d-8e4a-4e83-96f0-811906d64909" SecureText="[str_SEBA_Hydro_pw]" Version="V3">
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Passwort'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="488,246" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="eb276e0d-8e4a-4e83-96f0-811906d64909" SecureText="[str_SEBA_Hydro_pw]" Version="V3">
                     <uix:NTypeInto.Target>
                       <uix:TargetAnchorable BrowserURL="https://seba-hydrocenter.com/login" DesignTimeRectangle="773, 550, 71, 23" DesignTimeScaleFactor="1" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl parentid='mat-form-field-label-3' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='mat-form-field-label-3' tag='SPAN' type='' class='ng-tns-c202-1 ng-star-inserted' aaname='Passwort' check:innerText='Passwort' /&gt;" Guid="6ea00233-7df2-4a88-aa54-6a2f9e5f20c9" InformativeScreenshot="ff2130003875c0f698c09063983c89cc.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Hydrocenter Next Gen' /&gt;" SearchSteps="Selector" Version="V4" />
                     </uix:NTypeInto.Target>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </uix:NTypeInto>
