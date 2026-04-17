@@ -92,7 +92,7 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Testfall" sap:VirtualizedContainerService.HintSize="952,785.6566666666666" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Testfall" sap:VirtualizedContainerService.HintSize="751.6,1103.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="arr_Wassertemperatur" />
       <Variable x:TypeArguments="s:String[]" Name="arr_Grundwasser" />
@@ -106,12 +106,12 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SEBA_Hydro_login - Invoke Workflow File (Modules\SEBA_Hydrocenter\SEBA_Hydro_login.xaml)" sap:VirtualizedContainerService.HintSize="450,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Modules\SEBA_Hydrocenter\SEBA_Hydro_login.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SEBA_Hydro_login - Invoke Workflow File (Modules\SEBA_Hydrocenter\SEBA_Hydro_login.xaml)" sap:VirtualizedContainerService.HintSize="449.6,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Modules\SEBA_Hydrocenter\SEBA_Hydro_login.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <OutArgument x:TypeArguments="ui:UiElement" x:Key="out_Seba_browser">[Seba_browser]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Read_relevante_Messpunkte - Invoke Workflow File (Modules\Excel\Read_relevante_Messpunkte.xaml)" sap:VirtualizedContainerService.HintSize="450,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Modules\Excel\Read_relevante_Messpunkte.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Read_relevante_Messpunkte - Invoke Workflow File (Modules\Excel\Read_relevante_Messpunkte.xaml)" sap:VirtualizedContainerService.HintSize="449.6,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Modules\Excel\Read_relevante_Messpunkte.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_str_Working_Folder">\\fsitm.muenchen.de\itm-ablage\Allgemein\RPA_Untergrundplan_TEST\</InArgument>
         <OutArgument x:TypeArguments="s:String[]" x:Key="out_arr_Wassertemperatur">[arr_Wassertemperatur]</OutArgument>
@@ -119,7 +119,7 @@
         <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtMesspunkte_filtered">[dtMesspunkte_filtered]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SEBA_Hydro_export - Invoke Workflow File (Modules\SEBA_Hydrocenter\SEBA_Hydro_export.xaml)" sap:VirtualizedContainerService.HintSize="450,198" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Modules\SEBA_Hydrocenter\SEBA_Hydro_export.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SEBA_Hydro_export - Invoke Workflow File (Modules\SEBA_Hydrocenter\SEBA_Hydro_export.xaml)" sap:VirtualizedContainerService.HintSize="449.6,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Modules\SEBA_Hydrocenter\SEBA_Hydro_export.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="s:String[]" x:Key="in_arr_Wassertemperatur">[arr_Wassertemperatur]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_str_WorkingFolder">\\fsitm.muenchen.de\itm-ablage\Allgemein\RPA_Untergrundplan_TEST\</InArgument>
@@ -130,6 +130,16 @@
         <OutArgument x:TypeArguments="scg:IList(x:String)" x:Key="out_failedExportPointsListRKU">[failedExportRKU]</OutArgument>
         <OutArgument x:TypeArguments="scg:IList(x:String)" x:Key="out_failedExportPointsListBAU">[failedExportBAU]</OutArgument>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtMesspunkte_filtered">[dtMesspunkte_filtered]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="DiMA_Login - Invoke Workflow File (Modules\DIMA\DiMA_Login.xaml)" sap:VirtualizedContainerService.HintSize="449.6,263.2" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Modules\DIMA\DiMA_Login.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <scg:Dictionary x:TypeArguments="x:String, Argument" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GW_Base_Projekt_Navigieren - Invoke Workflow File (Modules\DIMA\GW_Base_Projekt_Navigieren.xaml)" sap:VirtualizedContainerService.HintSize="449.6,197.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Modules\DIMA\GW_Base_Projekt_Navigieren.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
   </Sequence>

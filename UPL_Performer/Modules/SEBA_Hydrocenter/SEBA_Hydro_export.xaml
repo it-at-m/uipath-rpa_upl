@@ -153,7 +153,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Export" sap:VirtualizedContainerService.HintSize="751.6000000000001,12219.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Export" sap:VirtualizedContainerService.HintSize="751.6,9372" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="latestFile" />
       <Variable x:TypeArguments="x:String" Name="str_exportFilePath" />
@@ -480,7 +480,7 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </uix:NClick>
-                    <ui:GetLastDownloadedFile FileResource="{x:Null}" IgnoreFiles="{x:Null}" Timeout="{x:Null}" DisplayName="Wait for Download" DownloadFolder="[str_downloadPath]" File="[downloadDatei]" sap:VirtualizedContainerService.HintSize="561.6,535.2" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1">
+                    <ui:GetLastDownloadedFile FileResource="{x:Null}" Timeout="{x:Null}" DisplayName="Wait for Download" DownloadFolder="[str_downloadPath]" File="[downloadDatei]" sap:VirtualizedContainerService.HintSize="561.6,535.2" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1" IgnoreFiles="crdownload,tmp">
                       <ui:GetLastDownloadedFile.Body>
                         <ActivityAction>
                           <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="449.6,244.8" sap2010:WorkflowViewState.IdRef="Sequence_12">
@@ -489,7 +489,7 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'CSV'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,184.8" sap2010:WorkflowViewState.IdRef="NClick_10" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Version="V3">
+                            <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="5" DisplayName="Click 'CSV'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,184.8" sap2010:WorkflowViewState.IdRef="NClick_10" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Version="V3">
                               <uix:NClick.Target>
                                 <uix:TargetAnchorable BrowserURL="https://seba-hydrocenter.com/analysis" DesignTimeRectangle="1161, 283, 112, 48" DesignTimeScaleFactor="1" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='CSV' aria-role='menuitem' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='ZRXP' aria-role='menuitem' tag='BUTTON' type='' class='mat-focus-indicator mat-menu-item ng-tns-c183-2' check:innerText='ZRXP' /&gt;" Guid="fd73c759-185e-4882-9e12-f8678e467189" InformativeScreenshot="d4fd7d767b733235cf3afb8d88d46ba5.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Hydrocenter Next Gen' /&gt;" SearchSteps="Selector" Version="V4" />
                               </uix:NClick.Target>
@@ -538,9 +538,9 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
         </Sequence>
       </If.Else>
     </If>
-    <If Condition="[in_arr_Wassertemperatur Is Nothing OrElse in_arr_Wassertemperatur.length =0]" sap:VirtualizedContainerService.HintSize="665.6,5756" sap2010:WorkflowViewState.IdRef="If_2">
+    <If Condition="[in_arr_Wassertemperatur Is Nothing OrElse in_arr_Wassertemperatur.length =0]" sap:VirtualizedContainerService.HintSize="665.6,2908.8" sap2010:WorkflowViewState.IdRef="If_2">
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="664,89.6" sap2010:WorkflowViewState.IdRef="Sequence_46">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="585.6,89.6" sap2010:WorkflowViewState.IdRef="Sequence_46">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -549,13 +549,13 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="664,5528" sap2010:WorkflowViewState.IdRef="Sequence_47">
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="585.6,2680.8" sap2010:WorkflowViewState.IdRef="Sequence_47">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Wassertemperatur csv aktualisieren" sap:VirtualizedContainerService.HintSize="630.4,5468" sap2010:WorkflowViewState.IdRef="Sequence_11">
+          <Sequence DisplayName="Wassertemperatur csv aktualisieren" sap:VirtualizedContainerService.HintSize="552,2620.8" sap2010:WorkflowViewState.IdRef="Sequence_11">
             <Sequence.Variables>
               <Variable x:TypeArguments="si:FileInfo" Name="downloadDatei" />
             </Sequence.Variables>
@@ -565,22 +565,22 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[UiPath.UIAutomationNext.Enums.NAppCloseMode.Always]" DisplayName="Use Browser Edge: Wassertemperatur Download" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="596.8,5027.2" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InUiElement="[in_Seba_Browser]" InteractionMode="Simulate" OpenMode="[UiPath.UIAutomationNext.Enums.NAppOpenMode.IfNotOpen]" ScopeGuid="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Version="V2" WindowResize="Maximize">
+            <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[UiPath.UIAutomationNext.Enums.NAppCloseMode.Always]" DisplayName="Use Browser Edge: Wassertemperatur Download" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="518.4,2180" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InUiElement="[in_Seba_Browser]" InteractionMode="Simulate" OpenMode="[UiPath.UIAutomationNext.Enums.NAppOpenMode.IfNotOpen]" ScopeGuid="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Version="V2" WindowResize="Maximize">
               <uix:NApplicationCard.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="595.2,4896.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="516.8,2049.6" sap2010:WorkflowViewState.IdRef="Sequence_8">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="561.6,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Starte Wassertemperatur Export&quot;]" />
-                    <uix:NNavigateBrowser Action="Refresh" DisplayName="Navigate Browser - Aktualisieren" sap:VirtualizedContainerService.HintSize="561.6,121.6" sap2010:WorkflowViewState.IdRef="NNavigateBrowser_1" ScopeIdentifier="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Version="V3" />
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Auswertung'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="561.6,312" sap2010:WorkflowViewState.IdRef="NClick_13" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Version="V3">
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="483.2,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Starte Wassertemperatur Export&quot;]" />
+                    <uix:NNavigateBrowser Action="Refresh" DisplayName="Navigate Browser - Aktualisieren" sap:VirtualizedContainerService.HintSize="483.2,121.6" sap2010:WorkflowViewState.IdRef="NNavigateBrowser_1" ScopeIdentifier="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Version="V3" />
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Auswertung'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="483.2,312" sap2010:WorkflowViewState.IdRef="NClick_13" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Version="V3">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="https://seba-hydrocenter.com/visualization" DesignTimeRectangle="69, 524, 88, 23" DesignTimeScaleFactor="1" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='Auswertung' parentid='snav' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Auswertung' parentid='snav' tag='SPAN' type='' class='' check:innerText='Auswertung' /&gt;" Guid="cf8637e3-b83d-4e5c-b1c7-1f1b39c4febf" InformativeScreenshot="bdb03c43c6262ff0fdda40f5174625d2.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Hydrocenter Next Gen' /&gt;" SearchSteps="Selector" Version="V4" />
                       </uix:NClick.Target>
@@ -595,7 +595,7 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
                         </uix:VerifyExecutionOptions>
                       </uix:NClick.VerifyOptions>
                     </uix:NClick>
-                    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Wassertemperatur auswählen" sap:VirtualizedContainerService.HintSize="561.6,2904" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[in_arr_Wassertemperatur]">
+                    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Wassertemperatur auswählen" sap:VirtualizedContainerService.HintSize="483.2,56.8" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[in_arr_Wassertemperatur]">
                       <ui:ForEach.Body>
                         <ActivityAction x:TypeArguments="x:String">
                           <ActivityAction.Argument>
@@ -764,12 +764,12 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
                       </ui:ForEach.Body>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:ForEach>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '1 Woche'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="561.6,312" sap2010:WorkflowViewState.IdRef="NClick_14" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Version="V3">
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '1 Woche'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="483.2,312" sap2010:WorkflowViewState.IdRef="NClick_14" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Version="V3">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="https://seba-hydrocenter.com/analysis" DesignTimeRectangle="592, 263, 48, 18" DesignTimeScaleFactor="1" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='1 Woche' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='1 Woche' tag='SPAN' type='' class='ngx-slider-span ngx-slider-tick-legend ng-star-inserted' check:innerText='1 Woche' /&gt;" Guid="7ce0e9da-6311-4126-a1e6-458c59279bbf" InformativeScreenshot="5f394f1c077605f26f45953480ba3375.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Hydrocenter Next Gen' /&gt;" SearchSteps="Selector" Version="V4" />
                       </uix:NClick.Target>
@@ -784,7 +784,7 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
                         </uix:VerifyExecutionOptions>
                       </uix:NClick.VerifyOptions>
                     </uix:NClick>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'download'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="561.6,312" sap2010:WorkflowViewState.IdRef="NClick_15" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Version="V3">
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'download'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="483.2,312" sap2010:WorkflowViewState.IdRef="NClick_15" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Version="V3">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="https://seba-hydrocenter.com/analysis" DesignTimeRectangle="1439, 245, 24, 24" DesignTimeScaleFactor="1" ElementType="Icon" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='download' tag='MAT-ICON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='download' tag='MAT-ICON' type='' class='mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color' check:innerText='download' /&gt;" Guid="0fa32866-7faa-4b41-b10a-20be3f068968" InformativeScreenshot="9780191a91080fcbb760c37c41560e7a.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Hydrocenter Next Gen' /&gt;" SearchSteps="Selector" Version="V4" />
                       </uix:NClick.Target>
@@ -799,7 +799,7 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
                         </uix:VerifyExecutionOptions>
                       </uix:NClick.VerifyOptions>
                     </uix:NClick>
-                    <ui:GetLastDownloadedFile FileResource="{x:Null}" IgnoreFiles="{x:Null}" Timeout="{x:Null}" DisplayName="Wait for Download" DownloadFolder="[str_downloadPath]" File="[downloadDatei]" sap:VirtualizedContainerService.HintSize="561.6,535.2" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_2">
+                    <ui:GetLastDownloadedFile FileResource="{x:Null}" Timeout="{x:Null}" DisplayName="Wait for Download" DownloadFolder="[str_downloadPath]" File="[downloadDatei]" sap:VirtualizedContainerService.HintSize="483.2,535.2" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_2" IgnoreFiles="crdownload,tmp">
                       <ui:GetLastDownloadedFile.Body>
                         <ActivityAction>
                           <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="449.6,244.8" sap2010:WorkflowViewState.IdRef="Sequence_13">
@@ -808,7 +808,7 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'CSV'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,184.8" sap2010:WorkflowViewState.IdRef="NClick_18" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Version="V3">
+                            <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="5" DisplayName="Click 'CSV'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,184.8" sap2010:WorkflowViewState.IdRef="NClick_18" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Version="V3">
                               <uix:NClick.Target>
                                 <uix:TargetAnchorable BrowserURL="https://seba-hydrocenter.com/analysis" DesignTimeRectangle="1161, 283, 112, 48" DesignTimeScaleFactor="1" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='CSV' aria-role='menuitem' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='ZRXP' aria-role='menuitem' tag='BUTTON' type='' class='mat-focus-indicator mat-menu-item ng-tns-c183-2' check:innerText='ZRXP' /&gt;" Guid="fd73c759-185e-4882-9e12-f8678e467189" InformativeScreenshot="d4fd7d767b733235cf3afb8d88d46ba5.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Hydrocenter Next Gen' /&gt;" SearchSteps="Selector" Version="V4" />
                               </uix:NClick.Target>
@@ -817,7 +817,7 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
                         </ActivityAction>
                       </ui:GetLastDownloadedFile.Body>
                     </ui:GetLastDownloadedFile>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="561.6,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Wassertemperatur CSV heruntergeladen&quot;]" />
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="483.2,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Wassertemperatur CSV heruntergeladen&quot;]" />
                   </Sequence>
                 </ActivityAction>
               </uix:NApplicationCard.Body>
@@ -845,8 +845,8 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NApplicationCard>
-            <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[Path.Combine(str_exportFilePath, in_str_fileNameWassertemperatur)]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="596.8,192" sap2010:WorkflowViewState.IdRef="MoveFile_3" Overwrite="True" Path="[downloadDatei.ToString]" />
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="596.8,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[latestFile + &quot; verschoben nach: &quot; + Path.Combine(str_exportFilePath, in_str_fileNameWassertemperatur)]" />
+            <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[Path.Combine(str_exportFilePath, in_str_fileNameWassertemperatur)]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="518.4,192" sap2010:WorkflowViewState.IdRef="MoveFile_3" Overwrite="True" Path="[downloadDatei.ToString]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="518.4,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[latestFile + &quot; verschoben nach: &quot; + Path.Combine(str_exportFilePath, in_str_fileNameWassertemperatur)]" />
           </Sequence>
         </Sequence>
       </If.Else>

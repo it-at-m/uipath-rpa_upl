@@ -108,7 +108,7 @@
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Uplan_Import" sap:VirtualizedContainerService.HintSize="1071,4782" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Uplan_Import" sap:VirtualizedContainerService.HintSize="751.6,4776.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_ExcelPath" />
     </Sequence.Variables>
@@ -117,7 +117,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="586,149" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="585.6,149.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
@@ -131,13 +131,13 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[UiPath.UIAutomationNext.Enums.NAppCloseMode.Always]" DisplayName="Use Remote Desktop: GW-Base 9.0" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="586,4610" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" IsDisplayNameAuto="True" ScopeGuid="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[UiPath.UIAutomationNext.Enums.NAppCloseMode.Always]" DisplayName="Use Remote Desktop: GW-Base 9.0" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="585.6,4604" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" IsDisplayNameAuto="True" ScopeGuid="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="584,4364" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="584,4358.4" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="bool_hochgeladen" />
             </Sequence.Variables>
@@ -146,7 +146,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Datei explorer öffnen'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="550,266" sap2010:WorkflowViewState.IdRef="NClick_22" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Version="V5">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="5" DisplayName="Click 'Datei explorer öffnen'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="550.4,265.6" sap2010:WorkflowViewState.IdRef="NClick_22" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Version="V5">
               <uix:NClick.Target>
                 <uix:TargetAnchorable DesignTimeRectangle="912, 154, 26, 21" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd cls='TJvBtnWinControl' /&gt;" Guid="9166a0f8-c350-4ff0-bcc6-faedbbcc84a6" InformativeScreenshot="7a82fc20034497c80741c2cf3993bb9a.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TFrm_ImportWizard' isremoteapp='1' title='Daten-Import' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
               </uix:NClick.Target>
@@ -164,12 +164,12 @@
                 </uix:VerifyExecutionOptions>
               </uix:NClick.VerifyOptions>
             </uix:NClick>
-            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Dateipfad eingeben'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="550,246" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="SameAsCard" ScopeIdentifier="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Text="[str_ExcelPath]" Version="V5">
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Dateipfad eingeben'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="550.4,245.6" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="SameAsCard" ScopeIdentifier="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Text="[str_ExcelPath]" Version="V5">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable DesignTimeRectangle="250, 812, 935, 19" ElementType="InputBox" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;" Guid="ecac1e3d-b84e-49aa-aa51-47bc6b8eeeb7" InformativeScreenshot="e67978c07f2906133d67db653b87f220.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='#32770' isremoteapp='1' title='Browse' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
               </uix:NTypeInto.Target>
             </uix:NTypeInto>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="1" DisplayName="Click 'Datei öffnen'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="550,194" sap2010:WorkflowViewState.IdRef="NClick_23" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Version="V5">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="1" DisplayName="Click 'Datei öffnen'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="550.4,193.6" sap2010:WorkflowViewState.IdRef="NClick_23" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Version="V5">
               <uix:NClick.Target>
                 <uix:TargetAnchorable DesignTimeRectangle="1225, 842, 110, 33" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd ctrlid='1' title='Ö&amp;amp;ffnen' /&gt;" Guid="fcd9ba1a-1af9-4e05-a5b1-b09c331a1536" InformativeScreenshot="4efaf36cf3abc8e8395af49cbc30ebc3.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='#32770' isremoteapp='1' title='Browse' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
               </uix:NClick.Target>
