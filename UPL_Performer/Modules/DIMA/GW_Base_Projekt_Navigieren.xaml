@@ -116,45 +116,42 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GW_Base_Uplan_Import" sap:VirtualizedContainerService.HintSize="830,2372" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GW_Base_Uplan_Import" sap:VirtualizedContainerService.HintSize="897.2,2540.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[UiPath.UIAutomationNext.Enums.NAppCloseMode.Never]" DisplayName="Use App: 1. GW-Base Projekt auswählen" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="520,2349" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" OpenMode="[UiPath.UIAutomationNext.Enums.NAppOpenMode.IfNotOpen]" ScopeGuid="c1475844-d082-4f99-ab61-07290d80b19b" Version="V2">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="518.4,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Starte: GW-Base Navigation&quot;]" />
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[UiPath.UIAutomationNext.Enums.NAppCloseMode.Never]" DisplayName="Use App: 1. GW-Base Projekt auswählen" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="518.4,2177.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" OpenMode="[UiPath.UIAutomationNext.Enums.NAppOpenMode.IfNotOpen]" ScopeGuid="c1475844-d082-4f99-ab61-07290d80b19b" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="518,2103" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="516.8,1923.2" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="str_menu" />
               <Variable x:TypeArguments="s:String[]" Name="str_lines" />
               <Variable x:TypeArguments="x:String" Name="Anwendung" />
-              <Variable x:TypeArguments="x:Int32" Name="int_uplanIndex">
-                <Variable.Default>
-                  <Literal x:TypeArguments="x:Int32" />
-                </Variable.Default>
-              </Variable>
+              <Variable x:TypeArguments="x:Int32" Default="0" Name="int_uplanIndex" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'TDBLookupComboboxEh'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="484,194" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c1475844-d082-4f99-ab61-07290d80b19b" Version="V5">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'TDBLookupComboboxEh'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="483.2,193.6" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c1475844-d082-4f99-ab61-07290d80b19b" Version="V5">
               <uix:NClick.Target>
                 <uix:TargetAnchorable DesignTimeRectangle="491, 56, 166, 21" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd cls='TDBLookupComboboxEh' /&gt;" Guid="52752c85-0985-4bdb-8f01-9ba9aa62f89c" InformativeScreenshot="aeb54e0fc7fc3b91f346d62a8956ae3f.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TFrm_GWBaseLogin' isremoteapp='1' title='Projekt öffnen' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
               </uix:NClick.Target>
             </uix:NClick>
-            <uix:NGetText DisplayName="Get Text 'TPopupInnerDataGridEh'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="484,143" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="c1475844-d082-4f99-ab61-07290d80b19b" TextString="[str_menu]" Version="V5">
+            <uix:NGetText DisplayName="Get Text 'TPopupInnerDataGridEh'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="483.2,142.4" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="c1475844-d082-4f99-ab61-07290d80b19b" TextString="[str_menu]" Version="V5">
               <uix:NGetText.Target>
                 <uix:TargetAnchorable DesignTimeRectangle="0, 0, 300, 44" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd cls='TPopupInnerDataGridEh' /&gt;" Guid="98b07b2e-0cf3-4b7b-b68c-67ad9245c344" InformativeScreenshot="82e235345e7407161037b0ec9ad94656.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TPopupDataGridBoxEh' isremoteapp='1' title='DropDownBox' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
               </uix:NGetText.Target>
             </uix:NGetText>
-            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="484,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="483.2,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -176,30 +173,33 @@
                 </scg:List>
               </ui:MultipleAssign.AssignOperations>
             </ui:MultipleAssign>
-            <ui:RepeatNumberOfTimesX DisplayName="Repeat Number Of Times" sap:VirtualizedContainerService.HintSize="484,672" sap2010:WorkflowViewState.IdRef="RepeatNumberOfTimesX_1" NumberOfTimes="[int_uplanIndex]" StartAt="1">
+            <ui:RepeatNumberOfTimesX DisplayName="Repeat Number Of Times" sap:VirtualizedContainerService.HintSize="483.2,670.4" sap2010:WorkflowViewState.IdRef="RepeatNumberOfTimesX_1" NumberOfTimes="[int_uplanIndex]" StartAt="1">
               <ui:RepeatNumberOfTimesX.Body>
                 <ActivityAction x:TypeArguments="x:Int32">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentItem" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="450,473" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="449.6,471.2" sap2010:WorkflowViewState.IdRef="Sequence_9">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Down" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,413" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_2" InteractionMode="HardwareEvents" ScopeIdentifier="c1475844-d082-4f99-ab61-07290d80b19b" Shortcuts="[d(hk)][k(Down)][u(hk)]" Version="V5" />
+                    <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Down" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,411.2" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_2" InteractionMode="HardwareEvents" ScopeIdentifier="c1475844-d082-4f99-ab61-07290d80b19b" Shortcuts="[d(hk)][k(Down)][u(hk)]" Version="V5" />
                   </Sequence>
                 </ActivityAction>
               </ui:RepeatNumberOfTimesX.Body>
             </ui:RepeatNumberOfTimesX>
-            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Enter" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="484,422" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_3" InteractionMode="HardwareEvents" ScopeIdentifier="c1475844-d082-4f99-ab61-07290d80b19b" Shortcuts="[d(hk)][k(Enter)][u(hk)]" Version="V5" />
-            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Anmeldung mit Windows-K…'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="484,266" sap2010:WorkflowViewState.IdRef="NClick_7" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c1475844-d082-4f99-ab61-07290d80b19b" Version="V5">
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Enter" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="483.2,420" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_3" InteractionMode="HardwareEvents" ScopeIdentifier="c1475844-d082-4f99-ab61-07290d80b19b" Shortcuts="[d(hk)][k(Enter)][u(hk)]" Version="V5" />
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Anmeldung mit Windows-K…'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="483.2,256.8" sap2010:WorkflowViewState.IdRef="NClick_7" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c1475844-d082-4f99-ab61-07290d80b19b" Version="V5">
               <uix:NClick.Target>
                 <uix:TargetAnchorable DesignTimeRectangle="494, 94, 165, 41" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd cls='TPanel' title='pnlADLogin' /&gt;&lt;wnd cls='TAdvGlowButton' title='Anmeldung mit Windows-Kennung' /&gt;" Guid="8ce96541-7fbc-411f-b6dc-afe2236bd33e" InformativeScreenshot="bc8be273df523518227cd047d429b612.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TFrm_GWBaseLogin' isremoteapp='1' title='Projekt öffnen' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
               </uix:NClick.Target>
               <uix:NClick.VerifyOptions>
                 <uix:VerifyExecutionOptions DisplayName="Verifizierungsziel" IsLoose="True" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
                   <uix:VerifyExecutionOptions.Target>
                     <uix:TargetAnchorable DesignTimeRectangle="12, 139, 670, 595" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd cls='TTabSheet' title='Teilprojekte' /&gt;&lt;wnd cls='TAdvTreeView' /&gt;" Guid="e2dcf0e0-ba89-4150-8760-e4c7b41b94c3" InformativeScreenshot="bd348232de5ce8ccec8307af7e1fe67c.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TFrm_SelectionCriteria' isremoteapp='1' title='Auswahlkriterien für Messstellen festlegen' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
                   </uix:VerifyExecutionOptions.Target>
@@ -209,7 +209,6 @@
                 </uix:VerifyExecutionOptions>
               </uix:NClick.VerifyOptions>
             </uix:NClick>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,166" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;UPLAN gestartet&quot;]" />
           </Sequence>
         </ActivityAction>
       </uix:NApplicationCard.Body>
@@ -231,5 +230,6 @@
         </uix:TargetApp>
       </uix:NApplicationCard.TargetApp>
     </uix:NApplicationCard>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="518.4,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Beendet: GW-Base Navigation. UPLAN gestartet&quot;]" />
   </Sequence>
 </Activity>

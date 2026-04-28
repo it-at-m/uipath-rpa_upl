@@ -57,6 +57,7 @@
       <x:String>System.Xml.Serialization</x:String>
       <x:String>System.Xml.Serialization</x:String>
       <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>System.Numerics</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -125,9 +126,10 @@
       <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
       <AssemblyReference>System.Private.Xml</AssemblyReference>
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="738,5965.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="897.2,5791.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="arr_Wassertemperatur" />
       <Variable x:TypeArguments="s:String[]" Name="arr_Grundwasser" />
@@ -184,7 +186,7 @@
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
     </Sequence>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="DiMA_Login - Invoke Workflow File (Modules\DIMA\DiMA_Login.xaml)" sap:VirtualizedContainerService.HintSize="581.6,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Modules\DIMA\DiMA_Login.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="DiMA_Login - Invoke Workflow File (Modules\DIMA\DiMA_Login.xaml)" sap:VirtualizedContainerService.HintSize="581.6,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Modules\DIMA\DiMA_Login &amp; GW-Base Start.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_DimaLink">[in_Config("rpa009_DimaLink").ToString]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
@@ -194,19 +196,18 @@
         <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use App: 2. GW-Base: Auswahl anwenden klicken" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="581.6,848" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" ScopeGuid="e3495749-f57c-4bc0-bf47-7ab3e8faa92c" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use App: 2. GW-Base: Auswahl anwenden klicken" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="581.6,673.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" ScopeGuid="e3495749-f57c-4bc0-bf47-7ab3e8faa92c" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="449.6,593.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="449.6,419.2" sap2010:WorkflowViewState.IdRef="Sequence_6">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Auswahl anwenden klicken&quot;]" />
             <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="1" DelayBefore="1" DisplayName="Click 'Auswahl anwenden'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,193.6" sap2010:WorkflowViewState.IdRef="NClick_5" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e3495749-f57c-4bc0-bf47-7ab3e8faa92c" Version="V5">
               <uix:NClick.Target>
                 <uix:TargetAnchorable DesignTimeRectangle="521, 642, 150, 25" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd cls='TButton' title='Auswahl anwenden' /&gt;" Guid="32c893d4-506e-4ff9-b1f8-7f325840610c" InformativeScreenshot="ba1452a88dcc0d43980142671d3c4250.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TFrm_SelectionCriteria' isremoteapp='1' title='Auswahlkriterien für Messstellen festlegen' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
@@ -243,6 +244,7 @@
     <Sequence DisplayName="Auf Messstellen warten" sap:VirtualizedContainerService.HintSize="581.6,1483.2" sap2010:WorkflowViewState.IdRef="Sequence_16">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:Boolean" Name="bool_geladen" />
+        <Variable x:TypeArguments="x:Int32" Name="int_doWhileIndex" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -264,7 +266,7 @@
           </scg:List>
         </ui:MultipleAssign.AssignOperations>
       </ui:MultipleAssign>
-      <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[bool_geladen = False]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="548,1241.6" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+      <ui:InterruptibleDoWhile Condition="[bool_geladen = False]" CurrentIndex="[int_doWhileIndex]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="548,1241.6" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1" MaxIterations="10">
         <ui:InterruptibleDoWhile.Body>
           <Sequence DisplayName="Text" sap:VirtualizedContainerService.HintSize="546.4,1120" sap2010:WorkflowViewState.IdRef="Sequence_9">
             <sap:WorkflowViewStateService.ViewState>
@@ -273,7 +275,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="512.8,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Auf Messtellenliste warten&quot;]" />
-            <uix:NCheckState DelayBefore="60" DisplayName="Check App State 'Horizont'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="512.8,885.6" sap2010:WorkflowViewState.IdRef="NCheckState_1" Timeout="30" Version="V5">
+            <uix:NCheckState DelayBefore="60" DisplayName="Check App State 'Horizont'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="512.8,885.6" sap2010:WorkflowViewState.IdRef="NCheckState_1" Timeout="60" Version="V5">
               <uix:NCheckState.IfExists>
                 <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="511.2,375.2" sap2010:WorkflowViewState.IdRef="Sequence_8">
                   <sap:WorkflowViewStateService.ViewState>
@@ -305,7 +307,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Noch nicht geladen, warte erneut&quot;]" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Warten auf Messstellenliste seit: &quot; + int_doWhileIndex.ToString + &quot; Minuten&quot;]" />
                 </Sequence>
               </uix:NCheckState.IfNotExists>
               <uix:NCheckState.Target>

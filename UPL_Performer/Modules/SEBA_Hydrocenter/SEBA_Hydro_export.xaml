@@ -153,7 +153,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Export" sap:VirtualizedContainerService.HintSize="738,9372" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Export" sap:VirtualizedContainerService.HintSize="897.2,9372" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="latestFile" />
       <Variable x:TypeArguments="x:String" Name="str_exportFilePath" />
@@ -165,7 +165,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="665.6,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;SEPA_Hydro_export gestartet&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="665.6,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Starte: SEPA_Hydro_export&quot;]" />
     <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="665.6,212" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
@@ -851,6 +851,6 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
         </Sequence>
       </If.Else>
     </If>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="665.6,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;SEPA_Hydro_export abgeschlossen&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="665.6,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Beendet: SEPA_Hydro_export&quot;]" />
   </Sequence>
 </Activity>
