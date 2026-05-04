@@ -129,7 +129,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="897.2,5791.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="777.2,6024.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="arr_Wassertemperatur" />
       <Variable x:TypeArguments="s:String[]" Name="arr_Grundwasser" />
@@ -196,19 +196,19 @@
         <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use App: 2. GW-Base: Auswahl anwenden klicken" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="581.6,673.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" ScopeGuid="e3495749-f57c-4bc0-bf47-7ab3e8faa92c" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use App: 2. GW-Base: Auswahl anwenden klicken" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="581.6,745.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" ScopeGuid="e3495749-f57c-4bc0-bf47-7ab3e8faa92c" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="449.6,419.2" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="449.6,491.2" sap2010:WorkflowViewState.IdRef="Sequence_6">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="1" DelayBefore="1" DisplayName="Click 'Auswahl anwenden'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,193.6" sap2010:WorkflowViewState.IdRef="NClick_5" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e3495749-f57c-4bc0-bf47-7ab3e8faa92c" Version="V5">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="1" DelayBefore="1" DisplayName="Click 'Auswahl anwenden'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,265.6" sap2010:WorkflowViewState.IdRef="NClick_5" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e3495749-f57c-4bc0-bf47-7ab3e8faa92c" Version="V5">
               <uix:NClick.Target>
                 <uix:TargetAnchorable DesignTimeRectangle="521, 642, 150, 25" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd cls='TButton' title='Auswahl anwenden' /&gt;" Guid="32c893d4-506e-4ff9-b1f8-7f325840610c" InformativeScreenshot="ba1452a88dcc0d43980142671d3c4250.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TFrm_SelectionCriteria' isremoteapp='1' title='Auswahlkriterien für Messstellen festlegen' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
               </uix:NClick.Target>
@@ -275,7 +275,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="512.8,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Auf Messtellenliste warten&quot;]" />
-            <uix:NCheckState DelayBefore="60" DisplayName="Check App State 'Horizont'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="512.8,885.6" sap2010:WorkflowViewState.IdRef="NCheckState_1" Timeout="60" Version="V5">
+            <uix:NCheckState DisplayName="Check App State 'Horizont'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="512.8,885.6" sap2010:WorkflowViewState.IdRef="NCheckState_1" Timeout="60" Version="V5">
               <uix:NCheckState.IfExists>
                 <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="511.2,375.2" sap2010:WorkflowViewState.IdRef="Sequence_8">
                   <sap:WorkflowViewStateService.ViewState>
@@ -446,16 +446,27 @@
         <InArgument x:TypeArguments="x:String" x:Key="in_str_FolderPath">[in_Config("rpa009_Working_Folder").ToString]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Webex_SendFailedData - Invoke Workflow File (Modules\Webex\Webex_SendFailedData.xaml)" sap:VirtualizedContainerService.HintSize="581.6,197.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Modules\Webex\Webex_SendInfoMessage.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        <InArgument x:TypeArguments="x:Boolean" x:Key="in_bool_rkuHasErrors">[bool_rkuHasErrors]</InArgument>
-        <InArgument x:TypeArguments="x:Boolean" x:Key="in_bool_bauHasErrors">[bool_bauHasErrors]</InArgument>
-        <InArgument x:TypeArguments="scg:IList(x:String)" x:Key="in_listFailedExportPointsRKU">[list_failedExportPointsRKU]</InArgument>
-        <InArgument x:TypeArguments="scg:IList(x:String)" x:Key="in_listFailedExportPointsBAU">[list_failedExportPointsBAU]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_str_WebexApiUrl">[in_Config("WebexApiUrl").ToString]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_str_WebexRoomID">[in_Config("WebexRoomID").ToString]</InArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="581.6,359.2" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignorierte Aktivitäten" sap:VirtualizedContainerService.HintSize="449.6,257.6" sap2010:WorkflowViewState.IdRef="Sequence_19">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Webex_SendFailedData - Invoke Workflow File (Modules\Webex\Webex_SendFailedData.xaml)" sap:VirtualizedContainerService.HintSize="416,197.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Modules\Webex\Webex_SendInfoMessage.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+              <InArgument x:TypeArguments="x:Boolean" x:Key="in_bool_rkuHasErrors">[bool_rkuHasErrors]</InArgument>
+              <InArgument x:TypeArguments="x:Boolean" x:Key="in_bool_bauHasErrors">[bool_bauHasErrors]</InArgument>
+              <InArgument x:TypeArguments="scg:IList(x:String)" x:Key="in_listFailedExportPointsRKU">[list_failedExportPointsRKU]</InArgument>
+              <InArgument x:TypeArguments="scg:IList(x:String)" x:Key="in_listFailedExportPointsBAU">[list_failedExportPointsBAU]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_str_WebexApiUrl">[in_Config("WebexApiUrl").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_str_WebexRoomID">[in_Config("WebexRoomID").ToString]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
   </Sequence>
 </Activity>
