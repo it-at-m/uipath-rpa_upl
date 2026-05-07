@@ -110,7 +110,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Uplan_Import" sap:VirtualizedContainerService.HintSize="1482,6065" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Uplan_Import" sap:VirtualizedContainerService.HintSize="1127,6065" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_ExcelPath" />
     </Sequence.Variables>
@@ -143,11 +143,7 @@
           <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="584,5297" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="bool_hochgeladen" />
-              <Variable x:TypeArguments="x:Int32" Name="int_counter">
-                <Variable.Default>
-                  <Literal x:TypeArguments="x:Int32" />
-                </Variable.Default>
-              </Variable>
+              <Variable x:TypeArguments="x:Int32" Default="0" Name="int_counter" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -407,7 +403,7 @@
                       </Sequence>
                     </uix:NCheckState.IfNotExists>
                     <uix:NCheckState.Target>
-                      <uix:TargetAnchorable DesignTimeRectangle="62, 43, 734, 55" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd cls='TPanel' idx='5' /&gt;" Guid="7f8a78fe-2bb1-4c34-8ffc-307189b9ece1" InformativeScreenshot="f1ac87c7c00688e3df74a375483656c7.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TRbkFrmMsgDlg' isremoteapp='1' title='GW-Base 9.0' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                      <uix:TargetAnchorable DesignTimeRectangle="62, 43, 734, 55" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd cls='TBitBtn' title='OK' /&gt;" Guid="7f8a78fe-2bb1-4c34-8ffc-307189b9ece1" InformativeScreenshot="f1ac87c7c00688e3df74a375483656c7.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TRbkFrmMsgDlg' isremoteapp='1' title='GW-Base 9.0' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
                     </uix:NCheckState.Target>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -420,14 +416,17 @@
               </ui:InterruptibleDoWhile.Body>
             </ui:InterruptibleDoWhile>
             <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="550,422" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" InteractionMode="HardwareEvents" ScopeIdentifier="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Shortcuts="[d(hk)][k(Enter)][u(hk)]" Version="V5" />
-            <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="3" DisplayName="Click 'Nein'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="550,257" sap2010:WorkflowViewState.IdRef="NClick_21" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Version="V5">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="15" DisplayName="Click 'Nein'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="550,257" sap2010:WorkflowViewState.IdRef="NClick_21" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Version="V5">
               <uix:NClick.Target>
                 <uix:TargetAnchorable DesignTimeRectangle="182, 113, 115, 31" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd cls='TBitBtn' title='Nein' /&gt;" Guid="7bc0951e-3c2a-4090-b350-1d8fd843a697" InformativeScreenshot="2d880fca7e6f5cb195348bd4f5b9da51.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' isremoteapp='1' title='GW-Base 9.0' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
               </uix:NClick.Target>
               <uix:NClick.VerifyOptions>
-                <uix:VerifyExecutionOptions DisplayName="Verifizierungsziel" Mode="Appears">
+                <uix:VerifyExecutionOptions DisplayName="Verifizierungsziel" Mode="Disappears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
                   <uix:VerifyExecutionOptions.Target>
-                    <uix:TargetAnchorable DesignTimeRectangle="62, 113, 115, 31" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd cls='TBitBtn' title='OK' /&gt;" Guid="188e9668-9ed7-4eb3-b396-13139357abd8" InformativeScreenshot="603ad77ffe24c0cd8d805f3815a13976.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TRbkFrmMsgDlg' isremoteapp='1' title='GW-Base 9.0' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                    <uix:TargetAnchorable DesignTimeRectangle="62, 113, 115, 31" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd cls='TBitBtn' title='Nein' /&gt;" Guid="188e9668-9ed7-4eb3-b396-13139357abd8" InformativeScreenshot="603ad77ffe24c0cd8d805f3815a13976.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TRbkFrmMsgDlg' isremoteapp='1' title='GW-Base 9.0' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
                   </uix:VerifyExecutionOptions.Target>
                   <uix:VerifyExecutionOptions.Timeout>
                     <InArgument x:TypeArguments="x:Double" />

@@ -130,37 +130,33 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DiMA_Login" sap:VirtualizedContainerService.HintSize="777.2,7204" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DiMA_Login" sap:VirtualizedContainerService.HintSize="968,7211" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_Robot_Account_Name" />
       <Variable x:TypeArguments="ss:SecureString" Name="str_Robot_Account_Password" />
       <Variable x:TypeArguments="x:Boolean" Name="bool_gestartet" />
-      <Variable x:TypeArguments="x:Int32" Name="int_counter">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:Int32" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="int_counter" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="548,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Starte: DiMA_Login &amp; GW-Base Start&quot;]" />
-    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="rpa009_Robot Account" CacheStrategy="None" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="548,175.2" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[str_Robot_Account_Password]" Username="[str_Robot_Account_Name]" />
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[UiPath.UIAutomationNext.Enums.NAppCloseMode.Always]" DisplayName="Use Browser Edge: DiMA" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="548,2364" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="[UiPath.UIAutomationNext.Enums.NAppOpenMode.IfNotOpen]" ScopeGuid="5e8037ab-8d7c-4cf6-9617-4dbc1acf6a61" Version="V2" WindowResize="Maximize">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="549,175" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Starte: DiMA_Login &amp; GW-Base Start&quot;]" />
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="rpa009_Robot Account" CacheStrategy="None" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="549,176" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[str_Robot_Account_Password]" Username="[str_Robot_Account_Name]" />
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[UiPath.UIAutomationNext.Enums.NAppCloseMode.Always]" DisplayName="Use Browser Edge: DiMA" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="549,2369" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="[UiPath.UIAutomationNext.Enums.NAppOpenMode.IfNotOpen]" ScopeGuid="5e8037ab-8d7c-4cf6-9617-4dbc1acf6a61" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="484.8,2161.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="486,2166" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Benutzername'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="451.2,245.6" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="5e8037ab-8d7c-4cf6-9617-4dbc1acf6a61" Text="[str_Robot_Account_Name]" Version="V3">
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Benutzername'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,246" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="5e8037ab-8d7c-4cf6-9617-4dbc1acf6a61" Text="[str_Robot_Account_Name]" Version="V3">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable BrowserURL="https://dima-test.muenchen.de/logon/LogonPoint/tmindex.html" DesignTimeRectangle="848, 541, 385, 44" DesignTimeScaleFactor="1" ElementType="InputBox" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='login' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='login' tag='INPUT' type='text' class='' aaname='Benutzername' /&gt;" Guid="4c04985a-1a5c-4c39-ae0b-7a810e84028b" InformativeScreenshot="0a1c011f16f533fe7ac70f95cef880b3.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='DiMA*' /&gt;" SearchSteps="Selector" Version="V4">
                   <uix:TargetAnchorable.Anchors>
@@ -181,7 +177,7 @@
                 </uix:VerifyExecutionTypeIntoOptions>
               </uix:NTypeInto.VerifyOptions>
             </uix:NTypeInto>
-            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Kennwort'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="451.2,245.6" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="5e8037ab-8d7c-4cf6-9617-4dbc1acf6a61" SecureText="[str_Robot_Account_Password]" Version="V3">
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Kennwort'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,246" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="5e8037ab-8d7c-4cf6-9617-4dbc1acf6a61" SecureText="[str_Robot_Account_Password]" Version="V3">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable BrowserURL="https://dima-test.muenchen.de/logon/LogonPoint/tmindex.html" DesignTimeRectangle="848, 591, 385, 44" DesignTimeScaleFactor="1" ElementType="InputBoxPassword" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='passwd' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='passwd' tag='INPUT' type='password' class='' aaname='Kennwort' /&gt;" Guid="a5ee0dd0-1aad-4435-964d-780f4b3d02bb" InformativeScreenshot="1c69b93743016beb40eeedf6875a0cff.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='DiMA*' /&gt;" SearchSteps="Selector" Version="V4">
                   <uix:TargetAnchorable.Anchors>
@@ -202,7 +198,7 @@
                 </uix:VerifyExecutionTypeIntoOptions>
               </uix:NTypeInto.VerifyOptions>
             </uix:NTypeInto>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Anmelden'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="451.2,265.6" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5e8037ab-8d7c-4cf6-9617-4dbc1acf6a61" Version="V3">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Anmelden'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="452,266" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5e8037ab-8d7c-4cf6-9617-4dbc1acf6a61" Version="V3">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="https://dima-test.muenchen.de/logon/LogonPoint/tmindex.html" DesignTimeRectangle="848, 662, 385, 44" DesignTimeScaleFactor="1" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='Logon' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl id='Logon' tag='A' type='' class='button forms-authentication-button last-child default' aaname='Anmelden' check:innerText='Anmelden' /&gt;" Guid="dc0a6326-9210-4e79-85f6-03743e2df4ec" InformativeScreenshot="a13843da41ceadba09c52275cfb75944.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='DiMA*' /&gt;" SearchSteps="Selector" Version="V4" />
               </uix:NClick.Target>
@@ -220,33 +216,36 @@
                 </uix:VerifyExecutionOptions>
               </uix:NClick.VerifyOptions>
             </uix:NClick>
-            <uix:NCheckState DisplayName="Check Appstate Failed Login" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="451.2,1344.8" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="5e8037ab-8d7c-4cf6-9617-4dbc1acf6a61" Version="V3">
+            <uix:NCheckState DisplayName="Check Appstate Failed Login" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="452,1348" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="5e8037ab-8d7c-4cf6-9617-4dbc1acf6a61" Version="V3">
               <uix:NCheckState.IfExists>
-                <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="449.6,348" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="450,349" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;DiMA Login war nicht möglich&quot;]" />
-                  <Throw Exception="[New SystemException (&quot;Fehler beim DiMA Login&quot;)]" sap:VirtualizedContainerService.HintSize="416,113.6" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;DiMA Login war nicht möglich&quot;]" />
+                  <Throw Exception="[New SystemException (&quot;Fehler beim DiMA Login&quot;)]" sap:VirtualizedContainerService.HintSize="416,114" sap2010:WorkflowViewState.IdRef="Throw_1" />
                 </Sequence>
               </uix:NCheckState.IfExists>
               <uix:NCheckState.IfNotExists>
-                <Sequence DisplayName="Ziel wird nicht angezeigt" sap:VirtualizedContainerService.HintSize="449.6,712" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <Sequence DisplayName="Ziel wird nicht angezeigt" sap:VirtualizedContainerService.HintSize="450,714" sap2010:WorkflowViewState.IdRef="Sequence_4">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Beendet: DiMA_Login&quot;]" />
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Starte: GW-Base Download&quot;]" />
-                  <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="10" DisplayName="Click 'IMG'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,303.2" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5e8037ab-8d7c-4cf6-9617-4dbc1acf6a61" Timeout="120" Version="V3">
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Beendet: DiMA_Login&quot;]" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Starte: GW-Base Download&quot;]" />
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="20" DisplayName="Click 'IMG'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,304" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5e8037ab-8d7c-4cf6-9617-4dbc1acf6a61" Timeout="120" Version="V3">
                     <uix:NClick.Target>
                       <uix:TargetAnchorable BrowserURL="dima-test.muenchen.de/Citrix/DiMA-TestWEB" DesignTimeRectangle="98, 490, 56, 56" ElementType="Icon" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl parentid='home-screen' tag='IMG' aaname='GW-Base' alt='GW-Base' /&gt;" Guid="55ac256a-7894-4f3e-ae95-a3334ca5f143" InformativeScreenshot="c45a4923f261468dbf1ac2172bacd056.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='DiMA*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
                     </uix:NClick.Target>
                     <uix:NClick.VerifyOptions>
                       <uix:VerifyExecutionOptions DisplayName="Verifizierungsziel" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
                         <uix:VerifyExecutionOptions.Timeout>
                           <InArgument x:TypeArguments="x:Double" />
                         </uix:VerifyExecutionOptions.Timeout>
@@ -286,7 +285,7 @@
         </uix:TargetApp>
       </uix:NApplicationCard.TargetApp>
     </uix:NApplicationCard>
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="548,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="549,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -308,9 +307,9 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[bool_gestartet = False]" DisplayName="While" sap:VirtualizedContainerService.HintSize="548,3013.6" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+    <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[bool_gestartet = False]" DisplayName="While" sap:VirtualizedContainerService.HintSize="549,3014" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
       <ui:InterruptibleWhile.Body>
-        <Sequence DisplayName="Text" sap:VirtualizedContainerService.HintSize="546.4,2883.2" sap2010:WorkflowViewState.IdRef="Sequence_15">
+        <Sequence DisplayName="Text" sap:VirtualizedContainerService.HintSize="547,2883" sap2010:WorkflowViewState.IdRef="Sequence_15">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
