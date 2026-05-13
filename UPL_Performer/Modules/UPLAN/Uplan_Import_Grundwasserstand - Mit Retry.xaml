@@ -1,6 +1,7 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="Uplan_Import" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_str_FolderPath" Type="InArgument(x:String)" />
+    <x:Property Name="out_str_fehlerprotokollText" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -113,17 +114,19 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Uplan_Import" sap:VirtualizedContainerService.HintSize="968,8185" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Uplan_Import" sap:VirtualizedContainerService.HintSize="744.4000000000001,9087.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_ExcelPath" />
+      <Variable x:TypeArguments="x:Boolean" Name="bool_fehlerprotokoll" />
+      <Variable x:TypeArguments="x:Boolean" Name="bool_hochgeladen" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="626,175" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Starte: Grundwasserstand Import&quot;]" />
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="626,149" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="658.4,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Starte: Grundwasserstand Import&quot;]" />
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="658.4,149.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -137,16 +140,13 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[UiPath.UIAutomationNext.Enums.NAppCloseMode.Never]" DisplayName="Use Remote Desktop: GW-Base 9.0" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="626,6437" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" IsDisplayNameAuto="True" ScopeGuid="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Version="V2" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[UiPath.UIAutomationNext.Enums.NAppCloseMode.Never]" DisplayName="Use Remote Desktop: GW-Base 9.0" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="658.4,7342.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" IsDisplayNameAuto="True" ScopeGuid="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="624,6182" sap2010:WorkflowViewState.IdRef="Sequence_3">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="x:Boolean" Name="bool_hochgeladen" />
-            </Sequence.Variables>
+          <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="656.8,7088" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -316,7 +316,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NKeyboardShortcuts>
-            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DelayAfter="2" DisplayName="Keyboard Shortcuts" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="590,57" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_4" InteractionMode="HardwareEvents" ScopeIdentifier="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Shortcuts="[d(hk)][k(Enter)][u(hk)]" Version="V5">
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DelayAfter="2" DisplayName="Keyboard Shortcuts" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="623.2,56.8" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_4" InteractionMode="HardwareEvents" ScopeIdentifier="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Shortcuts="[d(hk)][k(Enter)][u(hk)]" Version="V5">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -324,7 +324,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NKeyboardShortcuts>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Weiter &gt;'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="590,266" sap2010:WorkflowViewState.IdRef="NClick_8" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Version="V5">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Weiter &gt;'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="623.2,265.6" sap2010:WorkflowViewState.IdRef="NClick_8" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Version="V5">
               <uix:NClick.Target>
                 <uix:TargetAnchorable DesignTimeRectangle="615, 492, 75, 25" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd aaname='Weiter &amp;gt;' cls='TJvWizardNextButton' title='&amp;amp;Weiter &amp;gt;' /&gt;" Guid="6c0e48d0-2845-4a93-a7ad-4881ec03cd00" InformativeScreenshot="1052cf2ac8f961db5d7e8c3a7d67f91f.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TFrm_ImportWizard' isremoteapp='1' title='Daten-Import' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
               </uix:NClick.Target>
@@ -339,7 +339,7 @@
                 </uix:VerifyExecutionOptions>
               </uix:NClick.VerifyOptions>
             </uix:NClick>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Fertigstellen'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="590,266" sap2010:WorkflowViewState.IdRef="NClick_9" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Version="V5">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Fertigstellen'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="623.2,265.6" sap2010:WorkflowViewState.IdRef="NClick_9" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Version="V5">
               <uix:NClick.Target>
                 <uix:TargetAnchorable DesignTimeRectangle="615, 492, 75, 25" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd aaname='Fertigstellen' cls='TJvWizardFinishButton' title='&amp;amp;Fertigstellen' /&gt;" Guid="291a233a-2800-4f6c-9e90-0280aae5a53d" InformativeScreenshot="a85da0c450da160aee05234b11aec519.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TFrm_ImportWizard' isremoteapp='1' title='Daten-Import' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
               </uix:NClick.Target>
@@ -354,7 +354,7 @@
                 </uix:VerifyExecutionOptions>
               </uix:NClick.VerifyOptions>
             </uix:NClick>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Ja'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="590,266" sap2010:WorkflowViewState.IdRef="NClick_10" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Version="V5">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Ja'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="623.2,265.6" sap2010:WorkflowViewState.IdRef="NClick_10" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Version="V5">
               <uix:NClick.Target>
                 <uix:TargetAnchorable DesignTimeRectangle="50, 90, 92, 25" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd cls='TBitBtn' title='Ja' /&gt;" Guid="65a0af47-3933-40bd-aefb-f529257fd656" InformativeScreenshot="963a970699ed7bc4ac4c4a9a4509828a.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TRbkFrmMsgDlg' isremoteapp='1' title='GW-Base 9.0' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
               </uix:NClick.Target>
@@ -366,7 +366,7 @@
                 </uix:VerifyExecutionOptions>
               </uix:NClick.VerifyOptions>
             </uix:NClick>
-            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="590,149" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="623.2,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
@@ -377,27 +377,35 @@
                       <InArgument x:TypeArguments="x:Boolean">False</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Boolean">[bool_fehlerprotokoll]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
                 </scg:List>
               </ui:MultipleAssign.AssignOperations>
             </ui:MultipleAssign>
-            <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="590,1692" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="10" RetryInterval="00:00:10">
+            <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="623.2,2572" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="10" RetryInterval="00:00:10">
               <ui:RetryScope.ActivityBody>
                 <ActivityAction>
-                  <Sequence DisplayName="Aktion" sap:VirtualizedContainerService.HintSize="548,1368" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <Sequence DisplayName="Aktion" sap:VirtualizedContainerService.HintSize="581.6,2168.8" sap2010:WorkflowViewState.IdRef="Sequence_9">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <uix:NCheckState DisplayName="Check App State 'Horizont'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="514,1308" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Timeout="50" Version="V5">
+                    <uix:NCheckState DisplayName="Check App State 'Horizont'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="548,2108.8" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Timeout="50" Version="V5">
                       <uix:NCheckState.IfExists>
-                        <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="512,797" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="546.4,432" sap2010:WorkflowViewState.IdRef="Sequence_4">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478,149" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="477.6,149.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
                             <ui:MultipleAssign.AssignOperations>
                               <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
@@ -417,15 +425,15 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </ui:MultipleAssign>
-                          <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="478,422" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_5" InteractionMode="HardwareEvents" ScopeIdentifier="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Shortcuts="[d(hk)][k(Enter)][u(hk)]" Version="V5">
+                          <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="477.6,56.8" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_5" InteractionMode="HardwareEvents" ScopeIdentifier="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Shortcuts="[d(hk)][k(Enter)][u(hk)]" Version="V5">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </uix:NKeyboardShortcuts>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="478,166" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Grundwasserstand erfolgreich hochgeladen&quot;]">
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="477.6,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Grundwasserstand erfolgreich hochgeladen&quot;]">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -436,13 +444,13 @@
                         </Sequence>
                       </uix:NCheckState.IfExists>
                       <uix:NCheckState.IfNotExists>
-                        <Sequence DisplayName="Ziel wird nicht angezeigt" sap:VirtualizedContainerService.HintSize="512,226" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <Sequence DisplayName="Ziel wird nicht angezeigt" sap:VirtualizedContainerService.HintSize="546.4,1392" sap2010:WorkflowViewState.IdRef="Sequence_5">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Warten auf Grundwasserstand Upload&quot;]">
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="512.8,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Warten auf Grundwasserstand Upload&quot;]">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -450,6 +458,64 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </ui:LogMessage>
+                          <uix:NCheckState DisplayName="Check App State 'Fehlerprotokoll'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="512.8,1157.6" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Version="V5">
+                            <uix:NCheckState.IfExists>
+                              <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="511.2,783.2" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NGetText DisplayName="Get Text 'U5F 62B (T): existiert …'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="477.6,142.4" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="bdbd3763-98ca-43fb-9af8-3870b2b8555e" TextString="[out_str_fehlerprotokollText]" Version="V5">
+                                  <uix:NGetText.Target>
+                                    <uix:TargetAnchorable CvType="AnyWordGroup" DesignTimeRectangle="3, 85, 965, 463" ElementType="Text" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;wnd cls='TMemo' /&gt;&lt;ctrl role='text' automationid='' matching:automationid='fuzzy' fuzzylevel:automationid='0.0' aastate='schreibgeschützt, markierbar' /&gt;" Guid="9d4f98aa-5585-4534-b9f5-bd565fb83577" InformativeScreenshot="66e8775cf176461067fb9c7aade53a0a.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TFrm_MessageList' isremoteapp='1' title='Fehlerprotokoll' /&gt;" SearchSteps="FuzzySelector, CV" Version="V6" WaitForReadyArgument="None" />
+                                  </uix:NGetText.Target>
+                                </uix:NGetText>
+                                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Schließen'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="477.6,265.6" sap2010:WorkflowViewState.IdRef="NClick_17" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Version="V5">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable CvElementArea="6, 44, 95, 32" CvTextArea="22, 52, 61, 16" CvTextArgument="Schließen" CvType="Button" DesignTimeRectangle="7, 45, 94, 31" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd cls='TButton' title='Schließen' /&gt;" Guid="adc816cc-198c-4b43-bf64-4ea5af2c893e" InformativeScreenshot="aaa9abce60d66cf3731f57cffbd066eb.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TFrm_MessageList' isremoteapp='1' title='Fehlerprotokoll' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive" />
+                                  </uix:NClick.Target>
+                                  <uix:NClick.VerifyOptions>
+                                    <uix:VerifyExecutionOptions DisplayName="Verifizierungsziel" Mode="Disappears">
+                                      <uix:VerifyExecutionOptions.Target>
+                                        <uix:TargetAnchorable CvElementArea="6, 44, 95, 32" CvTextArea="22, 52, 61, 16" CvTextArgument="Schließen" CvType="Button" DesignTimeRectangle="7, 45, 94, 31" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd cls='TButton' title='Schließen' /&gt;" Guid="d8cc9054-407c-4b82-8307-200a253964aa" InformativeScreenshot="957e845c941ff4b449456efa8aaa5026.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TFrm_MessageList' isremoteapp='1' title='Fehlerprotokoll' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive" />
+                                      </uix:VerifyExecutionOptions.Target>
+                                      <uix:VerifyExecutionOptions.Timeout>
+                                        <InArgument x:TypeArguments="x:Double" />
+                                      </uix:VerifyExecutionOptions.Timeout>
+                                    </uix:VerifyExecutionOptions>
+                                  </uix:NClick.VerifyOptions>
+                                </uix:NClick>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="477.6,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Warn" Message="[&quot;Fehlerprotokoll beim import: &quot; + out_str_fehlerprotokollText]" />
+                                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="477.6,140.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+                                  <ui:MultipleAssign.AssignOperations>
+                                    <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:Boolean">[bool_fehlerprotokoll]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                    </scg:List>
+                                  </ui:MultipleAssign.AssignOperations>
+                                </ui:MultipleAssign>
+                              </Sequence>
+                            </uix:NCheckState.IfExists>
+                            <uix:NCheckState.IfNotExists>
+                              <Sequence DisplayName="Ziel wird nicht angezeigt" sap:VirtualizedContainerService.HintSize="511.2,89.6" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Sequence>
+                            </uix:NCheckState.IfNotExists>
+                            <uix:NCheckState.Target>
+                              <uix:TargetAnchorable DesignTimeRectangle="0, 0, 993, 597" ElementVisibilityArgument="Interactive" Guid="d35b29c7-2086-470c-8852-272f4bd7d540" InformativeScreenshot="90b42ed8514b6536680b7a7036b6c690.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TFrm_MessageList' isremoteapp='1' title='Fehlerprotokoll' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="None" />
+                            </uix:NCheckState.Target>
+                          </uix:NCheckState>
                         </Sequence>
                       </uix:NCheckState.IfNotExists>
                       <uix:NCheckState.Target>
@@ -467,11 +533,11 @@
               </ui:RetryScope.ActivityBody>
               <ui:RetryScope.Condition>
                 <ActivityFunc x:TypeArguments="x:Boolean">
-                  <ui:CheckTrue DisplayName="Check True" ErrorMessage="Grundwasserstand konnte nicht hochgeladen werden" Expression="[bool_hochgeladen]" sap:VirtualizedContainerService.HintSize="548,131" sap2010:WorkflowViewState.IdRef="CheckTrue_1" />
+                  <ui:CheckTrue DisplayName="Check True" ErrorMessage="Grundwasserstand konnte nicht hochgeladen werden" Expression="[bool_hochgeladen Or bool_fehlerprotokoll]" sap:VirtualizedContainerService.HintSize="581.6,131.2" sap2010:WorkflowViewState.IdRef="CheckTrue_1" />
                 </ActivityFunc>
               </ui:RetryScope.Condition>
             </ui:RetryScope>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Ja'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="590,257" sap2010:WorkflowViewState.IdRef="NClick_13" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Version="V5">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Ja'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="623.2,256.8" sap2010:WorkflowViewState.IdRef="NClick_13" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bdbd3763-98ca-43fb-9af8-3870b2b8555e" Version="V5">
               <uix:NClick.Target>
                 <uix:TargetAnchorable DesignTimeRectangle="62, 113, 115, 31" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd cls='TBitBtn' title='Ja' /&gt;" Guid="f48cda90-b924-4158-8eea-37453ec1b9fb" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHcAAAAjCAYAAACuJpVrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAASySURBVHhe7dlbTJNnHMfxJ4soggHWXRCNF3MJWZaZLGYuChVC5LSVER2HCLiLFUIKblMGDOoYOOUwuoFFphOGOzAa1lXYdBxLkJMChTaAHHpuocJQ2HRceftb3lZT6Iu4zg192/fic9P3/7xJ+037POlLlpeXwXJNxPEFlutg47owNq4LWxV3QP8HBI23WAymMv+5dlzJyB0QoYbFYL/dXHp83B3FWgSIdCwG2F6kdS7upT4zdCYLiwHOdpqci1t33QyLxcJigPPXzO4dt2OhA9nL2dDe0tKuMZ1bx2273Qb+HB+cMQ5Ke0qh1ChpM0zmtnGH5oeQvJgMoiAgBc+BfMiBpE9Gm2Myt40bfj8cm7o3gRQRkEw/EJ8sSBoGaHNM5nZxlfNKa1jfdl8QMQH57EHcrXmQSIZo80zmVnHlC3IkLiViy7Ut9rAZ/vA7mIDsvF8wODhNW2OjxVhfI34sSMMxQRrSPqnBdy0KTNPmni1uE5c6FafMpdj22NIHYdP9sSM2DikpMqjVRtoaOzVUXfW4eIyHhKjX8NL+DJwQN0NFm3u2uEVcxbwCRxeP2sJSUSlZPuBExIPPd+IQZZqC5XoJ+EmnUChuxohRC+34IPr7etHbS7mBweFxTJksmHVc+xS4RdyI+xHw6PEAKV4R9+UkZGY3Qadz4v04xO3rl0GW8wb8X/CFt7c3vL0DsPetHFQOWWCYWWP9BmN8XNFdETKXM2mvU6jDExXWr8PPvsdmb7OGzS9uXGePfQSHuMO6CUzcaMZl2c+QSqWQnj2J/NxMBJ1px5T+6X9OjI5bdrcMe6b2YJdqF3L/yl31LxN1eEpeSoZntydI5YrDU1g8Pvq4CQMDToalOMRVGcYw3V8P0fH3cVwggOBIJCLejMbOpBr0a4wwOq7fYIyOG6IJAZESkFoCjpoD0aIIqnmVNWzqXOrqw1OGP7bHxlr32PUPT+tYGfeLOnTI6/BNXgriIg8hhheDmCguAoOj8AqvHK3Temgd128wZsc9Gw2S52mLV0FAfieouF1hOzwNr9hfKQfCwOP9QLuHU4yTsPScxrtHCpFfeApVRRkIeTEORXI1RvQWzCh/Qt2XQoTyytHOxn0yIWEXQCIDbfFOE5DPCbxMXtjcsxmk5H+IqxuDpSENIYdzkU7FPVeIiKgytEzqoZm14OavpTiTfhg7eeVoYeM+mba2URzinwMJDbVHrCb2PfYhbjgS07+GXD5Ou8fjdaNRlAUBlwtuIBfcV4ORUFiP77uG0HW5EidjArA/OBCBXC5470QiKu49BLHf3P+GTDaM2LRKkPADIPkeq6PmbbWGT0y/gCtXVLS1/4wSvbJanBcKIRR+CqFQDEmnEiq9BRpVN+TfClGQT10TokQsRuUlKWpqOzFqNMNEu9fGYnxcytWrKhx8uwoe8XtBcrbZwmb5wCs+CJEx1f/yG8t8LhGXolCosXv3V/BMfB3kxPPWsPv2VWNy0kCbdRcuE3dmZhYTEwYEhlZZn/BERNvCzs7SZ92Fy8R9qLV11Prozl1/ildyubgsO6fjfiAz4mKPmcUAqQ0G5+KymImN68IeGdewcA9NY4ssBpu5c2/tuCzX8jfdibIYPQJcOAAAAABJRU5ErkJggg==" InformativeScreenshot="3f3d2b1ccc53d39e246fb61e41f7dc59.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TRbkFrmMsgDlg' isremoteapp='1' title='GW-Base 9.0' /&gt;" SearchSteps="Selector, Image" Version="V6" WaitForReadyArgument="Interactive" />
               </uix:NClick.Target>
@@ -513,27 +579,27 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </uix:NApplicationCard>
-    <uix:NCheckState DisplayName="Check App State 'OK'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="626,1235" sap2010:WorkflowViewState.IdRef="NCheckState_2" Version="V5">
+    <uix:NCheckState DisplayName="Check App State 'OK'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="658.4,1232" sap2010:WorkflowViewState.IdRef="NCheckState_2" Version="V5">
       <uix:NCheckState.IfExists>
-        <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="486,851" sap2010:WorkflowViewState.IdRef="Sequence_11">
+        <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="484.8,848.8" sap2010:WorkflowViewState.IdRef="Sequence_11">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Remote Desktop: GW-Base 9.0" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="452,791" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" IsDisplayNameAuto="True" ScopeGuid="aa99d7de-9d21-47a5-80cd-50f4b9bd5e4b" Version="V2">
+          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Remote Desktop: GW-Base 9.0" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="451.2,788.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" IsDisplayNameAuto="True" ScopeGuid="aa99d7de-9d21-47a5-80cd-50f4b9bd5e4b" Version="V2">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="450,545" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="449.6,543.2" sap2010:WorkflowViewState.IdRef="Sequence_10">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DelayAfter="10" DisplayName="Keyboard Shortcuts" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,485" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_6" InteractionMode="HardwareEvents" ScopeIdentifier="aa99d7de-9d21-47a5-80cd-50f4b9bd5e4b" Shortcuts="[d(hk)][k(Enter)][u(hk)]" Version="V5">
+                  <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DelayAfter="10" DisplayName="Keyboard Shortcuts" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,483.2" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_6" InteractionMode="HardwareEvents" ScopeIdentifier="aa99d7de-9d21-47a5-80cd-50f4b9bd5e4b" Shortcuts="[d(hk)][k(Enter)][u(hk)]" Version="V5">
                     <uix:NKeyboardShortcuts.VerifyOptions>
                       <uix:VerifyExecutionOptions DisplayName="Verifizierungsziel" Mode="Disappears">
                         <uix:VerifyExecutionOptions.Retry>
@@ -575,7 +641,7 @@
         </Sequence>
       </uix:NCheckState.IfExists>
       <uix:NCheckState.IfNotExists>
-        <Sequence DisplayName="Ziel wird nicht angezeigt" sap:VirtualizedContainerService.HintSize="486,90" sap2010:WorkflowViewState.IdRef="Sequence_12">
+        <Sequence DisplayName="Ziel wird nicht angezeigt" sap:VirtualizedContainerService.HintSize="484.8,89.6" sap2010:WorkflowViewState.IdRef="Sequence_12">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -593,6 +659,6 @@
         </uix:TargetAnchorable>
       </uix:NCheckState.Target>
     </uix:NCheckState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="626,166" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Beendet: Grundwasserstand import&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="658.4,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Beendet: Grundwasserstand import&quot;]" />
   </Sequence>
 </Activity>

@@ -7,6 +7,7 @@
     <x:Property Name="in_listFailedExportPointsBAU" Type="InArgument(scg:IList(x:String))" />
     <x:Property Name="in_str_WebexApiUrl" Type="InArgument(x:String)" />
     <x:Property Name="in_str_WebexRoomID" Type="InArgument(x:String)" />
+    <x:Property Name="in_str_fehlerprotokollText" Type="InArgument(x:String)" />
   </x:Members>
   <this:SMTP_SendFinalManagerEmails.in_bool_rkuHasErrors>
     <InArgument x:TypeArguments="x:Boolean" />
@@ -156,7 +157,7 @@
       <AssemblyReference>System.Net.ServicePoint</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SMTP_SendFinalManagerEmails" sap:VirtualizedContainerService.HintSize="1127,1214" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SMTP_SendFinalManagerEmails" sap:VirtualizedContainerService.HintSize="744.4000000000001,1213.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ss:SecureString" Name="secstr_WebexToken" />
       <Variable x:TypeArguments="x:String" Name="str_NameUseless" />
@@ -175,17 +176,17 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="514,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Webex Send Info started&quot;]" />
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="514,1016" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="513.6,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Webex Send Info started&quot;]" />
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="513.6,1016" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="Versuchen" sap:VirtualizedContainerService.HintSize="512,541" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Versuchen" sap:VirtualizedContainerService.HintSize="512,541.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;rpa009_Webex_Token&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="478,176" sap2010:WorkflowViewState.IdRef="GetRobotCredential_4" Password="[secstr_WebexToken]" Username="[str_NameUseless]" />
-          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478,211" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+          <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;global_WebEx_Token&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="478.4,175.2" sap2010:WorkflowViewState.IdRef="GetRobotCredential_4" Password="[secstr_WebexToken]" Username="[str_NameUseless]" />
+          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.4,212" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
             <ui:MultipleAssign.AssignOperations>
               <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
@@ -221,6 +222,11 @@ If((in_listFailedExportPointsRKU IsNot Nothing AndAlso in_listFailedExportPoints
     ) &amp;
     Environment.NewLine,
     ""
+) &amp;
+If(Not String.IsNullOrWhiteSpace(in_str_fehlerprotokollText) AndAlso in_str_fehlerprotokollText.Trim &lt;&gt; "0",
+    "Beim Upload vom Grundwasser kam folgende Fehlermeldung:" &amp; Environment.NewLine &amp;
+    in_str_fehlerprotokollText &amp; Environment.NewLine &amp; Environment.NewLine,
+    ""
 )]</InArgument>
                   </ui:AssignOperation.Value>
                 </ui:AssignOperation>
@@ -243,7 +249,7 @@ If((in_listFailedExportPointsRKU IsNot Nothing AndAlso in_listFailedExportPoints
               </scg:List>
             </ui:MultipleAssign.AssignOperations>
           </ui:MultipleAssign>
-          <ui:HttpClient ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" AuthenticationType="None" Body="[str_JsonBody]" BodyFormat="application/json" DisplayName="HTTP Request" EnableSSLVerification="True" EndPoint="[in_str_WebexApiUrl]" sap:VirtualizedContainerService.HintSize="478,94" sap2010:WorkflowViewState.IdRef="HttpClient_1" Method="POST" TimeoutMS="6000">
+          <ui:HttpClient ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" AuthenticationType="None" Body="[str_JsonBody]" BodyFormat="application/json" DisplayName="HTTP Request" EnableSSLVerification="True" EndPoint="[in_str_WebexApiUrl]" sap:VirtualizedContainerService.HintSize="478.4,94.4" sap2010:WorkflowViewState.IdRef="HttpClient_1" Method="POST" TimeoutMS="6000">
             <ui:HttpClient.Attachments>
               <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
             </ui:HttpClient.Attachments>
@@ -269,7 +275,7 @@ If((in_listFailedExportPointsRKU IsNot Nothing AndAlso in_listFailedExportPoints
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="512,90" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="512,89.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -280,7 +286,7 @@ If((in_listFailedExportPointsRKU IsNot Nothing AndAlso in_listFailedExportPoints
         </Catch>
       </TryCatch.Catches>
       <TryCatch.Finally>
-        <Sequence DisplayName="Endlich" sap:VirtualizedContainerService.HintSize="512,226" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence DisplayName="Endlich" sap:VirtualizedContainerService.HintSize="512,226.4" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
