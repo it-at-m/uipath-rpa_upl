@@ -135,7 +135,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="refresh_data" sap:VirtualizedContainerService.HintSize="897.2,4516.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="refresh_data" sap:VirtualizedContainerService.HintSize="634,4516.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_FilePath_Grundwasserstand" />
       <Variable x:TypeArguments="x:String" Name="str_FilePath_Wassertemperatur" />

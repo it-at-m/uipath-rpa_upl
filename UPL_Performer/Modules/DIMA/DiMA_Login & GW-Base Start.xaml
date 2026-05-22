@@ -130,7 +130,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DiMA_Login" sap:VirtualizedContainerService.HintSize="968,7211" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DiMA_Login" sap:VirtualizedContainerService.HintSize="1180,5710" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_Robot_Account_Name" />
       <Variable x:TypeArguments="ss:SecureString" Name="str_Robot_Account_Password" />
@@ -142,9 +142,9 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="549,175" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Starte: DiMA_Login &amp; GW-Base Start&quot;]" />
-    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="rpa009_Robot Account" CacheStrategy="None" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="549,176" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[str_Robot_Account_Password]" Username="[str_Robot_Account_Name]" />
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[UiPath.UIAutomationNext.Enums.NAppCloseMode.Always]" DisplayName="Use Browser Edge: DiMA" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="549,2369" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="[UiPath.UIAutomationNext.Enums.NAppOpenMode.IfNotOpen]" ScopeGuid="5e8037ab-8d7c-4cf6-9617-4dbc1acf6a61" Version="V2" WindowResize="Maximize">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="550,175" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Starte: DiMA_Login &amp; GW-Base Start&quot;]" />
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="rpa009_Robot Account" CacheStrategy="None" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="550,176" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[str_Robot_Account_Password]" Username="[str_Robot_Account_Name]" />
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[UiPath.UIAutomationNext.Enums.NAppCloseMode.Always]" DisplayName="Use Browser Edge: DiMA" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="550,2369" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="[UiPath.UIAutomationNext.Enums.NAppOpenMode.IfNotOpen]" ScopeGuid="5e8037ab-8d7c-4cf6-9617-4dbc1acf6a61" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -285,7 +285,7 @@
         </uix:TargetApp>
       </uix:NApplicationCard.TargetApp>
     </uix:NApplicationCard>
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="549,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="550,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -307,15 +307,15 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[bool_gestartet = False]" DisplayName="While" sap:VirtualizedContainerService.HintSize="549,3014" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+    <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[bool_gestartet = False]" DisplayName="While" sap:VirtualizedContainerService.HintSize="550,1511" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
       <ui:InterruptibleWhile.Body>
-        <Sequence DisplayName="Text" sap:VirtualizedContainerService.HintSize="547,2883" sap2010:WorkflowViewState.IdRef="Sequence_15">
+        <Sequence DisplayName="Text" sap:VirtualizedContainerService.HintSize="548,1380" sap2010:WorkflowViewState.IdRef="Sequence_15">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="512.8,149.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="514,149" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
             <ui:MultipleAssign.AssignOperations>
               <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
@@ -329,24 +329,24 @@
               </scg:List>
             </ui:MultipleAssign.AssignOperations>
           </ui:MultipleAssign>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="512.8,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Warten auf Start: &quot; + int_counter.ToString]" />
-          <uix:NCheckState DelayBefore="1" DisplayName="Check App State 'Citrix Workspace - Sich…'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="512.8,1560.8" sap2010:WorkflowViewState.IdRef="NCheckState_2" Version="V5">
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="514,175" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Warten auf Start: &quot; + int_counter.ToString]" />
+          <uix:NCheckState DisplayName="Check App State 'Citrix Workspace - Sich…'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="514,57" sap2010:WorkflowViewState.IdRef="NCheckState_2" Version="V5">
             <uix:NCheckState.IfExists>
-              <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="467.2,1177.6" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="468,1180" sap2010:WorkflowViewState.IdRef="Sequence_5">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Citrix Error wird angezeigt&quot;]" />
-                <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ScopeId="{x:Null}" ScrollOffset="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="7d5bd2a4-492d-4f78-886d-d2dacc0c5ee8" DisplayName="CV Screen Scope " sap:VirtualizedContainerService.HintSize="433.6,943.2" sap2010:WorkflowViewState.IdRef="CVScope_1" SendOnPremData="False" Version="V6">
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,175" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Citrix Error wird angezeigt&quot;]" />
+                <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ScopeId="{x:Null}" ScrollOffset="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="7d5bd2a4-492d-4f78-886d-d2dacc0c5ee8" DisplayName="CV Screen Scope " sap:VirtualizedContainerService.HintSize="434,945" sap2010:WorkflowViewState.IdRef="CVScope_1" SendOnPremData="False" Version="V6">
                   <p:CVScope.Body>
                     <ActivityAction x:TypeArguments="x:Object">
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="x:Object" Name="CVSessionData" />
                       </ActivityAction.Argument>
                       <Sequence DisplayName="Ausführen" sap2010:WorkflowViewState.IdRef="Sequence_10">
-                        <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" DelayScreenshotAfterScroll="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: Text 'Für diese Site nicht mehr fragen' (36,296,168,14)&quot;]" DesignTimeCacheId="7d5bd2a4-492d-4f78-886d-d2dacc0c5ee8" DesignTimeScaleFactor="1.25" DisplayName="CV Click - Text" sap:VirtualizedContainerService.HintSize="400,218.4" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_3" InformativeScreenshot="8f1aeb12482b8d795b03912b1ea24ea4" KeyModifiers="None" MouseButton="BTN_LEFT" NumberOfScrolls="2" ScrollDirection="None" Version="V6">
+                        <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" DelayScreenshotAfterScroll="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: Text 'Für diese Site nicht mehr fragen' (36,296,168,14)&quot;]" DesignTimeCacheId="7d5bd2a4-492d-4f78-886d-d2dacc0c5ee8" DesignTimeScaleFactor="1.25" DisplayName="CV Click - Text" sap:VirtualizedContainerService.HintSize="400,219" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_3" InformativeScreenshot="8f1aeb12482b8d795b03912b1ea24ea4" KeyModifiers="None" MouseButton="BTN_LEFT" NumberOfScrolls="2" ScrollDirection="None" Version="V6">
                           <p:CvClickWithDescriptor.CursorPosition>
                             <ui:CursorPosition Position="Center">
                               <ui:CursorPosition.OffsetX>
@@ -375,7 +375,7 @@
                             </ui:Target>
                           </p:CvClickWithDescriptor.Target>
                         </p:CvClickWithDescriptor>
-                        <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" DelayScreenshotAfterScroll="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: Text 'Verwendung zulassen' (80,226,152,20)&quot;]" DesignTimeCacheId="7d5bd2a4-492d-4f78-886d-d2dacc0c5ee8" DesignTimeScaleFactor="1.25" DisplayName="CV Click - Text" sap:VirtualizedContainerService.HintSize="400,218.4" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_2" InformativeScreenshot="846fa3953f58c0c06b26b69eb3306c2c" KeyModifiers="None" MouseButton="BTN_LEFT" NumberOfScrolls="2" ScrollDirection="None" Version="V6">
+                        <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" DelayScreenshotAfterScroll="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: Text 'Verwendung zulassen' (80,226,152,20)&quot;]" DesignTimeCacheId="7d5bd2a4-492d-4f78-886d-d2dacc0c5ee8" DesignTimeScaleFactor="1.25" DisplayName="CV Click - Text" sap:VirtualizedContainerService.HintSize="400,219" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_2" InformativeScreenshot="846fa3953f58c0c06b26b69eb3306c2c" KeyModifiers="None" MouseButton="BTN_LEFT" NumberOfScrolls="2" ScrollDirection="None" Version="V6">
                           <p:CvClickWithDescriptor.CursorPosition>
                             <ui:CursorPosition Position="Center">
                               <ui:CursorPosition.OffsetX>
@@ -404,7 +404,7 @@
                             </ui:Target>
                           </p:CvClickWithDescriptor.Target>
                         </p:CvClickWithDescriptor>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="400,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Citrix Error weggeklickt&quot;]" />
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Citrix Error weggeklickt&quot;]" />
                       </Sequence>
                     </ActivityAction>
                   </p:CVScope.Body>
@@ -500,7 +500,7 @@
                       <ActivityFunc.Argument>
                         <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
                       </ActivityFunc.Argument>
-                      <p1:UiPathScreenOCR ApiKey="{x:Null}" Endpoint="{x:Null}" Output="{x:Null}" PredictionId="{x:Null}" Text="{x:Null}" UseAccents="{x:Null}" UseLocalServer="{x:Null}" ComputeSkewAngle="False" ExtractWords="True" sap:VirtualizedContainerService.HintSize="400,24.8" sap2010:WorkflowViewState.IdRef="UiPathScreenOCR_1" Image="[Image]" Language="en" NoopExecution="False" Profile="Screen" Scale="1" Timeout="100000" UseSeparateOcrProcess="True" />
+                      <p1:UiPathScreenOCR ApiKey="{x:Null}" Endpoint="{x:Null}" Output="{x:Null}" PredictionId="{x:Null}" Text="{x:Null}" UseAccents="{x:Null}" UseLocalServer="{x:Null}" ComputeSkewAngle="False" ExtractWords="True" sap:VirtualizedContainerService.HintSize="400,25" sap2010:WorkflowViewState.IdRef="UiPathScreenOCR_1" Image="[Image]" Language="en" NoopExecution="False" Profile="Screen" Scale="1" Timeout="100000" UseSeparateOcrProcess="True" />
                     </ActivityFunc>
                   </p:CVScope.OCREngine>
                   <p:CVScope.Target>
@@ -517,7 +517,7 @@
               </Sequence>
             </uix:NCheckState.IfExists>
             <uix:NCheckState.IfNotExists>
-              <Sequence DisplayName="Ziel wird nicht angezeigt" sap:VirtualizedContainerService.HintSize="467.2,89.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <Sequence DisplayName="Ziel wird nicht angezeigt" sap:VirtualizedContainerService.HintSize="468,90" sap2010:WorkflowViewState.IdRef="Sequence_6">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -530,20 +530,20 @@
             </uix:NCheckState.Target>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </uix:NCheckState>
-          <uix:NCheckState DelayBefore="1" DisplayName="Check App State 'Projekt öffnen'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="512.8,938.4" sap2010:WorkflowViewState.IdRef="NCheckState_4" Version="V5">
+          <uix:NCheckState DelayBefore="10" DisplayName="Check App State 'Projekt öffnen'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="514,939" sap2010:WorkflowViewState.IdRef="NCheckState_4" Version="V5">
             <uix:NCheckState.IfExists>
-              <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="511.2,200.8" sap2010:WorkflowViewState.IdRef="Sequence_16">
+              <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="512,200" sap2010:WorkflowViewState.IdRef="Sequence_16">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="477.6,140.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478,140" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
                   <ui:MultipleAssign.AssignOperations>
                     <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
@@ -560,21 +560,21 @@
               </Sequence>
             </uix:NCheckState.IfExists>
             <uix:NCheckState.IfNotExists>
-              <Sequence DisplayName="Ziel wird nicht angezeigt" sap:VirtualizedContainerService.HintSize="511.2,452.8" sap2010:WorkflowViewState.IdRef="Sequence_12">
+              <Sequence DisplayName="Ziel wird nicht angezeigt" sap:VirtualizedContainerService.HintSize="512,454" sap2010:WorkflowViewState.IdRef="Sequence_12">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <If Condition="[int_counter = 15]" sap:VirtualizedContainerService.HintSize="451.2,392.8" sap2010:WorkflowViewState.IdRef="If_1">
+                <If Condition="[int_counter = 15]" sap:VirtualizedContainerService.HintSize="452,394" sap2010:WorkflowViewState.IdRef="If_1">
                   <If.Then>
-                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,173.6" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,174" sap2010:WorkflowViewState.IdRef="Sequence_21">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Throw Exception="[New SystemException (&quot;GW-Base nicht gestartet: Timout&quot;)]" sap:VirtualizedContainerService.HintSize="416,113.6" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                      <Throw Exception="[New SystemException (&quot;GW-Base nicht gestartet: Timout&quot;)]" sap:VirtualizedContainerService.HintSize="416,114" sap2010:WorkflowViewState.IdRef="Throw_2" />
                     </Sequence>
                   </If.Then>
                   <If.Else>
@@ -602,28 +602,28 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InterruptibleWhile>
-    <uix:NCheckState DisplayName="Check App State 'sfwinstartupinfo.exe'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="548,1108" sap2010:WorkflowViewState.IdRef="NCheckState_3" Version="V5">
+    <uix:NCheckState DisplayName="Check App State 'sfwinstartupinfo.exe'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="550,1110" sap2010:WorkflowViewState.IdRef="NCheckState_3" Version="V5">
       <uix:NCheckState.IfExists>
-        <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="484.8,724.8" sap2010:WorkflowViewState.IdRef="Sequence_11">
+        <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="486,726" sap2010:WorkflowViewState.IdRef="Sequence_11">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="451.2,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;sfwinstartup - Error erschienen&quot;]" />
-          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Remote Desktop: sfwinstartupinfo.exe" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="451.2,490.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" IsDisplayNameAuto="True" ScopeGuid="8f71641d-f055-41e1-b57c-96d84586aa2a" Version="V2">
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;sfwinstartup - Error erschienen&quot;]" />
+          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Remote Desktop: sfwinstartupinfo.exe" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="452,491" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" IsDisplayNameAuto="True" ScopeGuid="8f71641d-f055-41e1-b57c-96d84586aa2a" Version="V2">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="449.6,244.8" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="450,245" sap2010:WorkflowViewState.IdRef="Sequence_13">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Abbrechen'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,184.8" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8f71641d-f055-41e1-b57c-96d84586aa2a" Version="V5">
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Abbrechen'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,185" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8f71641d-f055-41e1-b57c-96d84586aa2a" Version="V5">
                     <uix:NClick.Target>
                       <uix:TargetAnchorable DesignTimeRectangle="463, 250, 115, 29" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd aaname='sfwinstartupinfo.exe' cls='DirectUIHWND' /&gt;&lt;wnd cls='Button' title='Abbrechen' /&gt;" Guid="eb718e20-dd82-495b-a0f7-4bd3f664a57e" InformativeScreenshot="04aaf1c26ad2411a2c05797bd4aadfba.png" ScopeSelectorArgument="&lt;wnd app='sfwinstartupinfo.exe' cls='#32770' isremoteapp='1' title='sfwinstartupinfo.exe' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
                     </uix:NClick.Target>
@@ -667,6 +667,6 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </uix:NCheckState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="548,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Beendet: DiMA_Login &amp; GW-Base Start&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="550,166" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Beendet: DiMA_Login &amp; GW-Base Start&quot;]" />
   </Sequence>
 </Activity>

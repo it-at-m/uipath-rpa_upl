@@ -6,8 +6,8 @@
     <x:Property Name="in_listFailedExportPointsRKU" Type="InArgument(scg:IList(x:String))" />
     <x:Property Name="in_listFailedExportPointsBAU" Type="InArgument(scg:IList(x:String))" />
     <x:Property Name="in_str_WebexApiUrl" Type="InArgument(x:String)" />
-    <x:Property Name="in_str_WebexRoomID" Type="InArgument(x:String)" />
     <x:Property Name="in_str_fehlerprotokollText" Type="InArgument(x:String)" />
+    <x:Property Name="in_arr_Wassertemperatur" Type="InArgument(s:String[])" />
   </x:Members>
   <this:SMTP_SendFinalManagerEmails.in_bool_rkuHasErrors>
     <InArgument x:TypeArguments="x:Boolean" />
@@ -157,7 +157,7 @@
       <AssemblyReference>System.Net.ServicePoint</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SMTP_SendFinalManagerEmails" sap:VirtualizedContainerService.HintSize="744.4000000000001,1213.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SMTP_SendFinalManagerEmails" sap:VirtualizedContainerService.HintSize="1069,1421" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ss:SecureString" Name="secstr_WebexToken" />
       <Variable x:TypeArguments="x:String" Name="str_NameUseless" />
@@ -170,25 +170,46 @@
       <Variable x:TypeArguments="x:String" Name="str_JsonBody" />
       <Variable x:TypeArguments="x:String" Name="str_RKUNachricht1" />
       <Variable x:TypeArguments="x:String" Name="str_Token" />
+      <Variable x:TypeArguments="x:String" Name="str_WebexRoomID" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="513.6,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Webex Send Info started&quot;]" />
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="513.6,1016" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="514,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Webex Send Info started&quot;]" />
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="514,1223" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="Versuchen" sap:VirtualizedContainerService.HintSize="512,541.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Versuchen" sap:VirtualizedContainerService.HintSize="512,748" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="ss:SecureString" Name="secstr_WebexRoomID" />
+          </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;global_WebEx_Token&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="478.4,175.2" sap2010:WorkflowViewState.IdRef="GetRobotCredential_4" Password="[secstr_WebexToken]" Username="[str_NameUseless]" />
-          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.4,212" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+          <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;global_WebEx_Token&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="478,176" sap2010:WorkflowViewState.IdRef="GetRobotCredential_4" Password="[secstr_WebexToken]" Username="[str_NameUseless]" />
+          <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;rpa009_Webex_RoomID&#xA;&#xA;&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="478,176" sap2010:WorkflowViewState.IdRef="GetRobotCredential_5" Password="[secstr_WebexRoomID]" Username="[str_NameUseless]" />
+          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478,242" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
             <ui:MultipleAssign.AssignOperations>
               <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[str_WebexRoomID]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[New System.Net.NetworkCredential("", secstr_WebexRoomID).Password]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[str_EscapedMessage]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[str_WebexMessage.Replace("\","\\").Replace("""","\""").Replace(vbCrLf,"\n").Replace(vbLf,"\n")]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
                   <ui:AssignOperation.To>
                     <OutArgument x:TypeArguments="x:String">[str_WebexMessage]</OutArgument>
@@ -227,15 +248,11 @@ If(Not String.IsNullOrWhiteSpace(in_str_fehlerprotokollText) AndAlso in_str_fehl
     "Beim Upload vom Grundwasser kam folgende Fehlermeldung:" &amp; Environment.NewLine &amp;
     in_str_fehlerprotokollText &amp; Environment.NewLine &amp; Environment.NewLine,
     ""
+) &amp;
+If(in_arr_Wassertemperatur IsNot Nothing AndAlso in_arr_Wassertemperatur.Count &gt; 10,
+    "**Hinweis:** Mehr als 10 Messpunkte für Wassertemperatur vorhanden. Der Export-Code muss für die Wassertemperatur erweitert werden!" &amp; Environment.NewLine &amp; Environment.NewLine,
+    ""
 )]</InArgument>
-                  </ui:AssignOperation.Value>
-                </ui:AssignOperation>
-                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
-                  <ui:AssignOperation.To>
-                    <OutArgument x:TypeArguments="x:String">[str_EscapedMessage]</OutArgument>
-                  </ui:AssignOperation.To>
-                  <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:String">[str_WebexMessage.Replace("\","\\").Replace("""","\""").Replace(vbCrLf,"\n").Replace(vbLf,"\n")]</InArgument>
                   </ui:AssignOperation.Value>
                 </ui:AssignOperation>
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
@@ -243,7 +260,7 @@ If(Not String.IsNullOrWhiteSpace(in_str_fehlerprotokollText) AndAlso in_str_fehl
                     <OutArgument x:TypeArguments="x:String">[str_JsonBody]</OutArgument>
                   </ui:AssignOperation.To>
                   <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:String">["{""roomId"":""" + in_str_WebexRoomID + """,""markdown"":""" + str_EscapedMessage + """}"]</InArgument>
+                    <InArgument x:TypeArguments="x:String">["{""roomId"":""" + str_WebexRoomID + """,""markdown"":""" + str_EscapedMessage + """}"]</InArgument>
                   </ui:AssignOperation.Value>
                 </ui:AssignOperation>
               </scg:List>
