@@ -155,7 +155,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Export" sap:VirtualizedContainerService.HintSize="1069,5008" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Export" sap:VirtualizedContainerService.HintSize="714,7300" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="latestFile" />
       <Variable x:TypeArguments="x:String" Name="str_exportFilePath" />
@@ -171,8 +171,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="558,175" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Starte: SEPA_Hydro_export&quot;]" />
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="558,211" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="700.8,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Starte: SEPA_Hydro_export&quot;]" />
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="700.8,212" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
@@ -205,7 +205,7 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="558,57" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[&quot;Download Path: &quot; + str_downloadPath + &quot; Username: &quot; + str_username]">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="700.8,56.8" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[&quot;Download Path: &quot; + str_downloadPath + &quot; Username: &quot; + str_username]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -213,7 +213,7 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ui:CreateList x:TypeArguments="x:String" DisplayName="Create List" sap:VirtualizedContainerService.HintSize="558,57" sap2010:WorkflowViewState.IdRef="CreateList`1_4" NewList="[out_failedExportPointsListRKU]">
+    <ui:CreateList x:TypeArguments="x:String" DisplayName="Create List" sap:VirtualizedContainerService.HintSize="700.8,56.8" sap2010:WorkflowViewState.IdRef="CreateList`1_4" NewList="[out_failedExportPointsListRKU]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -221,7 +221,7 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CreateList>
-    <ui:CreateList x:TypeArguments="x:String" DisplayName="Create List" sap:VirtualizedContainerService.HintSize="558,57" sap2010:WorkflowViewState.IdRef="CreateList`1_5" NewList="[out_failedExportPointsListBAU]">
+    <ui:CreateList x:TypeArguments="x:String" DisplayName="Create List" sap:VirtualizedContainerService.HintSize="700.8,56.8" sap2010:WorkflowViewState.IdRef="CreateList`1_5" NewList="[out_failedExportPointsListBAU]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -229,9 +229,9 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CreateList>
-    <If Condition="[in_arr_Grundwasserstand Is Nothing OrElse in_arr_Grundwasserstand.length =0]" sap:VirtualizedContainerService.HintSize="558,3417" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[in_arr_Grundwasserstand Is Nothing OrElse in_arr_Grundwasserstand.length =0]" sap:VirtualizedContainerService.HintSize="700.8,5708.8" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="556,90" sap2010:WorkflowViewState.IdRef="Sequence_44">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="699.2,89.6" sap2010:WorkflowViewState.IdRef="Sequence_44">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -240,14 +240,14 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="556,3188" sap2010:WorkflowViewState.IdRef="Sequence_45">
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="699.2,5480.8" sap2010:WorkflowViewState.IdRef="Sequence_45">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="522,175" sap2010:WorkflowViewState.IdRef="LogMessage_25" Level="Info" Message="[&quot;Starte Grundwasserstand Export&quot;]" />
-          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="522,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="665.6,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_25" Level="Info" Message="[&quot;Starte Grundwasserstand Export&quot;]" />
+          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="665.6,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
             <ui:MultipleAssign.AssignOperations>
               <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
@@ -269,15 +269,15 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
               </scg:List>
             </ui:MultipleAssign.AssignOperations>
           </ui:MultipleAssign>
-          <ui:InterruptibleWhile CurrentIndex="{x:Null}" DisplayName="While" sap:VirtualizedContainerService.HintSize="522,2348" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
+          <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[int_counter &lt; in_arr_Grundwasserstand.Count]" DisplayName="While" sap:VirtualizedContainerService.HintSize="665.6,4641.6" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
             <ui:InterruptibleWhile.Body>
-              <Sequence DisplayName="Text" sap:VirtualizedContainerService.HintSize="520,2217" sap2010:WorkflowViewState.IdRef="Sequence_52">
+              <Sequence DisplayName="Text" sap:VirtualizedContainerService.HintSize="664,4511.2" sap2010:WorkflowViewState.IdRef="Sequence_52">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="486,149" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
+                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="630.4,149.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
                   <ui:MultipleAssign.AssignOperations>
                     <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
@@ -291,7 +291,7 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
                     </scg:List>
                   </ui:MultipleAssign.AssignOperations>
                 </ui:MultipleAssign>
-                <Sequence DisplayName="Grundwasserstand csv aktualisieren" sap:VirtualizedContainerService.HintSize="486,1837" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                <Sequence DisplayName="Grundwasserstand csv aktualisieren" sap:VirtualizedContainerService.HintSize="630.4,4130.4" sap2010:WorkflowViewState.IdRef="Sequence_10">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="si:FileInfo" Name="file_downloadDatei" />
                     <Variable x:TypeArguments="sd:DataTable" Name="dtDownload" />
@@ -302,21 +302,21 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Grundwasserstand Download" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="452,1386" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[in_Seba_Browser]" InteractionMode="DebuggerApi" OpenMode="[UiPath.UIAutomationNext.Enums.NAppOpenMode.IfNotOpen]" ScopeGuid="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Version="V2" WindowResize="Maximize">
+                  <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Grundwasserstand Download" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="596.8,3679.2" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[in_Seba_Browser]" InteractionMode="DebuggerApi" OpenMode="[UiPath.UIAutomationNext.Enums.NAppOpenMode.IfNotOpen]" ScopeGuid="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Version="V2" WindowResize="Maximize">
                     <uix:NApplicationCard.Body>
                       <ActivityAction x:TypeArguments="x:Object">
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="450,1255" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                        <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="595.2,3548.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Starte Grundwasserstand Export Nr.: &quot; + int_paketNr.ToString]" />
-                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Auswertung'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,313" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Version="V3">
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="561.6,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Starte Grundwasserstand Export Nr.: &quot; + int_paketNr.ToString]" />
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Auswertung'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="561.6,312" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Version="V3">
                             <uix:NClick.Target>
                               <uix:TargetAnchorable BrowserURL="https://seba-hydrocenter.com/visualization" DesignTimeRectangle="69, 524, 88, 23" DesignTimeScaleFactor="1" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='Auswertung' parentid='snav' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Auswertung' parentid='snav' tag='SPAN' type='' class='' check:innerText='Auswertung' /&gt;" Guid="cf8637e3-b83d-4e5c-b1c7-1f1b39c4febf" InformativeScreenshot="bdb03c43c6262ff0fdda40f5174625d2.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Hydrocenter Next Gen' /&gt;" SearchSteps="Selector" Version="V4" />
                             </uix:NClick.Target>
@@ -337,7 +337,7 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </uix:NClick>
-                          <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DelayAfter="15" DisplayName="Keyboard Shortcuts F5" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" InteractionMode="HardwareEvents" ScopeIdentifier="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Shortcuts="[d(hk)][k(F5)][u(hk)]" Version="V5">
+                          <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DelayAfter="15" DisplayName="Keyboard Shortcuts F5" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="561.6,56.8" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" InteractionMode="HardwareEvents" ScopeIdentifier="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Shortcuts="[d(hk)][k(F5)][u(hk)]" Version="V5">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -345,13 +345,13 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </uix:NKeyboardShortcuts>
-                          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Grundwasserstand auswählen" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[arr_Paket]">
+                          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Grundwasserstand auswählen" sap:VirtualizedContainerService.HintSize="561.6,2353.6" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[arr_Paket]">
                             <ui:ForEach.Body>
                               <ActivityAction x:TypeArguments="x:String">
                                 <ActivityAction.Argument>
                                   <DelegateInArgument x:TypeArguments="x:String" Name="currentText" />
                                 </ActivityAction.Argument>
-                                <Sequence DisplayName="Hauptteil" sap:VirtualizedContainerService.HintSize="548,1081" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                                <Sequence DisplayName="Hauptteil" sap:VirtualizedContainerService.HintSize="560,2223.2" sap2010:WorkflowViewState.IdRef="Sequence_3">
                                   <Sequence.Variables>
                                     <Variable x:TypeArguments="x:String" Name="item" />
                                   </Sequence.Variables>
@@ -360,7 +360,7 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="514,855" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="526.4,1996.8" sap2010:WorkflowViewState.IdRef="TryCatch_3">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -368,24 +368,24 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                     <TryCatch.Try>
-                                      <Sequence DisplayName="Versuchen" sap:VirtualizedContainerService.HintSize="512,165" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                                      <Sequence DisplayName="Versuchen" sap:VirtualizedContainerService.HintSize="524.8,1307.2" sap2010:WorkflowViewState.IdRef="Sequence_20">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:RetryScope DisplayName="Retry Scope Unfold Datapoint" sap:VirtualizedContainerService.HintSize="478,57" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:02">
+                                        <ui:RetryScope DisplayName="Retry Scope Unfold Datapoint" sap:VirtualizedContainerService.HintSize="491.2,604.8" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:02">
                                           <ui:RetryScope.ActivityBody>
                                             <ActivityAction>
-                                              <Sequence DisplayName="Aktion" sap:VirtualizedContainerService.HintSize="450,317" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                              <Sequence DisplayName="Aktion" sap:VirtualizedContainerService.HintSize="449.6,316.8" sap2010:WorkflowViewState.IdRef="Sequence_29">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Messpunkt aufklappen" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,257" sap2010:WorkflowViewState.IdRef="NClick_6" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Version="V3">
+                                                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Messpunkt aufklappen" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,256.8" sap2010:WorkflowViewState.IdRef="NClick_6" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Version="V3">
                                                   <uix:NClick.Target>
-                                                    <uix:TargetAnchorable BrowserURL="https://seba-hydrocenter.com/analysis" DesignTimeRectangle="297, 285, 228, 19" DesignTimeScaleFactor="1" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="[string.Format(&quot;&lt;webctrl tag='LI' class='dx-treeview-node' aria-label='{0}' /&gt;&lt;webctrl tag='DIV' class='dx-treeview-toggle-item-visibility' /&gt;&quot;, currentText)]" FuzzySelectorArgument="&lt;webctrl aaname='KP 1214' tag='DIV' type='' class='' check:innerText='KP 1214' /&gt;" Guid="82a6b16b-0f39-40e4-8f26-21d67940a78e" InformativeScreenshot="82877d40aaf0984f55626beabef0673d.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Hydrocenter Next Gen' /&gt;" SearchSteps="Selector" Version="V4" />
+                                                    <uix:TargetAnchorable BrowserURL="https://seba-hydrocenter.com/analysis" DesignTimeRectangle="297, 285, 228, 19" DesignTimeScaleFactor="1" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="[String.Format(&quot;&lt;webctrl tag='LI' class='dx-treeview-node' aria-label='{0}*' /&gt;&lt;webctrl tag='DIV' class='dx-treeview-toggle-item-visibility' /&gt;&quot;,    currentText.Trim())]" FuzzySelectorArgument="&lt;webctrl aaname='KP 1214' tag='DIV' type='' class='' check:innerText='KP 1214' /&gt;" Guid="82a6b16b-0f39-40e4-8f26-21d67940a78e" InformativeScreenshot="82877d40aaf0984f55626beabef0673d.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Hydrocenter Next Gen' /&gt;" SearchSteps="Selector" Version="V4" />
                                                   </uix:NClick.Target>
                                                   <uix:NClick.VerifyOptions>
                                                     <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
@@ -409,23 +409,23 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
                                           </ui:RetryScope.Condition>
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
                                         </ui:RetryScope>
-                                        <ui:RetryScope DisplayName="Retry Scope Click Checkbox" sap:VirtualizedContainerService.HintSize="478,48" sap2010:WorkflowViewState.IdRef="RetryScope_5" NumberOfRetries="2" RetryInterval="00:00:02">
+                                        <ui:RetryScope DisplayName="Retry Scope Click Checkbox" sap:VirtualizedContainerService.HintSize="491.2,642.4" sap2010:WorkflowViewState.IdRef="RetryScope_5" NumberOfRetries="2" RetryInterval="00:00:02">
                                           <ui:RetryScope.ActivityBody>
                                             <ActivityAction>
-                                              <Sequence DisplayName="Aktion" sap:VirtualizedContainerService.HintSize="450,364" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                                              <Sequence DisplayName="Aktion" sap:VirtualizedContainerService.HintSize="449.6,363.2" sap2010:WorkflowViewState.IdRef="Sequence_43">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Checkbox Grundwasser" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,304" sap2010:WorkflowViewState.IdRef="NClick_20" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Version="V3">
+                                                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Checkbox Grundwasser" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,303.2" sap2010:WorkflowViewState.IdRef="NClick_20" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Version="V3">
                                                   <uix:NClick.Target>
-                                                    <uix:TargetAnchorable BrowserURL="https://seba-hydrocenter.com/analysis" DesignTimeRectangle="297, 285, 228, 19" DesignTimeScaleFactor="1" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="[String.Format(&quot;&lt;webctrl tag='LI' aria-label='{0}#01 *asserstand' /&gt;&lt;webctrl tag='DIV' class='dx-widget dx-checkbox' /&gt;&quot;, currentText)]" FuzzySelectorArgument="&lt;webctrl aaname='KP 1214' tag='DIV' type='' class='' check:innerText='KP 1214' /&gt;" Guid="82a6b16b-0f39-40e4-8f26-21d67940a78e" InformativeScreenshot="d3f014859755711aed59062de8966348.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Hydrocenter Next Gen' /&gt;" SearchSteps="Selector" Version="V4" />
+                                                    <uix:TargetAnchorable BrowserURL="https://seba-hydrocenter.com/analysis" DesignTimeRectangle="297, 285, 228, 19" DesignTimeScaleFactor="1" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="[String.Format(&quot;&lt;webctrl tag='LI' aria-label='{0}*#01*asserstand*' /&gt;&lt;webctrl tag='DIV' class='*dx-checkbox*' /&gt;&quot;,currentText.Trim())]" FuzzySelectorArgument="&lt;webctrl aaname='KP 1214' tag='DIV' type='' class='' check:innerText='KP 1214' /&gt;" Guid="82a6b16b-0f39-40e4-8f26-21d67940a78e" InformativeScreenshot="d3f014859755711aed59062de8966348.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Hydrocenter Next Gen' /&gt;" SearchSteps="Selector" Version="V4" />
                                                   </uix:NClick.Target>
                                                   <uix:NClick.VerifyOptions>
                                                     <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
@@ -446,7 +446,7 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
                                           </ui:RetryScope.Condition>
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
@@ -459,7 +459,7 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
                                           <ActivityAction.Argument>
                                             <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                                           </ActivityAction.Argument>
-                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="512,432" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="524.8,432.8" sap2010:WorkflowViewState.IdRef="Sequence_21">
                                             <Sequence.Variables>
                                               <Variable x:TypeArguments="x:String" Name="str_owner" />
                                             </Sequence.Variables>
@@ -468,7 +468,7 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478,149" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
+                                            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="491.2,149.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
                                               <ui:MultipleAssign.AssignOperations>
                                                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                                                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
@@ -538,12 +538,12 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
                             </ui:ForEach.Body>
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </ui:ForEach>
-                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '1 Woche'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="NClick_8" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Version="V3">
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '1 Woche'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="561.6,56.8" sap2010:WorkflowViewState.IdRef="NClick_8" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Version="V3">
                             <uix:NClick.Target>
                               <uix:TargetAnchorable BrowserURL="https://seba-hydrocenter.com/analysis" DesignTimeRectangle="592, 263, 48, 18" DesignTimeScaleFactor="1" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='1 Woche' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='1 Woche' tag='SPAN' type='' class='ngx-slider-span ngx-slider-tick-legend ng-star-inserted' check:innerText='1 Woche' /&gt;" Guid="7ce0e9da-6311-4126-a1e6-458c59279bbf" InformativeScreenshot="5f394f1c077605f26f45953480ba3375.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Hydrocenter Next Gen' /&gt;" SearchSteps="Selector" Version="V4" />
                             </uix:NClick.Target>
@@ -564,7 +564,7 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </uix:NClick>
-                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'download'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,313" sap2010:WorkflowViewState.IdRef="NClick_9" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Version="V3">
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'download'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="561.6,312" sap2010:WorkflowViewState.IdRef="NClick_9" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f5c396a7-cf58-4af2-954f-3eb5ab9b0c00" Version="V3">
                             <uix:NClick.Target>
                               <uix:TargetAnchorable BrowserURL="https://seba-hydrocenter.com/analysis" DesignTimeRectangle="1439, 245, 24, 24" DesignTimeScaleFactor="1" ElementType="Icon" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='download' tag='MAT-ICON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='download' tag='MAT-ICON' type='' class='mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color' check:innerText='download' /&gt;" Guid="0fa32866-7faa-4b41-b10a-20be3f068968" InformativeScreenshot="9780191a91080fcbb760c37c41560e7a.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Hydrocenter Next Gen' /&gt;" SearchSteps="Selector" Version="V4" />
                             </uix:NClick.Target>
@@ -664,9 +664,6 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
                 </ui:MultipleAssign>
               </Sequence>
             </ui:InterruptibleWhile.Body>
-            <ui:InterruptibleWhile.Condition>
-              <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="int_counter &lt; in_arr_Grundwasserstand.Count" />
-            </ui:InterruptibleWhile.Condition>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -674,17 +671,11 @@ System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserP
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InterruptibleWhile>
-          <ui:InvokeCode ContinueOnError="{x:Null}" Code="'Basisname ohne Dateiendung, z. B. &quot;01 Grundwasserstand&quot;&#xD;&#xA;Dim basisName As String = System.IO.Path.GetFileNameWithoutExtension(in_str_fileNameGrundwasserstand)&#xD;&#xA;&#xD;&#xA;'Alle Paket-Dateien suchen:&#xD;&#xA;'z. B. &quot;01 Grundwasserstand_01.csv&quot;, &quot;01 Grundwasserstand_02.csv&quot;, ...&#xD;&#xA;Dim csvFiles As String() = System.IO.Directory.GetFiles(in_str_exportFilePath, basisName &amp; &quot;_*.csv&quot;).&#xD;&#xA;    OrderBy(Function(x) x).&#xD;&#xA;    ToArray()&#xD;&#xA;&#xD;&#xA;If csvFiles.Length = 0 Then&#xD;&#xA;    Throw New Exception(&quot;Keine CSV-Dateien zum Zusammenführen gefunden. Suchmuster: &quot; &amp; basisName &amp; &quot;_*.csv&quot;)&#xD;&#xA;End If&#xD;&#xA;&#xD;&#xA;'Finale Tabelle erstellen&#xD;&#xA;Dim result As New System.Data.DataTable()&#xD;&#xA;&#xD;&#xA;'Spalte A der finalen CSV&#xD;&#xA;result.Columns.Add(&quot;Datum Zeit&quot;, GetType(String))&#xD;&#xA;&#xD;&#xA;'Merkt sich:&#xD;&#xA;'Wert aus Spalte A -&gt; passende Zeile in der finalen Tabelle&#xD;&#xA;Dim rowMap As New Dictionary(Of String, System.Data.DataRow)&#xD;&#xA;&#xD;&#xA;'Alle Paket-CSV-Dateien verarbeiten&#xD;&#xA;For Each filePath As String In csvFiles&#xD;&#xA;&#xD;&#xA;    'Temporäre Tabelle für aktuelle CSV&#xD;&#xA;    Dim dt As New System.Data.DataTable()&#xD;&#xA;&#xD;&#xA;    'Aktuelle CSV einlesen&#xD;&#xA;    Using parser As New Microsoft.VisualBasic.FileIO.TextFieldParser(filePath, System.Text.Encoding.UTF8)&#xD;&#xA;&#xD;&#xA;        parser.TextFieldType = Microsoft.VisualBasic.FileIO.FieldType.Delimited&#xD;&#xA;        parser.SetDelimiters(&quot;;&quot;)&#xD;&#xA;&#xD;&#xA;        'Erste Zeile = Spaltenüberschriften&#xD;&#xA;        If Not parser.EndOfData Then&#xD;&#xA;&#xD;&#xA;            Dim headers As String() = parser.ReadFields()&#xD;&#xA;&#xD;&#xA;            For Each header As String In headers&#xD;&#xA;&#xD;&#xA;                Dim colName As String = header.Trim&#xD;&#xA;&#xD;&#xA;                If colName = &quot;&quot; Then&#xD;&#xA;                    colName = &quot;Spalte_&quot; &amp; dt.Columns.Count.ToString&#xD;&#xA;                End If&#xD;&#xA;&#xD;&#xA;                If dt.Columns.Contains(colName) Then&#xD;&#xA;                    colName = colName &amp; &quot;_&quot; &amp; dt.Columns.Count.ToString&#xD;&#xA;                End If&#xD;&#xA;&#xD;&#xA;                dt.Columns.Add(colName, GetType(String))&#xD;&#xA;&#xD;&#xA;            Next&#xD;&#xA;&#xD;&#xA;        End If&#xD;&#xA;&#xD;&#xA;        'Datenzeilen lesen&#xD;&#xA;        While Not parser.EndOfData&#xD;&#xA;&#xD;&#xA;            Dim fields As String() = parser.ReadFields()&#xD;&#xA;&#xD;&#xA;            'Falls eine Zeile weniger Werte hat als Spalten&#xD;&#xA;            While fields.Length &lt; dt.Columns.Count&#xD;&#xA;                Array.Resize(fields, fields.Length + 1)&#xD;&#xA;                fields(fields.Length - 1) = &quot;&quot;&#xD;&#xA;            End While&#xD;&#xA;&#xD;&#xA;            'Falls eine Zeile mehr Werte hat als Spalten&#xD;&#xA;            If fields.Length &gt; dt.Columns.Count Then&#xD;&#xA;                ReDim Preserve fields(dt.Columns.Count - 1)&#xD;&#xA;            End If&#xD;&#xA;&#xD;&#xA;            dt.Rows.Add(fields)&#xD;&#xA;&#xD;&#xA;        End While&#xD;&#xA;&#xD;&#xA;    End Using&#xD;&#xA;&#xD;&#xA;    'Wenn Datei weniger als 2 Spalten hat, überspringen&#xD;&#xA;    If dt.Columns.Count &lt; 2 Then&#xD;&#xA;        Continue For&#xD;&#xA;    End If&#xD;&#xA;&#xD;&#xA;    'Alle Spalten ab Spalte B sind Messpunkte&#xD;&#xA;    For colIndex As Integer = 1 To dt.Columns.Count - 1&#xD;&#xA;&#xD;&#xA;        Dim newColName As String = dt.Columns(colIndex).ColumnName&#xD;&#xA;&#xD;&#xA;        'Falls Messpunkt-Spalte schon existiert, eindeutig machen&#xD;&#xA;        If result.Columns.Contains(newColName) Then&#xD;&#xA;            newColName = newColName &amp; &quot;_&quot; &amp; result.Columns.Count.ToString&#xD;&#xA;        End If&#xD;&#xA;&#xD;&#xA;        'Messpunkt-Spalte in finaler Tabelle anlegen&#xD;&#xA;        result.Columns.Add(newColName, GetType(String))&#xD;&#xA;&#xD;&#xA;        'Werte anhand Spalte A richtig einsortieren&#xD;&#xA;        For Each row As System.Data.DataRow In dt.Rows&#xD;&#xA;&#xD;&#xA;            'Spalte A ist der Schlüssel, z. B. &quot;30.04.2026 14:00:00&quot;&#xD;&#xA;            Dim key As String = row(0).ToString.Trim&#xD;&#xA;&#xD;&#xA;            If key &lt;&gt; &quot;&quot; Then&#xD;&#xA;&#xD;&#xA;                'Wenn dieser Spalte-A-Wert noch nicht existiert:&#xD;&#xA;                'neue Zeile in finaler Tabelle anlegen&#xD;&#xA;                If Not rowMap.ContainsKey(key) Then&#xD;&#xA;&#xD;&#xA;                    Dim newRow As System.Data.DataRow = result.NewRow()&#xD;&#xA;                    newRow(0) = key&#xD;&#xA;&#xD;&#xA;                    result.Rows.Add(newRow)&#xD;&#xA;                    rowMap.Add(key, newRow)&#xD;&#xA;&#xD;&#xA;                End If&#xD;&#xA;&#xD;&#xA;                'Wert in richtige Zeile und richtige Messpunkt-Spalte schreiben&#xD;&#xA;                rowMap(key)(newColName) = row(colIndex).ToString&#xD;&#xA;&#xD;&#xA;            End If&#xD;&#xA;&#xD;&#xA;        Next&#xD;&#xA;&#xD;&#xA;    Next&#xD;&#xA;&#xD;&#xA;Next&#xD;&#xA;&#xD;&#xA;'Fertige Tabelle an UiPath zurückgeben&#xD;&#xA;out_dtGesamt = result&#xD;&#xA;&#xD;&#xA;'Paket-Dateien löschen, z. B.:&#xD;&#xA;'&quot;01 Grundwasserstand_01.csv&quot;, &quot;01 Grundwasserstand_02.csv&quot;, ...&#xD;&#xA;For Each filePath As String In csvFiles&#xD;&#xA;    If System.IO.File.Exists(filePath) Then&#xD;&#xA;        System.IO.File.Delete(filePath)&#xD;&#xA;    End If&#xD;&#xA;Next" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="522,197" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+          <ui:InvokeCode ContinueOnError="{x:Null}" Code="'Basisname ohne Dateiendung, z. B. &quot;01 Grundwasserstand&quot;&#xA;Dim basisName As String = System.IO.Path.GetFileNameWithoutExtension(in_str_fileNameGrundwasserstand)&#xA;&#xA;'Alle Paket-Dateien suchen:&#xA;'z. B. &quot;01 Grundwasserstand_01.csv&quot;, &quot;01 Grundwasserstand_02.csv&quot;, ...&#xA;Dim csvFiles As String() = System.IO.Directory.GetFiles(in_str_exportFilePath, basisName &amp; &quot;_*.csv&quot;).&#xA;    OrderBy(Function(x) x).&#xA;    ToArray()&#xA;&#xA;If csvFiles.Length = 0 Then&#xA;    Throw New Exception(&quot;Keine CSV-Dateien zum Zusammenführen gefunden. Suchmuster: &quot; &amp; basisName &amp; &quot;_*.csv&quot;)&#xA;End If&#xA;&#xA;'Finale Tabelle erstellen&#xA;Dim result As New System.Data.DataTable()&#xA;&#xA;'Spalte A der finalen CSV&#xA;result.Columns.Add(&quot;Datum Zeit&quot;, GetType(String))&#xA;&#xA;'Merkt sich:&#xA;'Wert aus Spalte A -&gt; passende Zeile in der finalen Tabelle&#xA;Dim rowMap As New Dictionary(Of String, System.Data.DataRow)&#xA;&#xA;'Alle Paket-CSV-Dateien verarbeiten&#xA;For Each filePath As String In csvFiles&#xA;&#xA;    'Temporäre Tabelle für aktuelle CSV&#xA;    Dim dt As New System.Data.DataTable()&#xA;&#xA;    'Aktuelle CSV einlesen&#xA;    Using parser As New Microsoft.VisualBasic.FileIO.TextFieldParser(filePath, System.Text.Encoding.UTF8)&#xA;&#xA;        parser.TextFieldType = Microsoft.VisualBasic.FileIO.FieldType.Delimited&#xA;        parser.SetDelimiters(&quot;;&quot;)&#xA;&#xA;        'Erste Zeile = Spaltenüberschriften&#xA;        If Not parser.EndOfData Then&#xA;&#xA;            Dim headers As String() = parser.ReadFields()&#xA;&#xA;            For Each header As String In headers&#xA;&#xA;                Dim colName As String = header.Trim&#xA;&#xA;                If colName = &quot;&quot; Then&#xA;                    colName = &quot;Spalte_&quot; &amp; dt.Columns.Count.ToString&#xA;                End If&#xA;&#xA;                If dt.Columns.Contains(colName) Then&#xA;                    colName = colName &amp; &quot;_&quot; &amp; dt.Columns.Count.ToString&#xA;                End If&#xA;&#xA;                dt.Columns.Add(colName, GetType(String))&#xA;&#xA;            Next&#xA;&#xA;        End If&#xA;&#xA;        'Datenzeilen lesen&#xA;        While Not parser.EndOfData&#xA;&#xA;            Dim fields As String() = parser.ReadFields()&#xA;&#xA;            'Falls eine Zeile weniger Werte hat als Spalten&#xA;            While fields.Length &lt; dt.Columns.Count&#xA;                Array.Resize(fields, fields.Length + 1)&#xA;                fields(fields.Length - 1) = &quot;&quot;&#xA;            End While&#xA;&#xA;            'Falls eine Zeile mehr Werte hat als Spalten&#xA;            If fields.Length &gt; dt.Columns.Count Then&#xA;                ReDim Preserve fields(dt.Columns.Count - 1)&#xA;            End If&#xA;&#xA;            dt.Rows.Add(fields)&#xA;&#xA;        End While&#xA;&#xA;    End Using&#xA;&#xA;    'Wenn Datei weniger als 2 Spalten hat, überspringen&#xA;    If dt.Columns.Count &lt; 2 Then&#xA;        Continue For&#xA;    End If&#xA;&#xA;    'Alle Spalten ab Spalte B sind Messpunkte&#xA;    For colIndex As Integer = 1 To dt.Columns.Count - 1&#xA;&#xA;        Dim newColName As String = dt.Columns(colIndex).ColumnName&#xA;&#xA;        'Falls Messpunkt-Spalte schon existiert, eindeutig machen&#xA;        If result.Columns.Contains(newColName) Then&#xA;            newColName = newColName &amp; &quot;_&quot; &amp; result.Columns.Count.ToString&#xA;        End If&#xA;&#xA;        'Messpunkt-Spalte in finaler Tabelle anlegen&#xA;        result.Columns.Add(newColName, GetType(String))&#xA;&#xA;        'Werte anhand Spalte A richtig einsortieren&#xA;        For Each row As System.Data.DataRow In dt.Rows&#xA;&#xA;            'Spalte A ist der Schlüssel, z. B. &quot;30.04.2026 14:00:00&quot;&#xA;            Dim key As String = row(0).ToString.Trim&#xA;&#xA;            If key &lt;&gt; &quot;&quot; Then&#xA;&#xA;                'Wenn dieser Spalte-A-Wert noch nicht existiert:&#xA;                'neue Zeile in finaler Tabelle anlegen&#xA;                If Not rowMap.ContainsKey(key) Then&#xA;&#xA;                    Dim newRow As System.Data.DataRow = result.NewRow()&#xA;                    newRow(0) = key&#xA;&#xA;                    result.Rows.Add(newRow)&#xA;                    rowMap.Add(key, newRow)&#xA;&#xA;                End If&#xA;&#xA;                'Wert in richtige Zeile und richtige Messpunkt-Spalte schreiben&#xA;                rowMap(key)(newColName) = row(colIndex).ToString&#xA;&#xA;            End If&#xA;&#xA;        Next&#xA;&#xA;    Next&#xA;&#xA;Next&#xA;&#xA;'Fertige Tabelle an UiPath zurückgeben&#xA;out_dtGesamt = result&#xA;&#xA;'Paket-Dateien löschen, z. B.:&#xA;'&quot;01 Grundwasserstand_01.csv&quot;, &quot;01 Grundwasserstand_02.csv&quot;, ...&#xA;For Each filePath As String In csvFiles&#xA;    If System.IO.File.Exists(filePath) Then&#xA;        System.IO.File.Delete(filePath)&#xA;    End If&#xA;Next" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="522,197" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
             <ui:InvokeCode.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_str_fileNameGrundwasserstand">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_str_fileNameGrundwasserstand" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_str_exportFilePath">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="str_exportFilePath" />
-              </InArgument>
-              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtGesamt">
-                <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dtGesamt" />
-              </OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_str_fileNameGrundwasserstand">[in_str_fileNameGrundwasserstand]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_str_exportFilePath">[str_exportFilePath]</InArgument>
+              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtGesamt">[dtGesamt]</OutArgument>
             </ui:InvokeCode.Arguments>
           </ui:InvokeCode>
           <ui:AppendWriteCsvFile PathResource="{x:Null}" AddHeaders="True" CsvAction="Write" DataTable="[dtGesamt]" Delimitator="Semicolon" DelimitatorForViewModel="Semicolon" DisplayName="Write CSV" FilePath="[System.IO.Path.Combine(str_exportFilePath, in_str_fileNameGrundwasserstand)]" sap:VirtualizedContainerService.HintSize="522,228" sap2010:WorkflowViewState.IdRef="AppendWriteCsvFile_1" ShouldQuote="True" />
