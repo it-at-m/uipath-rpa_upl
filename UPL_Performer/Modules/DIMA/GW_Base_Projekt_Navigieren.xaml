@@ -1,4 +1,14 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="GW_Base_Uplan_Import" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="GW_Base_Uplan_Import_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="GW_Base_Uplan_Import" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_str_isRemoteApp" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:GW_Base_Uplan_Import.in_str_isRemoteApp>
+    <InArgument x:TypeArguments="x:String" />
+  </this:GW_Base_Uplan_Import.in_str_isRemoteApp>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>GW_Base_Uplan_Import_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -116,23 +126,23 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GW_Base_Uplan_Import" sap:VirtualizedContainerService.HintSize="777.2,2880.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GW_Base_Uplan_Import" sap:VirtualizedContainerService.HintSize="791.6,3348.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="593.6,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Starte: GW-Base Navigation&quot;]" />
-    <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="593.6,2517.6" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="1">
+    <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="593.6,2985.6" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="1">
       <ui:RetryScope.ActivityBody>
         <ActivityAction>
-          <Sequence DisplayName="Aktion" sap:VirtualizedContainerService.HintSize="552,2300.8" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <Sequence DisplayName="Aktion" sap:VirtualizedContainerService.HintSize="552,2352.8" sap2010:WorkflowViewState.IdRef="Sequence_10">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[UiPath.UIAutomationNext.Enums.NAppCloseMode.Never]" DisplayName="Use App: 1. GW-Base Projekt auswählen" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="518.4,2240.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" OpenMode="[UiPath.UIAutomationNext.Enums.NAppOpenMode.IfNotOpen]" ScopeGuid="c1475844-d082-4f99-ab61-07290d80b19b" Version="V2">
+            <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[UiPath.UIAutomationNext.Enums.NAppCloseMode.Never]" DisplayName="Use App: 1. GW-Base Projekt auswählen" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="518.4,2292.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" OpenMode="[UiPath.UIAutomationNext.Enums.NAppOpenMode.IfNotOpen]" ScopeGuid="c1475844-d082-4f99-ab61-07290d80b19b" Version="V2">
               <uix:NApplicationCard.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
@@ -143,11 +153,7 @@
                       <Variable x:TypeArguments="x:String" Name="str_menu" />
                       <Variable x:TypeArguments="s:String[]" Name="str_lines" />
                       <Variable x:TypeArguments="x:String" Name="Anwendung" />
-                      <Variable x:TypeArguments="x:Int32" Name="int_uplanIndex">
-                        <Variable.Default>
-                          <Literal x:TypeArguments="x:Int32" />
-                        </Variable.Default>
-                      </Variable>
+                      <Variable x:TypeArguments="x:Int32" Default="0" Name="int_uplanIndex" />
                     </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -243,10 +249,13 @@
                 </ActivityFunc>
               </uix:NApplicationCard.OCREngine>
               <uix:NApplicationCard.TargetApp>
-                <uix:TargetApp Area="-2923, 189, 670, 348" FilePath="C:\Program Files (x86)\GW-Base 9\gw_base90.exe" IconBase64="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" InformativeScreenshot="5f3374409aa8587df6a977b7ca47e52d.png" Selector="&lt;wnd app='gw_base90.exe' cls='TFrm_GWBaseLogin' isremoteapp='1' title='Projekt öffnen' /&gt;" Version="V2">
+                <uix:TargetApp Area="578, 335, 837, 435" FilePath="C:\Program Files (x86)\GW-Base 9\gw_base90.exe" IconBase64="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" InformativeScreenshot="7792a71b3ef89b5e280642daa223a4a1.png" Selector="[&quot;&lt;wnd app='gw_base90.exe' cls='TFrm_GWBaseLogin'&quot;+in_str_isRemoteApp+&quot; title='Projekt öffnen' /&gt;&quot;]" Version="V2">
                   <uix:TargetApp.Arguments>
                     <InArgument x:TypeArguments="x:String" />
                   </uix:TargetApp.Arguments>
+                  <uix:TargetApp.Url>
+                    <InArgument x:TypeArguments="x:String" />
+                  </uix:TargetApp.Url>
                   <uix:TargetApp.WorkingDirectory>
                     <InArgument x:TypeArguments="x:String" />
                   </uix:TargetApp.WorkingDirectory>
@@ -264,7 +273,7 @@
       </ui:RetryScope.ActivityBody>
       <ui:RetryScope.Condition>
         <ActivityFunc x:TypeArguments="x:Boolean">
-          <uix:NCheckState DisplayName="Check App State 'TAdvTreeView'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="552,24.8" sap2010:WorkflowViewState.IdRef="NCheckState_1" Version="V5">
+          <uix:NCheckState DisplayName="Check App State 'TAdvTreeView'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="552,440.8" sap2010:WorkflowViewState.IdRef="NCheckState_1" Version="V5">
             <uix:NCheckState.IfExists>
               <Sequence DisplayName="Ziel wird angezeigt" sap:VirtualizedContainerService.HintSize="449.6,89.6" sap2010:WorkflowViewState.IdRef="Sequence_11">
                 <sap:WorkflowViewStateService.ViewState>
@@ -284,11 +293,11 @@
               </Sequence>
             </uix:NCheckState.IfNotExists>
             <uix:NCheckState.Target>
-              <uix:TargetAnchorable DesignTimeRectangle="10, 111, 536, 476" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd cls='TTabSheet' title='Teilprojekte' /&gt;&lt;wnd cls='TAdvTreeView' /&gt;" Guid="f2ff192b-0a32-4ac7-b9c7-11e2c9c71b91" InformativeScreenshot="91235a8b5b492aed1813ea765a54cc87.png" ScopeSelectorArgument="&lt;wnd app='gw_base90.exe' cls='TFrm_SelectionCriteria' isremoteapp='1' title='Auswahlkriterien für Messstellen festlegen' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+              <uix:TargetAnchorable DesignTimeRectangle="10, 111, 536, 476" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd cls='TTabSheet' title='Teilprojekte' /&gt;&lt;wnd cls='TAdvTreeView' /&gt;" Guid="f2ff192b-0a32-4ac7-b9c7-11e2c9c71b91" InformativeScreenshot="91235a8b5b492aed1813ea765a54cc87.png" ScopeSelectorArgument="[&quot;&lt;wnd app='gw_base90.exe' cls='TFrm_SelectionCriteria' &quot;+in_str_isRemoteApp +&quot; title='Auswahlkriterien für Messstellen festlegen' /&gt;&quot;]" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
             </uix:NCheckState.Target>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
